@@ -1,0 +1,48 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package business;
+
+import dao.FuncionarioDao;
+import java.util.ArrayList;
+import model.Funcionario;
+
+/**
+ *
+ * @author Elvis
+ */
+public class FuncionarioBusiness {
+
+    FuncionarioDao dao;
+
+    public FuncionarioBusiness() {
+        dao = new FuncionarioDao();
+    }
+
+    public void cadastrar(Funcionario f) {
+        dao.cadastrar(f);
+    }
+
+    public void editar(Funcionario f) {
+        dao.editar(f);
+    }
+
+    public void excluir(Funcionario f) {
+        dao.excluir(f);
+    }
+    
+    public Funcionario getById(int id) {
+        return dao.getById(id);
+    }
+    
+    public ArrayList<Funcionario> getAll() {
+        return dao.getAll();
+    }
+    
+    public Funcionario login(String senha,String login){
+        return dao.login(senha,login);
+    }
+
+}
