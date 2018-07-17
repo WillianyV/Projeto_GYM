@@ -5,6 +5,7 @@
  */
 package fachada;
 
+import business.AcademiaBusiness;
 import business.AlunoBusiness;
 import business.AnamneseBusiness;
 import business.AvaliacaoBusiness;
@@ -23,6 +24,8 @@ import business.PagamentoBusiness;
 import business.PerimetriaBusiness;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+import model.Academia;
 import model.Aluno;
 import model.Anamnese;
 import model.Avaliacao;
@@ -63,6 +66,7 @@ public class Fachada {
     private static Metas_ideaisBusiness metas_ideaisBusiness;
     private static PagamentoBusiness pagamentoBusiness;
     private static PerimetriaBusiness perimetriaBusiness;
+    private static AcademiaBusiness academiaBusiness;
     
     private static Fachada fachada;
     
@@ -89,6 +93,7 @@ public class Fachada {
         metas_ideaisBusiness = new Metas_ideaisBusiness();
         pagamentoBusiness = new PagamentoBusiness();
         perimetriaBusiness = new PerimetriaBusiness();
+        academiaBusiness = new AcademiaBusiness();
     }
     
     public Aluno cadastrarAluno(Aluno a){
@@ -181,8 +186,16 @@ public class Fachada {
         return contaBusiness.getById(id);
     }
     
+    public Conta getByNomeConta(String nome){
+        return contaBusiness.getByNome(nome);
+    }
+    
     public Conta getByDataConta(Calendar c){
         return contaBusiness.getByData(c);
+    }
+    
+    public ArrayList<String> getAllNomeContas(){      
+        return contaBusiness.getAllNomeContas();
     }
     
     public void cadastrarControleFinanceiro(ControleFinanceiro c){
@@ -330,6 +343,10 @@ public class Fachada {
         return instrutorBusiness.getAll();
     }
     
+    public Instrutor getByFuncionario_IdInstrutor(int id){
+        return instrutorBusiness.getByIdFunc(id);
+    }
+    
     public void cadastrarMetas_ideais(Metas_ideais m){
         metas_ideaisBusiness.cadastrar(m);
     }
@@ -382,7 +399,29 @@ public class Fachada {
     public Perimetria getByIdPerimetria(int id){
         return perimetriaBusiness.getById(id);
     }
+
+    public static Funcionario getFuncionarioLogado() {
+        return funcionarioLogado;
+    }
+
+    public static void setFuncionarioLogado(Funcionario funcionarioLogado) {
+        Fachada.funcionarioLogado = funcionarioLogado;
+    }
     
+    public Academia cadastrarAcademia(Academia a){
+        return academiaBusiness.cadastrar(a);
+    }
     
+    public Academia editarAcademia(Academia a){
+        return academiaBusiness.editar(a);
+    }
+    
+    public Academia getByIdAcademia(int id){
+        return academiaBusiness.getById(id);
+    }
+
+    public List<Aluno> getAlunosPosBusca(String busca) {
+       return alunoBusiness.getPorBusca(busca);
+    }
     
 }

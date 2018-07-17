@@ -73,7 +73,7 @@ public class FuncionarioDao {
             
             
         } catch (Exception ex) {
-            Mensagem.exibirMensagem("Erro ao cadastrar Funcionario!");
+            Mensagem.exibirMensagem("Erro ao cadastrar Funcionario!"+ex.getMessage());
         }
     }
     public void editar(Funcionario f){}

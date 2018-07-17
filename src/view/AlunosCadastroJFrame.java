@@ -846,7 +846,7 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanelFichaMouseEntered
 
     private void jButtonSalvar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvar1ActionPerformed
-        new AlunosLancarFaturaJFrame().show();
+        new AlunosLancarFaturaJFrame(a).show();
     }//GEN-LAST:event_jButtonSalvar1ActionPerformed
 
     private void jPanelAvalicaoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAvalicaoMousePressed

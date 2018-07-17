@@ -40,5 +40,5 @@ public class PagamentoBusiness {
         return dao.getAll();
     }
     
-    
+       
 }

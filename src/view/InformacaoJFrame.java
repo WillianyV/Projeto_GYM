@@ -64,7 +64,7 @@ public class InformacaoJFrame extends javax.swing.JFrame {
         jLabeSair.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabeSair.setForeground(new java.awt.Color(255, 255, 255));
         jLabeSair.setText("  X");
-        jLabeSair.setToolTipText("Sair");
+        jLabeSair.setToolTipText("Fechar");
         jLabeSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jLabeSairMousePressed(evt);
@@ -175,10 +175,12 @@ public class InformacaoJFrame extends javax.swing.JFrame {
 
         jLabelVerSis.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelVerSis.setForeground(new java.awt.Color(45, 118, 232));
+        jLabelVerSis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8_Software_Installer_30px.png"))); // NOI18N
         jLabelVerSis.setText("Versão do seu sistema:");
 
         jLabelVerAtual.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelVerAtual.setForeground(new java.awt.Color(45, 118, 232));
+        jLabelVerAtual.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8_Software_Installer_30px.png"))); // NOI18N
         jLabelVerAtual.setText("Versão atual do sistema:");
 
         jTextFieldVersaoAtual.setEditable(false);
@@ -216,16 +218,16 @@ public class InformacaoJFrame extends javax.swing.JFrame {
                         .addComponent(jLabeGym2))
                     .addGroup(jPaneVersãoLayout.createSequentialGroup()
                         .addGap(50, 50, 50)
+                        .addGroup(jPaneVersãoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabelVerAtual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelVerSis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
                         .addGroup(jPaneVersãoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPaneVersãoLayout.createSequentialGroup()
-                                .addComponent(jLabelVerAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addGap(1, 1, 1)
                                 .addComponent(jTextFieldVersaoAtual, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPaneVersãoLayout.createSequentialGroup()
-                                .addComponent(jLabelVerSis, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextFieldVersaoSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jTextFieldVersaoSistema, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(155, Short.MAX_VALUE))
         );
         jPaneVersãoLayout.setVerticalGroup(
             jPaneVersãoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,7 +308,7 @@ public class InformacaoJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldVersaoSistemaActionPerformed
 
     private void jLabeSairMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabeSairMousePressed
-        System.exit(0);
+         dispose();
     }//GEN-LAST:event_jLabeSairMousePressed
 
 

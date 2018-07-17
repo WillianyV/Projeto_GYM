@@ -79,32 +79,32 @@
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace pref="14" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jComboBox1" alignment="0" pref="137" max="32767" attributes="0"/>
+                              <Component id="jComboBoxFormaPag" alignment="0" pref="137" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                   <Component id="jLabelDescricao" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldUsuario" alignment="0" min="-2" pref="319" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldDescricao" alignment="0" min="-2" pref="319" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="jLabelData" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jFormattedTextFieldDN" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jFormattedTextFieldData" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jButtonLancar" pref="107" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jFormattedTextField1" min="-2" pref="110" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabelData1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButtonFechar" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <Component id="jButtonFechar" alignment="0" pref="110" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldValor" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <EmptySpace pref="46" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jComboBoxServico" min="-2" pref="194" max="-2" attributes="0"/>
+                          <Component id="jComboBoxHistorico" min="-2" pref="194" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -125,7 +125,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldUsuario" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="jTextFieldDescricao" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="jTextFieldId" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -135,11 +135,8 @@
                               <Component id="jLabelTipo" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                               <Component id="jLabelData1" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jComboBoxServico" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextField1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Component id="jComboBoxHistorico" min="-2" pref="29" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace max="32767" attributes="0"/>
@@ -152,7 +149,7 @@
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" pref="28" max="32767" attributes="0"/>
+                                  <Component id="jComboBoxFormaPag" pref="29" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
@@ -160,7 +157,10 @@
                       <Group type="102" attributes="0">
                           <Component id="jLabelData" min="-2" pref="24" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextFieldDN" min="-2" pref="29" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jFormattedTextFieldData" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="jTextFieldValor" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -220,9 +220,9 @@
             <Property name="text" type="java.lang.String" value="Historico"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldUsuario">
+        <Component class="javax.swing.JTextField" name="jTextFieldDescricao">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldUsuarioActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldDescricaoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelDescricao">
@@ -273,7 +273,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldIdActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBoxServico">
+        <Component class="javax.swing.JComboBox" name="jComboBoxHistorico">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="1"/>
@@ -283,7 +283,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxServicoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxHistoricoActionPerformed"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -329,7 +329,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonFecharActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldDN">
+        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldData">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
               <Format format="##/##/####" subtype="-1" type="5"/>
@@ -339,18 +339,8 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextFieldDNActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextFieldDataActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
-          <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-              <Format subtype="0" type="4"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="1"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelDados">
           <Properties>
@@ -363,7 +353,7 @@
             <Property name="text" type="java.lang.String" value="Lan&#xe7;amento de conta"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jComboBox1">
+        <Component class="javax.swing.JComboBox" name="jComboBoxFormaPag">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="1"/>
@@ -391,6 +381,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Forma de Pagamento"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldValor">
         </Component>
       </SubComponents>
     </Container>

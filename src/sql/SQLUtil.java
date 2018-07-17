@@ -49,11 +49,15 @@ public class SQLUtil {
             + "?,?,?,?,?,?,?,?)";
     public static String INSERIR_AVALIACAO = "insert into avaliacao (objetivo,proxima_avaliacao,data,anamnese_id,composicao_corporal_id,metas_ideais_id"
              + ",perimetria_id,dobras_cutaneas_id,aluno_id,instrutor_id) values (?,?,?,?,?,?,?,?,?,?)";
-    public static String INSERIR_PAGAMENTO = "insert into pagamento (valor,descricao,aluno_id,funcionario_id) values (?,?,?,?)";
-    public static String INSERIR_CONTAS = "insert into contas (nome,tipo) values (?,?)";
-    public static String INSERIR_CONTROLE_FINANCEIRO = "insert into controle_financeiro (data,descricao,valor,contas_id) values (?,?,?,?)";
+    public static String INSERIR_PAGAMENTO = "insert into pagamento (valor,descricao,data,dataVenc,formaPag,aluno_id,funcionario_id) values (?,?,?,?,?,?,?)";
+    public static String INSERIR_CONTAS = "insert into historico (nome,tipo) values (?,?)";
+    public static String INSERIR_CONTROLE_FINANCEIRO = "insert into controle_financeiro (data,descricao,valor,historico_id) values (?,?,?,?)";
+    public static String INSERIR_ACADEMIA = "insert into cadastro_academia (nome,nome_fantasia,nome_proprietario,cnpj,cpf,"
+            + "logo,email,telefone,celular,endereco_id) values (?,?,?,?,?,?,?,?,?,?)";
     
     public static String SELECT_INSTRUTOR_BY_ID_FUNCIONARIO = "select * from instrutor where funcionario_id=?";
+    public static String SELECT_CONTA_BY_NOME = "select * from historico where nome=?";
+    public static String SELECT_CONTA_ALL_NOMES = "select nome from historico";
     
     public static String URL_POSTGRES = "jdbc:postgresql://localhost:5432/gym";
     public static String USUARIO_POSTGRES = "postgres";

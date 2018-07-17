@@ -71,19 +71,19 @@
               <Component id="jPanelBlue" alignment="0" max="32767" attributes="0"/>
               <Component id="jTabbedPaneAvaliacao" alignment="1" max="32767" attributes="0"/>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                   <Component id="datajLabe" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="datejFormattedTextField" min="-2" pref="80" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="datajLabe1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="dateAvjFormattedTextField" min="-2" pref="80" max="-2" attributes="0"/>
+                  <Component id="dateProxAvjFormattedTextField" min="-2" pref="80" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jButtonSalvar" min="-2" pref="90" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jButtonCancelar" min="-2" pref="90" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -100,7 +100,7 @@
                       <Component id="datajLabe" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="datejFormattedTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="datajLabe1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="dateAvjFormattedTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="dateProxAvjFormattedTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -224,9 +224,9 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jRadioButtonSim19" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRadioButtonSimProbPulm" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jRadioButtonSim18" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRadioButtonNaoProbPulm" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                           <Component id="jLabelobs9" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -240,7 +240,7 @@
                                           <Component id="jRadioButtonIniciante" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                           <Component id="jRadioButtonIntermediario" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                           <Component id="jRadioButtonAvancado" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="jLabeNivel" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -250,9 +250,9 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jRadioButtonSim15" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRadioButtonSimDiab" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jRadioButtonSim14" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRadioButtonNaoDiab" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                           <Component id="jLabelobs7" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -263,9 +263,9 @@
                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jRadioButtonSim13" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRadioButtonSimAtvFis" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jRadioButtonSim12" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRadioButtonNaoAtvFis" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                           <Component id="jLabelobs6" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -280,9 +280,9 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jRadioButtonSim11" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jRadioButtonSimHipert" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="jRadioButtonSim10" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jRadioButtonNaoHipert" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                                   <Component id="jLabelobs5" min="-2" max="-2" attributes="0"/>
                                               </Group>
@@ -293,9 +293,9 @@
                                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jRadioButtonSim9" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jRadioButtonSimOutros" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="jRadioButtonSim8" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jRadioButtonNaoOutros" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                                   <Component id="jLabelobs4" min="-2" max="-2" attributes="0"/>
                                               </Group>
@@ -311,9 +311,9 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jRadioButtonSim7" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jRadioButtonSimCard" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="jRadioButtonSim6" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jRadioButtonNaoCard" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                                       <Component id="jLabelobs3" min="-2" max="-2" attributes="0"/>
                                                   </Group>
@@ -324,9 +324,9 @@
                                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jRadioButtonSim5" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jRadioButtonSimMed" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="jRadioButtonSim4" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jRadioButtonNaoMed" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                                       <Component id="jLabelobs2" min="-2" max="-2" attributes="0"/>
                                                   </Group>
@@ -341,9 +341,9 @@
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jRadioButtonSim" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jRadioButtonSimTab" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="jRadioButtonSim1" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jRadioButtonNaoTab" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                                       <Component id="jLabelobs" min="-2" max="-2" attributes="0"/>
                                                   </Group>
@@ -354,9 +354,9 @@
                                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jRadioButtonSim3" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jRadioButtonSimRestArt" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="jRadioButtonSim2" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jRadioButtonNaoRestArt" min="-2" max="-2" attributes="0"/>
                                                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                                       <Component id="jLabelobs1" min="-2" max="-2" attributes="0"/>
                                                   </Group>
@@ -368,7 +368,6 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <Component id="jSeparator6" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace pref="78" max="32767" attributes="0"/>
                       </Group>
@@ -385,8 +384,8 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabelobs1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonSim3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonSim2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonSimRestArt" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonNaoRestArt" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jScrollPaneTabagismo" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
@@ -395,8 +394,8 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabelobs" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonSim" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonSim1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonSimTab" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonNaoTab" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -410,8 +409,8 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabelobs2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonSim5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonSim4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonSimMed" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonNaoMed" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jScrollPane4" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
@@ -420,8 +419,8 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabelobs3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonSim7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonSim6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonSimCard" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonNaoCard" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -435,8 +434,8 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabelobs4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonSim9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonSim8" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonSimOutros" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonNaoOutros" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jScrollPane6" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
@@ -445,8 +444,8 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabelobs5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonSim11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonSim10" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonSimHipert" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonNaoHipert" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -460,8 +459,8 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabelobs6" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonSim13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonSim12" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonSimAtvFis" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonNaoAtvFis" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jScrollPane8" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
@@ -470,8 +469,8 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabelobs7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonSim15" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonSim14" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonSimDiab" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonNaoDiab" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -494,13 +493,12 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabelobs9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonSim19" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonSim18" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonSimProbPulm" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonNaoProbPulm" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                          <Component id="jSeparator6" min="-2" pref="16" max="-2" attributes="0"/>
+                          <EmptySpace pref="26" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -525,7 +523,7 @@
                     <Property name="text" type="java.lang.String" value="obs.:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonSim">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonSimTab">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -539,10 +537,10 @@
                     <Property name="text" type="java.lang.String" value="Sim"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSimActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSimTabActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonSim1">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonNaoTab">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -557,7 +555,7 @@
                     <Property name="text" type="java.lang.String" value="N&#xe3;o"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSim1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonNaoTabActionPerformed"/>
                   </Events>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPaneTabagismo">
@@ -567,7 +565,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextArea1">
+                    <Component class="javax.swing.JTextArea" name="jTextAreaTab">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="columns" type="int" value="20"/>
@@ -583,7 +581,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextAreaRestri&#xe7;&#xe3;oArticular">
+                    <Component class="javax.swing.JTextArea" name="jTextAreaRestricaoArticular">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="columns" type="int" value="20"/>
@@ -600,24 +598,31 @@
                     <Property name="text" type="java.lang.String" value="obs.:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonSim2">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonNaoRestArt">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroupRestricaoArticular"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
                     </Property>
+                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="N&#xe3;o"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSim2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonNaoRestArtActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonSim3">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonSimRestArt">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroupRestricaoArticular"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
@@ -625,7 +630,7 @@
                     <Property name="text" type="java.lang.String" value="Sim"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSim3ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSimRestArtActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabeRestricaoArticular">
@@ -650,7 +655,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextArea3">
+                    <Component class="javax.swing.JTextArea" name="jTextAreaMed">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="columns" type="int" value="20"/>
@@ -667,24 +672,31 @@
                     <Property name="text" type="java.lang.String" value="obs.:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonSim4">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonNaoMed">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroupMedicamentos"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
                     </Property>
+                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="N&#xe3;o"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSim4ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonNaoMedActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonSim5">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonSimMed">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroupMedicamentos"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
@@ -692,7 +704,7 @@
                     <Property name="text" type="java.lang.String" value="Sim"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSim5ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSimMedActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabeMedicamentos">
@@ -730,24 +742,31 @@
                     <Property name="text" type="java.lang.String" value="obs.:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonSim6">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonNaoCard">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroupCardiopatias"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
                     </Property>
+                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="N&#xe3;o"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSim6ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonNaoCardActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonSim7">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonSimCard">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroupCardiopatias"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
@@ -755,7 +774,7 @@
                     <Property name="text" type="java.lang.String" value="Sim"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSim7ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSimCardActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabeCardiopatias">
@@ -778,7 +797,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextArea5">
+                    <Component class="javax.swing.JTextArea" name="jTextAreaOutros">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="columns" type="int" value="20"/>
@@ -795,24 +814,31 @@
                     <Property name="text" type="java.lang.String" value="obs.:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonSim8">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonNaoOutros">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroupOutros"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
                     </Property>
+                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="N&#xe3;o"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSim8ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonNaoOutrosActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonSim9">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonSimOutros">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroupOutros"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
@@ -820,7 +846,7 @@
                     <Property name="text" type="java.lang.String" value="Sim"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSim9ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSimOutrosActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabeOutros">
@@ -841,7 +867,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextAreaHipertens&#xe3;o">
+                    <Component class="javax.swing.JTextArea" name="jTextAreaHipertensao">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="columns" type="int" value="20"/>
@@ -858,24 +884,31 @@
                     <Property name="text" type="java.lang.String" value="obs.:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonSim10">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonNaoHipert">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroupHipertensao"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
                     </Property>
+                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="N&#xe3;o"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSim10ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonNaoHipertActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonSim11">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonSimHipert">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroupHipertensao"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
@@ -883,7 +916,7 @@
                     <Property name="text" type="java.lang.String" value="Sim"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSim11ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSimHipertActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabeHipertensao">
@@ -906,7 +939,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextArea7">
+                    <Component class="javax.swing.JTextArea" name="jTextAreaAtvFis">
                       <Properties>
                         <Property name="editable" type="boolean" value="false"/>
                         <Property name="columns" type="int" value="20"/>
@@ -923,24 +956,31 @@
                     <Property name="text" type="java.lang.String" value="obs.:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonSim12">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonNaoAtvFis">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroupAtividadeFisica"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
                     </Property>
+                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="N&#xe3;o"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSim12ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonNaoAtvFisActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonSim13">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonSimAtvFis">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroupAtividadeFisica"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
@@ -948,7 +988,7 @@
                     <Property name="text" type="java.lang.String" value="Sim"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSim13ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSimAtvFisActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabeAtividadeFisica">
@@ -986,24 +1026,31 @@
                     <Property name="text" type="java.lang.String" value="obs.:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonSim14">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonNaoDiab">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroupDiabetes"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
                     </Property>
+                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="N&#xe3;o"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSim14ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonNaoDiabActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonSim15">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonSimDiab">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroupDiabetes"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
@@ -1011,7 +1058,7 @@
                     <Property name="text" type="java.lang.String" value="Sim"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSim15ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSimDiabActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabeDiabetes">
@@ -1025,12 +1072,13 @@
                     <Property name="text" type="java.lang.String" value="Diabetes"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JSeparator" name="jSeparator6">
-                </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButtonIntermediario">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroupNivel"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
@@ -1046,9 +1094,13 @@
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroupNivel"/>
+                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
                     </Property>
+                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="Iniciante"/>
                   </Properties>
                   <Events>
@@ -1090,24 +1142,31 @@
                     <Property name="text" type="java.lang.String" value="obs.:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonSim18">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonNaoProbPulm">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroupProbPulmonares"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
                     </Property>
+                    <Property name="selected" type="boolean" value="true"/>
                     <Property name="text" type="java.lang.String" value="N&#xe3;o"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSim18ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonNaoProbPulmActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButtonSim19">
+                <Component class="javax.swing.JRadioButton" name="jRadioButtonSimProbPulm">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroupProbPulmonares"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
@@ -1115,7 +1174,7 @@
                     <Property name="text" type="java.lang.String" value="Sim"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSim19ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSimProbPulmActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabeProbPulmonares">
@@ -1133,6 +1192,9 @@
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="buttonGroupNivel"/>
                     </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
@@ -1268,7 +1330,7 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace pref="27" max="32767" attributes="0"/>
+                          <EmptySpace pref="29" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabePeso" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabeQuadril" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1334,7 +1396,7 @@
                               <Component id="jLabeAntiBracoDireito" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabePeso7" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="24" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jFormattedTextFieldAbdomem" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                               <Component id="jFormattedTextFieldAntBracoD" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
@@ -1343,7 +1405,7 @@
                               <Component id="jLabelcm8" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabelcm13" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="25" max="32767" attributes="0"/>
+                          <EmptySpace pref="27" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2632,7 +2694,6 @@
                       <Format subtype="0" type="0"/>
                     </Property>
                     <Property name="toolTipText" type="java.lang.String" value="C&#xe1;lculo autom&#xe1;tico"/>
-                    <Property name="enabled" type="boolean" value="false"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
                     </Property>
@@ -2752,7 +2813,7 @@
             <Property name="text" type="java.lang.String" value="Data da pr&#xf3;xima avalia&#xe7;&#xe3;o"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="dateAvjFormattedTextField">
+        <Component class="javax.swing.JFormattedTextField" name="dateProxAvjFormattedTextField">
           <Properties>
             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
               <Format format="##/##/####" subtype="-1" type="5"/>

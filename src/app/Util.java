@@ -21,4 +21,13 @@ public class Util {
         Date data = new Date(ano, mes, dia);
         return data;
     }
+    
+    public static Float imc(float peso, float altura){
+        return peso/(altura*altura);
+    }
+    
+    public static Float rcq(float cintura, float quadril){
+        return cintura/quadril;
+    }
+    
 }

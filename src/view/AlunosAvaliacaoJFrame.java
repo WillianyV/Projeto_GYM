@@ -5,16 +5,43 @@
  */
 package view;
 
+import app.Projeto_GYM;
+import app.Util;
+import model.Aluno;
+import model.Anamnese;
+import model.Avaliacao;
+import model.Composicao_corporal;
+import model.Dobras_Cutaneas;
+import model.Instrutor;
+import model.Metas_ideais;
+import model.Perimetria;
+
 /**
  *
  * @author Insinuante
  */
 public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
-
+    private Aluno aluno;
+    private Instrutor instrutor;
+    private Avaliacao avaliacao;
+    private Anamnese a;
+    private Perimetria p;
+    private Dobras_Cutaneas d;
+    private Composicao_corporal c;
+    private Metas_ideais m;
+    
     /**
      * Creates new form AlunosJFrame
      */
-    public AlunosAvaliacaoJFrame() {
+    public AlunosAvaliacaoJFrame(Aluno aluno, Instrutor instrutor) {
+        this.aluno=aluno;
+        this.instrutor=instrutor;
+        avaliacao = new Avaliacao();
+        a = new Anamnese();
+        p = new Perimetria();
+        d = new Dobras_Cutaneas();
+        c = new Composicao_corporal();
+        m = new Metas_ideais();
         initComponents();
     }
 
@@ -46,65 +73,64 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         jPaneAnamnese = new javax.swing.JPanel();
         tabgismojLabe = new javax.swing.JLabel();
         jLabelobs = new javax.swing.JLabel();
-        jRadioButtonSim = new javax.swing.JRadioButton();
-        jRadioButtonSim1 = new javax.swing.JRadioButton();
+        jRadioButtonSimTab = new javax.swing.JRadioButton();
+        jRadioButtonNaoTab = new javax.swing.JRadioButton();
         jScrollPaneTabagismo = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextAreaTab = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextAreaRestriçãoArticular = new javax.swing.JTextArea();
+        jTextAreaRestricaoArticular = new javax.swing.JTextArea();
         jLabelobs1 = new javax.swing.JLabel();
-        jRadioButtonSim2 = new javax.swing.JRadioButton();
-        jRadioButtonSim3 = new javax.swing.JRadioButton();
+        jRadioButtonNaoRestArt = new javax.swing.JRadioButton();
+        jRadioButtonSimRestArt = new javax.swing.JRadioButton();
         jLabeRestricaoArticular = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         jScrollPaneMedicamentos = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        jTextAreaMed = new javax.swing.JTextArea();
         jLabelobs2 = new javax.swing.JLabel();
-        jRadioButtonSim4 = new javax.swing.JRadioButton();
-        jRadioButtonSim5 = new javax.swing.JRadioButton();
+        jRadioButtonNaoMed = new javax.swing.JRadioButton();
+        jRadioButtonSimMed = new javax.swing.JRadioButton();
         jLabeMedicamentos = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextAreaCardiopatias = new javax.swing.JTextArea();
         jLabelobs3 = new javax.swing.JLabel();
-        jRadioButtonSim6 = new javax.swing.JRadioButton();
-        jRadioButtonSim7 = new javax.swing.JRadioButton();
+        jRadioButtonNaoCard = new javax.swing.JRadioButton();
+        jRadioButtonSimCard = new javax.swing.JRadioButton();
         jLabeCardiopatias = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jScrollOutros = new javax.swing.JScrollPane();
-        jTextArea5 = new javax.swing.JTextArea();
+        jTextAreaOutros = new javax.swing.JTextArea();
         jLabelobs4 = new javax.swing.JLabel();
-        jRadioButtonSim8 = new javax.swing.JRadioButton();
-        jRadioButtonSim9 = new javax.swing.JRadioButton();
+        jRadioButtonNaoOutros = new javax.swing.JRadioButton();
+        jRadioButtonSimOutros = new javax.swing.JRadioButton();
         jLabeOutros = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTextAreaHipertensão = new javax.swing.JTextArea();
+        jTextAreaHipertensao = new javax.swing.JTextArea();
         jLabelobs5 = new javax.swing.JLabel();
-        jRadioButtonSim10 = new javax.swing.JRadioButton();
-        jRadioButtonSim11 = new javax.swing.JRadioButton();
+        jRadioButtonNaoHipert = new javax.swing.JRadioButton();
+        jRadioButtonSimHipert = new javax.swing.JRadioButton();
         jLabeHipertensao = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jScrollPaneAtividadeFisica = new javax.swing.JScrollPane();
-        jTextArea7 = new javax.swing.JTextArea();
+        jTextAreaAtvFis = new javax.swing.JTextArea();
         jLabelobs6 = new javax.swing.JLabel();
-        jRadioButtonSim12 = new javax.swing.JRadioButton();
-        jRadioButtonSim13 = new javax.swing.JRadioButton();
+        jRadioButtonNaoAtvFis = new javax.swing.JRadioButton();
+        jRadioButtonSimAtvFis = new javax.swing.JRadioButton();
         jLabeAtividadeFisica = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
         jTextAreaDiabetes = new javax.swing.JTextArea();
         jLabelobs7 = new javax.swing.JLabel();
-        jRadioButtonSim14 = new javax.swing.JRadioButton();
-        jRadioButtonSim15 = new javax.swing.JRadioButton();
+        jRadioButtonNaoDiab = new javax.swing.JRadioButton();
+        jRadioButtonSimDiab = new javax.swing.JRadioButton();
         jLabeDiabetes = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
         jRadioButtonIntermediario = new javax.swing.JRadioButton();
         jRadioButtonIniciante = new javax.swing.JRadioButton();
         jLabeNivel = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
         jTextAreaProbPulmonares = new javax.swing.JTextArea();
         jLabelobs9 = new javax.swing.JLabel();
-        jRadioButtonSim18 = new javax.swing.JRadioButton();
-        jRadioButtonSim19 = new javax.swing.JRadioButton();
+        jRadioButtonNaoProbPulm = new javax.swing.JRadioButton();
+        jRadioButtonSimProbPulm = new javax.swing.JRadioButton();
         jLabeProbPulmonares = new javax.swing.JLabel();
         jRadioButtonAvancado = new javax.swing.JRadioButton();
         jPanelPerimetria = new javax.swing.JPanel();
@@ -210,7 +236,7 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         datajLabe = new javax.swing.JLabel();
         datejFormattedTextField = new javax.swing.JFormattedTextField();
         datajLabe1 = new javax.swing.JLabel();
-        dateAvjFormattedTextField = new javax.swing.JFormattedTextField();
+        dateProxAvjFormattedTextField = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastrar avaliação física");
@@ -275,55 +301,58 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         jLabelobs.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelobs.setText("obs.:");
 
-        jRadioButtonSim.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroupTababismo.add(jRadioButtonSim);
-        jRadioButtonSim.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jRadioButtonSim.setText("Sim");
-        jRadioButtonSim.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonSimTab.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupTababismo.add(jRadioButtonSimTab);
+        jRadioButtonSimTab.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jRadioButtonSimTab.setText("Sim");
+        jRadioButtonSimTab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonSimActionPerformed(evt);
+                jRadioButtonSimTabActionPerformed(evt);
             }
         });
 
-        jRadioButtonSim1.setBackground(new java.awt.Color(255, 255, 255));
-        buttonGroupTababismo.add(jRadioButtonSim1);
-        jRadioButtonSim1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jRadioButtonSim1.setSelected(true);
-        jRadioButtonSim1.setText("Não");
-        jRadioButtonSim1.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonNaoTab.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupTababismo.add(jRadioButtonNaoTab);
+        jRadioButtonNaoTab.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jRadioButtonNaoTab.setSelected(true);
+        jRadioButtonNaoTab.setText("Não");
+        jRadioButtonNaoTab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonSim1ActionPerformed(evt);
+                jRadioButtonNaoTabActionPerformed(evt);
             }
         });
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPaneTabagismo.setViewportView(jTextArea1);
+        jTextAreaTab.setEditable(false);
+        jTextAreaTab.setColumns(20);
+        jTextAreaTab.setRows(5);
+        jScrollPaneTabagismo.setViewportView(jTextAreaTab);
 
-        jTextAreaRestriçãoArticular.setEditable(false);
-        jTextAreaRestriçãoArticular.setColumns(20);
-        jTextAreaRestriçãoArticular.setRows(5);
-        jScrollPane2.setViewportView(jTextAreaRestriçãoArticular);
+        jTextAreaRestricaoArticular.setEditable(false);
+        jTextAreaRestricaoArticular.setColumns(20);
+        jTextAreaRestricaoArticular.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaRestricaoArticular);
 
         jLabelobs1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelobs1.setText("obs.:");
 
-        jRadioButtonSim2.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButtonSim2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jRadioButtonSim2.setText("Não");
-        jRadioButtonSim2.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonNaoRestArt.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupRestricaoArticular.add(jRadioButtonNaoRestArt);
+        jRadioButtonNaoRestArt.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jRadioButtonNaoRestArt.setSelected(true);
+        jRadioButtonNaoRestArt.setText("Não");
+        jRadioButtonNaoRestArt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonSim2ActionPerformed(evt);
+                jRadioButtonNaoRestArtActionPerformed(evt);
             }
         });
 
-        jRadioButtonSim3.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButtonSim3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jRadioButtonSim3.setText("Sim");
-        jRadioButtonSim3.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonSimRestArt.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupRestricaoArticular.add(jRadioButtonSimRestArt);
+        jRadioButtonSimRestArt.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jRadioButtonSimRestArt.setText("Sim");
+        jRadioButtonSimRestArt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonSim3ActionPerformed(evt);
+                jRadioButtonSimRestArtActionPerformed(evt);
             }
         });
 
@@ -331,29 +360,32 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         jLabeRestricaoArticular.setForeground(new java.awt.Color(45, 118, 232));
         jLabeRestricaoArticular.setText("Restrição Articular");
 
-        jTextArea3.setEditable(false);
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPaneMedicamentos.setViewportView(jTextArea3);
+        jTextAreaMed.setEditable(false);
+        jTextAreaMed.setColumns(20);
+        jTextAreaMed.setRows(5);
+        jScrollPaneMedicamentos.setViewportView(jTextAreaMed);
 
         jLabelobs2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelobs2.setText("obs.:");
 
-        jRadioButtonSim4.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButtonSim4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jRadioButtonSim4.setText("Não");
-        jRadioButtonSim4.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonNaoMed.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupMedicamentos.add(jRadioButtonNaoMed);
+        jRadioButtonNaoMed.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jRadioButtonNaoMed.setSelected(true);
+        jRadioButtonNaoMed.setText("Não");
+        jRadioButtonNaoMed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonSim4ActionPerformed(evt);
+                jRadioButtonNaoMedActionPerformed(evt);
             }
         });
 
-        jRadioButtonSim5.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButtonSim5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jRadioButtonSim5.setText("Sim");
-        jRadioButtonSim5.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonSimMed.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupMedicamentos.add(jRadioButtonSimMed);
+        jRadioButtonSimMed.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jRadioButtonSimMed.setText("Sim");
+        jRadioButtonSimMed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonSim5ActionPerformed(evt);
+                jRadioButtonSimMedActionPerformed(evt);
             }
         });
 
@@ -369,21 +401,24 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         jLabelobs3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelobs3.setText("obs.:");
 
-        jRadioButtonSim6.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButtonSim6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jRadioButtonSim6.setText("Não");
-        jRadioButtonSim6.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonNaoCard.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupCardiopatias.add(jRadioButtonNaoCard);
+        jRadioButtonNaoCard.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jRadioButtonNaoCard.setSelected(true);
+        jRadioButtonNaoCard.setText("Não");
+        jRadioButtonNaoCard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonSim6ActionPerformed(evt);
+                jRadioButtonNaoCardActionPerformed(evt);
             }
         });
 
-        jRadioButtonSim7.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButtonSim7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jRadioButtonSim7.setText("Sim");
-        jRadioButtonSim7.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonSimCard.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupCardiopatias.add(jRadioButtonSimCard);
+        jRadioButtonSimCard.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jRadioButtonSimCard.setText("Sim");
+        jRadioButtonSimCard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonSim7ActionPerformed(evt);
+                jRadioButtonSimCardActionPerformed(evt);
             }
         });
 
@@ -391,29 +426,32 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         jLabeCardiopatias.setForeground(new java.awt.Color(45, 118, 232));
         jLabeCardiopatias.setText("Cardiopatias");
 
-        jTextArea5.setEditable(false);
-        jTextArea5.setColumns(20);
-        jTextArea5.setRows(5);
-        jScrollOutros.setViewportView(jTextArea5);
+        jTextAreaOutros.setEditable(false);
+        jTextAreaOutros.setColumns(20);
+        jTextAreaOutros.setRows(5);
+        jScrollOutros.setViewportView(jTextAreaOutros);
 
         jLabelobs4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelobs4.setText("obs.:");
 
-        jRadioButtonSim8.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButtonSim8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jRadioButtonSim8.setText("Não");
-        jRadioButtonSim8.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonNaoOutros.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupOutros.add(jRadioButtonNaoOutros);
+        jRadioButtonNaoOutros.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jRadioButtonNaoOutros.setSelected(true);
+        jRadioButtonNaoOutros.setText("Não");
+        jRadioButtonNaoOutros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonSim8ActionPerformed(evt);
+                jRadioButtonNaoOutrosActionPerformed(evt);
             }
         });
 
-        jRadioButtonSim9.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButtonSim9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jRadioButtonSim9.setText("Sim");
-        jRadioButtonSim9.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonSimOutros.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupOutros.add(jRadioButtonSimOutros);
+        jRadioButtonSimOutros.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jRadioButtonSimOutros.setText("Sim");
+        jRadioButtonSimOutros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonSim9ActionPerformed(evt);
+                jRadioButtonSimOutrosActionPerformed(evt);
             }
         });
 
@@ -421,29 +459,32 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         jLabeOutros.setForeground(new java.awt.Color(45, 118, 232));
         jLabeOutros.setText("Outros");
 
-        jTextAreaHipertensão.setEditable(false);
-        jTextAreaHipertensão.setColumns(20);
-        jTextAreaHipertensão.setRows(5);
-        jScrollPane6.setViewportView(jTextAreaHipertensão);
+        jTextAreaHipertensao.setEditable(false);
+        jTextAreaHipertensao.setColumns(20);
+        jTextAreaHipertensao.setRows(5);
+        jScrollPane6.setViewportView(jTextAreaHipertensao);
 
         jLabelobs5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelobs5.setText("obs.:");
 
-        jRadioButtonSim10.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButtonSim10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jRadioButtonSim10.setText("Não");
-        jRadioButtonSim10.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonNaoHipert.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupHipertensao.add(jRadioButtonNaoHipert);
+        jRadioButtonNaoHipert.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jRadioButtonNaoHipert.setSelected(true);
+        jRadioButtonNaoHipert.setText("Não");
+        jRadioButtonNaoHipert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonSim10ActionPerformed(evt);
+                jRadioButtonNaoHipertActionPerformed(evt);
             }
         });
 
-        jRadioButtonSim11.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButtonSim11.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jRadioButtonSim11.setText("Sim");
-        jRadioButtonSim11.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonSimHipert.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupHipertensao.add(jRadioButtonSimHipert);
+        jRadioButtonSimHipert.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jRadioButtonSimHipert.setText("Sim");
+        jRadioButtonSimHipert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonSim11ActionPerformed(evt);
+                jRadioButtonSimHipertActionPerformed(evt);
             }
         });
 
@@ -451,29 +492,32 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         jLabeHipertensao.setForeground(new java.awt.Color(45, 118, 232));
         jLabeHipertensao.setText("Hipertensão");
 
-        jTextArea7.setEditable(false);
-        jTextArea7.setColumns(20);
-        jTextArea7.setRows(5);
-        jScrollPaneAtividadeFisica.setViewportView(jTextArea7);
+        jTextAreaAtvFis.setEditable(false);
+        jTextAreaAtvFis.setColumns(20);
+        jTextAreaAtvFis.setRows(5);
+        jScrollPaneAtividadeFisica.setViewportView(jTextAreaAtvFis);
 
         jLabelobs6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelobs6.setText("obs.:");
 
-        jRadioButtonSim12.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButtonSim12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jRadioButtonSim12.setText("Não");
-        jRadioButtonSim12.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonNaoAtvFis.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupAtividadeFisica.add(jRadioButtonNaoAtvFis);
+        jRadioButtonNaoAtvFis.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jRadioButtonNaoAtvFis.setSelected(true);
+        jRadioButtonNaoAtvFis.setText("Não");
+        jRadioButtonNaoAtvFis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonSim12ActionPerformed(evt);
+                jRadioButtonNaoAtvFisActionPerformed(evt);
             }
         });
 
-        jRadioButtonSim13.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButtonSim13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jRadioButtonSim13.setText("Sim");
-        jRadioButtonSim13.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonSimAtvFis.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupAtividadeFisica.add(jRadioButtonSimAtvFis);
+        jRadioButtonSimAtvFis.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jRadioButtonSimAtvFis.setText("Sim");
+        jRadioButtonSimAtvFis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonSim13ActionPerformed(evt);
+                jRadioButtonSimAtvFisActionPerformed(evt);
             }
         });
 
@@ -489,21 +533,24 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         jLabelobs7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelobs7.setText("obs.:");
 
-        jRadioButtonSim14.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButtonSim14.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jRadioButtonSim14.setText("Não");
-        jRadioButtonSim14.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonNaoDiab.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupDiabetes.add(jRadioButtonNaoDiab);
+        jRadioButtonNaoDiab.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jRadioButtonNaoDiab.setSelected(true);
+        jRadioButtonNaoDiab.setText("Não");
+        jRadioButtonNaoDiab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonSim14ActionPerformed(evt);
+                jRadioButtonNaoDiabActionPerformed(evt);
             }
         });
 
-        jRadioButtonSim15.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButtonSim15.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jRadioButtonSim15.setText("Sim");
-        jRadioButtonSim15.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonSimDiab.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupDiabetes.add(jRadioButtonSimDiab);
+        jRadioButtonSimDiab.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jRadioButtonSimDiab.setText("Sim");
+        jRadioButtonSimDiab.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonSim15ActionPerformed(evt);
+                jRadioButtonSimDiabActionPerformed(evt);
             }
         });
 
@@ -512,6 +559,7 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         jLabeDiabetes.setText("Diabetes");
 
         jRadioButtonIntermediario.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupNivel.add(jRadioButtonIntermediario);
         jRadioButtonIntermediario.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jRadioButtonIntermediario.setText("Intermediario");
         jRadioButtonIntermediario.addActionListener(new java.awt.event.ActionListener() {
@@ -521,7 +569,9 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         });
 
         jRadioButtonIniciante.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupNivel.add(jRadioButtonIniciante);
         jRadioButtonIniciante.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jRadioButtonIniciante.setSelected(true);
         jRadioButtonIniciante.setText("Iniciante");
         jRadioButtonIniciante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -541,21 +591,24 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         jLabelobs9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelobs9.setText("obs.:");
 
-        jRadioButtonSim18.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButtonSim18.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jRadioButtonSim18.setText("Não");
-        jRadioButtonSim18.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonNaoProbPulm.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupProbPulmonares.add(jRadioButtonNaoProbPulm);
+        jRadioButtonNaoProbPulm.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jRadioButtonNaoProbPulm.setSelected(true);
+        jRadioButtonNaoProbPulm.setText("Não");
+        jRadioButtonNaoProbPulm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonSim18ActionPerformed(evt);
+                jRadioButtonNaoProbPulmActionPerformed(evt);
             }
         });
 
-        jRadioButtonSim19.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButtonSim19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jRadioButtonSim19.setText("Sim");
-        jRadioButtonSim19.addActionListener(new java.awt.event.ActionListener() {
+        jRadioButtonSimProbPulm.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupProbPulmonares.add(jRadioButtonSimProbPulm);
+        jRadioButtonSimProbPulm.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jRadioButtonSimProbPulm.setText("Sim");
+        jRadioButtonSimProbPulm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonSim19ActionPerformed(evt);
+                jRadioButtonSimProbPulmActionPerformed(evt);
             }
         });
 
@@ -564,6 +617,7 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         jLabeProbPulmonares.setText("Prob. Pulmonares");
 
         jRadioButtonAvancado.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroupNivel.add(jRadioButtonAvancado);
         jRadioButtonAvancado.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jRadioButtonAvancado.setText("Avançado");
         jRadioButtonAvancado.addActionListener(new java.awt.event.ActionListener() {
@@ -582,9 +636,9 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
                     .addGroup(jPaneAnamneseLayout.createSequentialGroup()
                         .addGroup(jPaneAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPaneAnamneseLayout.createSequentialGroup()
-                                .addComponent(jRadioButtonSim19)
+                                .addComponent(jRadioButtonSimProbPulm)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButtonSim18)
+                                .addComponent(jRadioButtonNaoProbPulm)
                                 .addGap(20, 20, 20)
                                 .addComponent(jLabelobs9))
                             .addComponent(jLabeProbPulmonares))
@@ -596,16 +650,16 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
                                 .addComponent(jRadioButtonIniciante)
                                 .addGap(32, 32, 32)
                                 .addComponent(jRadioButtonIntermediario)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(32, 32, 32)
                                 .addComponent(jRadioButtonAvancado))
                             .addComponent(jLabeNivel)))
                     .addComponent(jSeparator5)
                     .addGroup(jPaneAnamneseLayout.createSequentialGroup()
                         .addGroup(jPaneAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPaneAnamneseLayout.createSequentialGroup()
-                                .addComponent(jRadioButtonSim15)
+                                .addComponent(jRadioButtonSimDiab)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButtonSim14)
+                                .addComponent(jRadioButtonNaoDiab)
                                 .addGap(20, 20, 20)
                                 .addComponent(jLabelobs7))
                             .addComponent(jLabeDiabetes))
@@ -614,9 +668,9 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addGroup(jPaneAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPaneAnamneseLayout.createSequentialGroup()
-                                .addComponent(jRadioButtonSim13)
+                                .addComponent(jRadioButtonSimAtvFis)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButtonSim12)
+                                .addComponent(jRadioButtonNaoAtvFis)
                                 .addGap(20, 20, 20)
                                 .addComponent(jLabelobs6))
                             .addComponent(jLabeAtividadeFisica))
@@ -628,9 +682,9 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
                             .addGroup(jPaneAnamneseLayout.createSequentialGroup()
                                 .addGroup(jPaneAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPaneAnamneseLayout.createSequentialGroup()
-                                        .addComponent(jRadioButtonSim11)
+                                        .addComponent(jRadioButtonSimHipert)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jRadioButtonSim10)
+                                        .addComponent(jRadioButtonNaoHipert)
                                         .addGap(20, 20, 20)
                                         .addComponent(jLabelobs5))
                                     .addComponent(jLabeHipertensao))
@@ -639,9 +693,9 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
                                 .addGap(20, 20, 20)
                                 .addGroup(jPaneAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPaneAnamneseLayout.createSequentialGroup()
-                                        .addComponent(jRadioButtonSim9)
+                                        .addComponent(jRadioButtonSimOutros)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jRadioButtonSim8)
+                                        .addComponent(jRadioButtonNaoOutros)
                                         .addGap(20, 20, 20)
                                         .addComponent(jLabelobs4))
                                     .addComponent(jLabeOutros))
@@ -653,9 +707,9 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
                                 .addGroup(jPaneAnamneseLayout.createSequentialGroup()
                                     .addGroup(jPaneAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPaneAnamneseLayout.createSequentialGroup()
-                                            .addComponent(jRadioButtonSim7)
+                                            .addComponent(jRadioButtonSimCard)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jRadioButtonSim6)
+                                            .addComponent(jRadioButtonNaoCard)
                                             .addGap(20, 20, 20)
                                             .addComponent(jLabelobs3))
                                         .addComponent(jLabeCardiopatias))
@@ -664,9 +718,9 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
                                     .addGap(20, 20, 20)
                                     .addGroup(jPaneAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPaneAnamneseLayout.createSequentialGroup()
-                                            .addComponent(jRadioButtonSim5)
+                                            .addComponent(jRadioButtonSimMed)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jRadioButtonSim4)
+                                            .addComponent(jRadioButtonNaoMed)
                                             .addGap(20, 20, 20)
                                             .addComponent(jLabelobs2))
                                         .addComponent(jLabeMedicamentos))
@@ -677,9 +731,9 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
                                 .addGroup(jPaneAnamneseLayout.createSequentialGroup()
                                     .addGroup(jPaneAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPaneAnamneseLayout.createSequentialGroup()
-                                            .addComponent(jRadioButtonSim)
+                                            .addComponent(jRadioButtonSimTab)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jRadioButtonSim1)
+                                            .addComponent(jRadioButtonNaoTab)
                                             .addGap(20, 20, 20)
                                             .addComponent(jLabelobs))
                                         .addComponent(tabgismojLabe))
@@ -688,15 +742,14 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
                                     .addGap(20, 20, 20)
                                     .addGroup(jPaneAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(jPaneAnamneseLayout.createSequentialGroup()
-                                            .addComponent(jRadioButtonSim3)
+                                            .addComponent(jRadioButtonSimRestArt)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jRadioButtonSim2)
+                                            .addComponent(jRadioButtonNaoRestArt)
                                             .addGap(20, 20, 20)
                                             .addComponent(jLabelobs1))
                                         .addComponent(jLabeRestricaoArticular))
                                     .addGap(10, 10, 10)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addComponent(jSeparator6))
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         jPaneAnamneseLayout.setVerticalGroup(
@@ -710,16 +763,16 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPaneAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelobs1)
-                            .addComponent(jRadioButtonSim3)
-                            .addComponent(jRadioButtonSim2)))
+                            .addComponent(jRadioButtonSimRestArt)
+                            .addComponent(jRadioButtonNaoRestArt)))
                     .addComponent(jScrollPaneTabagismo, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPaneAnamneseLayout.createSequentialGroup()
                         .addComponent(tabgismojLabe)
                         .addGap(18, 18, 18)
                         .addGroup(jPaneAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelobs)
-                            .addComponent(jRadioButtonSim)
-                            .addComponent(jRadioButtonSim1))))
+                            .addComponent(jRadioButtonSimTab)
+                            .addComponent(jRadioButtonNaoTab))))
                 .addGap(10, 10, 10)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
@@ -730,16 +783,16 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPaneAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelobs2)
-                            .addComponent(jRadioButtonSim5)
-                            .addComponent(jRadioButtonSim4)))
+                            .addComponent(jRadioButtonSimMed)
+                            .addComponent(jRadioButtonNaoMed)))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPaneAnamneseLayout.createSequentialGroup()
                         .addComponent(jLabeCardiopatias)
                         .addGap(18, 18, 18)
                         .addGroup(jPaneAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelobs3)
-                            .addComponent(jRadioButtonSim7)
-                            .addComponent(jRadioButtonSim6))))
+                            .addComponent(jRadioButtonSimCard)
+                            .addComponent(jRadioButtonNaoCard))))
                 .addGap(10, 10, 10)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
@@ -750,16 +803,16 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPaneAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelobs4)
-                            .addComponent(jRadioButtonSim9)
-                            .addComponent(jRadioButtonSim8)))
+                            .addComponent(jRadioButtonSimOutros)
+                            .addComponent(jRadioButtonNaoOutros)))
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPaneAnamneseLayout.createSequentialGroup()
                         .addComponent(jLabeHipertensao)
                         .addGap(18, 18, 18)
                         .addGroup(jPaneAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelobs5)
-                            .addComponent(jRadioButtonSim11)
-                            .addComponent(jRadioButtonSim10))))
+                            .addComponent(jRadioButtonSimHipert)
+                            .addComponent(jRadioButtonNaoHipert))))
                 .addGap(10, 10, 10)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
@@ -770,16 +823,16 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPaneAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelobs6)
-                            .addComponent(jRadioButtonSim13)
-                            .addComponent(jRadioButtonSim12)))
+                            .addComponent(jRadioButtonSimAtvFis)
+                            .addComponent(jRadioButtonNaoAtvFis)))
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPaneAnamneseLayout.createSequentialGroup()
                         .addComponent(jLabeDiabetes)
                         .addGap(18, 18, 18)
                         .addGroup(jPaneAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelobs7)
-                            .addComponent(jRadioButtonSim15)
-                            .addComponent(jRadioButtonSim14))))
+                            .addComponent(jRadioButtonSimDiab)
+                            .addComponent(jRadioButtonNaoDiab))))
                 .addGap(10, 10, 10)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
@@ -797,10 +850,9 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPaneAnamneseLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelobs9)
-                            .addComponent(jRadioButtonSim19)
-                            .addComponent(jRadioButtonSim18))))
-                .addGap(10, 10, 10)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jRadioButtonSimProbPulm)
+                            .addComponent(jRadioButtonNaoProbPulm))))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         jTabbedPaneAvaliacao.addTab("Anamnese", jPaneAnamnese);
@@ -1119,7 +1171,7 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         jPanelPerimetriaLayout.setVerticalGroup(
             jPanelPerimetriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPerimetriaLayout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addGroup(jPanelPerimetriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabePeso)
                     .addComponent(jLabeQuadril)
@@ -1176,7 +1228,7 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
                     .addComponent(jLabeAbdomem)
                     .addComponent(jLabeAntiBracoDireito)
                     .addComponent(jLabePeso7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addGroup(jPanelPerimetriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jFormattedTextFieldAbdomem, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jFormattedTextFieldAntBracoD, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1184,7 +1236,7 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
                     .addComponent(jLabelcm3)
                     .addComponent(jLabelcm8)
                     .addComponent(jLabelcm13))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         jTabbedPaneAvaliacao.addTab("Perimetria", jPanelPerimetria);
@@ -1593,7 +1645,6 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
 
         jFormattedTextFieldIMC3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         jFormattedTextFieldIMC3.setToolTipText("Cálculo automático");
-        jFormattedTextFieldIMC3.setEnabled(false);
         jFormattedTextFieldIMC3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jFormattedTextFieldIMC3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1705,11 +1756,11 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         datajLabe1.setText("Data da próxima avaliação");
 
         try {
-            dateAvjFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            dateProxAvjFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        dateAvjFormattedTextField.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        dateProxAvjFormattedTextField.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanelBackLayout = new javax.swing.GroupLayout(jPanelBack);
         jPanelBack.setLayout(jPanelBackLayout);
@@ -1718,19 +1769,19 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
             .addComponent(jPanelBlue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jTabbedPaneAvaliacao, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBackLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(80, 80, 80)
                 .addComponent(datajLabe)
                 .addGap(18, 18, 18)
                 .addComponent(datejFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(datajLabe1)
                 .addGap(18, 18, 18)
-                .addComponent(dateAvjFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dateProxAvjFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelBackLayout.setVerticalGroup(
             jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1745,7 +1796,7 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
                     .addComponent(datajLabe)
                     .addComponent(datejFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(datajLabe1)
-                    .addComponent(dateAvjFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dateProxAvjFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -1767,7 +1818,12 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        // TODO add your handling code here:
+        Projeto_GYM.fachada.cadastrarAnamnese(a);
+        Projeto_GYM.fachada.cadastrarComposicao_corporal(c);
+        Projeto_GYM.fachada.cadastrarDobras_Cutaneas(d);
+        Projeto_GYM.fachada.cadastrarPerimetria(p);
+        Projeto_GYM.fachada.cadastrarMetas_ideais(m);
+        Projeto_GYM.fachada.cadastrarAvaliacao(avaliacao);
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
@@ -1875,7 +1931,8 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jFormattedTextFieldPorGorduraActionPerformed
 
     private void jFormattedTextFieldIMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldIMCActionPerformed
-        // TODO add your handling code here:
+        jFormattedTextFieldIMC.setText(Util.imc(Float.parseFloat(jFormattedTextFieldPeso.getText()), 
+                Float.parseFloat(jFormattedTextFieldAltura.getText()))+"");
     }//GEN-LAST:event_jFormattedTextFieldIMCActionPerformed
 
     private void jFormattedTextFieldPesoMagraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldPesoMagraActionPerformed
@@ -1887,72 +1944,73 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jFormattedTextFieldPesoGordaActionPerformed
 
     private void jFormattedTextFieldRCQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldRCQActionPerformed
-        // TODO add your handling code here:
+        jFormattedTextFieldRCQ.setText(Util.rcq(Float.parseFloat(jFormattedTextFieldCintura.getText()), 
+                Float.parseFloat(jFormattedTextFieldQuadril.getText()))+"");
     }//GEN-LAST:event_jFormattedTextFieldRCQActionPerformed
 
-    private void jRadioButtonSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSimActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonSimActionPerformed
+    private void jRadioButtonSimTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSimTabActionPerformed
+       
+    }//GEN-LAST:event_jRadioButtonSimTabActionPerformed
 
-    private void jRadioButtonSim1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSim1ActionPerformed
+    private void jRadioButtonNaoTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNaoTabActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonSim1ActionPerformed
+    }//GEN-LAST:event_jRadioButtonNaoTabActionPerformed
 
-    private void jRadioButtonSim2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSim2ActionPerformed
+    private void jRadioButtonNaoRestArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNaoRestArtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonSim2ActionPerformed
+    }//GEN-LAST:event_jRadioButtonNaoRestArtActionPerformed
 
-    private void jRadioButtonSim3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSim3ActionPerformed
+    private void jRadioButtonSimRestArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSimRestArtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonSim3ActionPerformed
+    }//GEN-LAST:event_jRadioButtonSimRestArtActionPerformed
 
-    private void jRadioButtonSim4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSim4ActionPerformed
+    private void jRadioButtonNaoMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNaoMedActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonSim4ActionPerformed
+    }//GEN-LAST:event_jRadioButtonNaoMedActionPerformed
 
-    private void jRadioButtonSim5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSim5ActionPerformed
+    private void jRadioButtonSimMedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSimMedActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonSim5ActionPerformed
+    }//GEN-LAST:event_jRadioButtonSimMedActionPerformed
 
-    private void jRadioButtonSim6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSim6ActionPerformed
+    private void jRadioButtonNaoCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNaoCardActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonSim6ActionPerformed
+    }//GEN-LAST:event_jRadioButtonNaoCardActionPerformed
 
-    private void jRadioButtonSim7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSim7ActionPerformed
+    private void jRadioButtonSimCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSimCardActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonSim7ActionPerformed
+    }//GEN-LAST:event_jRadioButtonSimCardActionPerformed
 
-    private void jRadioButtonSim8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSim8ActionPerformed
+    private void jRadioButtonNaoOutrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNaoOutrosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonSim8ActionPerformed
+    }//GEN-LAST:event_jRadioButtonNaoOutrosActionPerformed
 
-    private void jRadioButtonSim9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSim9ActionPerformed
+    private void jRadioButtonSimOutrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSimOutrosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonSim9ActionPerformed
+    }//GEN-LAST:event_jRadioButtonSimOutrosActionPerformed
 
-    private void jRadioButtonSim10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSim10ActionPerformed
+    private void jRadioButtonNaoHipertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNaoHipertActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonSim10ActionPerformed
+    }//GEN-LAST:event_jRadioButtonNaoHipertActionPerformed
 
-    private void jRadioButtonSim11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSim11ActionPerformed
+    private void jRadioButtonSimHipertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSimHipertActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonSim11ActionPerformed
+    }//GEN-LAST:event_jRadioButtonSimHipertActionPerformed
 
-    private void jRadioButtonSim12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSim12ActionPerformed
+    private void jRadioButtonNaoAtvFisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNaoAtvFisActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonSim12ActionPerformed
+    }//GEN-LAST:event_jRadioButtonNaoAtvFisActionPerformed
 
-    private void jRadioButtonSim13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSim13ActionPerformed
+    private void jRadioButtonSimAtvFisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSimAtvFisActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonSim13ActionPerformed
+    }//GEN-LAST:event_jRadioButtonSimAtvFisActionPerformed
 
-    private void jRadioButtonSim14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSim14ActionPerformed
+    private void jRadioButtonNaoDiabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNaoDiabActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonSim14ActionPerformed
+    }//GEN-LAST:event_jRadioButtonNaoDiabActionPerformed
 
-    private void jRadioButtonSim15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSim15ActionPerformed
+    private void jRadioButtonSimDiabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSimDiabActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonSim15ActionPerformed
+    }//GEN-LAST:event_jRadioButtonSimDiabActionPerformed
 
     private void jRadioButtonIntermediarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonIntermediarioActionPerformed
         // TODO add your handling code here:
@@ -1962,13 +2020,13 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonInicianteActionPerformed
 
-    private void jRadioButtonSim18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSim18ActionPerformed
+    private void jRadioButtonNaoProbPulmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNaoProbPulmActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonSim18ActionPerformed
+    }//GEN-LAST:event_jRadioButtonNaoProbPulmActionPerformed
 
-    private void jRadioButtonSim19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSim19ActionPerformed
+    private void jRadioButtonSimProbPulmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSimProbPulmActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonSim19ActionPerformed
+    }//GEN-LAST:event_jRadioButtonSimProbPulmActionPerformed
 
     private void jRadioButtonAvancadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonAvancadoActionPerformed
         // TODO add your handling code here:
@@ -2000,7 +2058,7 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroupTababismo;
     private javax.swing.JLabel datajLabe;
     private javax.swing.JLabel datajLabe1;
-    private javax.swing.JFormattedTextField dateAvjFormattedTextField;
+    private javax.swing.JFormattedTextField dateProxAvjFormattedTextField;
     private javax.swing.JFormattedTextField datejFormattedTextField;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonSalvar;
@@ -2129,24 +2187,24 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonAvancado;
     private javax.swing.JRadioButton jRadioButtonIniciante;
     private javax.swing.JRadioButton jRadioButtonIntermediario;
-    private javax.swing.JRadioButton jRadioButtonSim;
-    private javax.swing.JRadioButton jRadioButtonSim1;
-    private javax.swing.JRadioButton jRadioButtonSim10;
-    private javax.swing.JRadioButton jRadioButtonSim11;
-    private javax.swing.JRadioButton jRadioButtonSim12;
-    private javax.swing.JRadioButton jRadioButtonSim13;
-    private javax.swing.JRadioButton jRadioButtonSim14;
-    private javax.swing.JRadioButton jRadioButtonSim15;
-    private javax.swing.JRadioButton jRadioButtonSim18;
-    private javax.swing.JRadioButton jRadioButtonSim19;
-    private javax.swing.JRadioButton jRadioButtonSim2;
-    private javax.swing.JRadioButton jRadioButtonSim3;
-    private javax.swing.JRadioButton jRadioButtonSim4;
-    private javax.swing.JRadioButton jRadioButtonSim5;
-    private javax.swing.JRadioButton jRadioButtonSim6;
-    private javax.swing.JRadioButton jRadioButtonSim7;
-    private javax.swing.JRadioButton jRadioButtonSim8;
-    private javax.swing.JRadioButton jRadioButtonSim9;
+    private javax.swing.JRadioButton jRadioButtonNaoAtvFis;
+    private javax.swing.JRadioButton jRadioButtonNaoCard;
+    private javax.swing.JRadioButton jRadioButtonNaoDiab;
+    private javax.swing.JRadioButton jRadioButtonNaoHipert;
+    private javax.swing.JRadioButton jRadioButtonNaoMed;
+    private javax.swing.JRadioButton jRadioButtonNaoOutros;
+    private javax.swing.JRadioButton jRadioButtonNaoProbPulm;
+    private javax.swing.JRadioButton jRadioButtonNaoRestArt;
+    private javax.swing.JRadioButton jRadioButtonNaoTab;
+    private javax.swing.JRadioButton jRadioButtonSimAtvFis;
+    private javax.swing.JRadioButton jRadioButtonSimCard;
+    private javax.swing.JRadioButton jRadioButtonSimDiab;
+    private javax.swing.JRadioButton jRadioButtonSimHipert;
+    private javax.swing.JRadioButton jRadioButtonSimMed;
+    private javax.swing.JRadioButton jRadioButtonSimOutros;
+    private javax.swing.JRadioButton jRadioButtonSimProbPulm;
+    private javax.swing.JRadioButton jRadioButtonSimRestArt;
+    private javax.swing.JRadioButton jRadioButtonSimTab;
     private javax.swing.JScrollPane jScrollOutros;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
@@ -2160,17 +2218,93 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTabbedPane jTabbedPaneAvaliacao;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea5;
-    private javax.swing.JTextArea jTextArea7;
+    private javax.swing.JTextArea jTextAreaAtvFis;
     private javax.swing.JTextArea jTextAreaCardiopatias;
     private javax.swing.JTextArea jTextAreaDiabetes;
-    private javax.swing.JTextArea jTextAreaHipertensão;
+    private javax.swing.JTextArea jTextAreaHipertensao;
+    private javax.swing.JTextArea jTextAreaMed;
+    private javax.swing.JTextArea jTextAreaOutros;
     private javax.swing.JTextArea jTextAreaProbPulmonares;
-    private javax.swing.JTextArea jTextAreaRestriçãoArticular;
+    private javax.swing.JTextArea jTextAreaRestricaoArticular;
+    private javax.swing.JTextArea jTextAreaTab;
     private javax.swing.JLabel tabgismojLabe;
     // End of variables declaration//GEN-END:variables
+
+    private Avaliacao get(){
+        a.setAtivFisica(jRadioButtonSimAtvFis.isSelected());
+        a.setCardiopatias(jRadioButtonNaoCard.isSelected());
+        a.setDiabetes(jRadioButtonSimDiab.isSelected());
+        a.setHipertensao(jRadioButtonSimHipert.isSelected());
+        a.setMedicamentos(jRadioButtonSimMed.isSelected());
+        if(jRadioButtonAvancado.isSelected())
+            a.setNivel("Avançado");
+        else if(jRadioButtonIniciante.isSelected())
+            a.setNivel("Iniciante");
+        else if(jRadioButtonIntermediario.isSelected())
+            a.setNivel("Intermediário");
+        
+        a.setOutros(jRadioButtonSimOutros.isSelected());
+        a.setProbPulmonares(jRadioButtonSimProbPulm.isSelected());
+        a.setRestricaoArticular(jRadioButtonSimRestArt.isSelected());
+        a.setTabagismo(jRadioButtonSimTab.isSelected());
+        a.setAtivFisicaObs(jTextAreaAtvFis.getText());
+        a.setCardiopatiasObs(jTextAreaCardiopatias.getText());
+        a.setDiabetesObs(jTextAreaDiabetes.getText());
+        a.setHipertensaoObs(jTextAreaHipertensao.getText());
+        a.setMedicamentosObs(jTextAreaMed.getText());
+        a.setOutrosObs(jTextAreaOutros.getText());
+        a.setProbPulmonaresObs(jTextAreaProbPulmonares.getText());
+        a.setRestricaoArticularObs(jTextAreaRestricaoArticular.getText());
+        a.setTabagismoObs(jTextAreaTab.getText());
+        
+        p.setAbdomem(Float.parseFloat(jFormattedTextFieldAbdomem.getText()));
+        p.setAltura(Float.parseFloat(jFormattedTextFieldAltura.getText()));
+        p.setAnte_braco_direita(Float.parseFloat(jFormattedTextFieldAntBracoD.getText()));
+        p.setAnte_braco_esquerdo(Float.parseFloat(jFormattedTextFieldAntBracoE.getText()));
+        p.setBraco_direito(Float.parseFloat(jFormattedTextFieldBracoD.getText()));
+        p.setBraco_esquerdo(Float.parseFloat(jFormattedTextFieldBracoE.getText()));
+        p.setCintura(Float.parseFloat(jFormattedTextFieldCintura.getText()));
+        p.setCoxa_direita(Float.parseFloat(jFormattedTextFieldCoxaD.getText()));
+        p.setCoxa_esquerda(Float.parseFloat(jFormattedTextFieldCoxaE.getText()));
+        p.setOmbro(Float.parseFloat(jFormattedTextFieldOmbro.getText()));
+        p.setPanturrilha_direita(Float.parseFloat(jFormattedTextFieldPanturrilhaD.getText()));
+        p.setPanturrilha_esquerda(Float.parseFloat(jFormattedTextFieldPanturrilhaE.getText()));
+        p.setPeso(Float.parseFloat(jFormattedTextFieldPeso.getText()));
+        p.setQuadril(Float.parseFloat(jFormattedTextFieldQuadril.getText()));
+        p.setTorax(Float.parseFloat(jFormattedTextFieldTorax.getText()));
+        
+        d.setAbdominal(Float.parseFloat(jFormattedTextFieldAbdominal.getText()));
+        d.setAxilar_media(Float.parseFloat(jFormattedTextFieldAxilarMedia.getText()));
+        d.setBicipita(Float.parseFloat(jFormattedTextFieldBicipital.getText()));
+        d.setCoxa(Float.parseFloat(jFormattedTextFieldCoxa.getText()));
+        d.setPeitoral(Float.parseFloat(jFormattedTextFieldPeitoral.getText()));
+        d.setSubscapular(Float.parseFloat(jFormattedTextFieldSubscapular.getText()));
+        d.setSupra_iliaca(Float.parseFloat(jFormattedTextFieldSupraIliaca.getText()));
+        d.setTricipital(Float.parseFloat(jFormattedTextFieldTricipital.getText()));
+        
+        c.setImc(Float.parseFloat(jFormattedTextFieldIMC.getText()));
+        c.setPeso_gorda(Float.parseFloat(jFormattedTextFieldPesoGorda.getText()));
+        c.setPeso_magra(Float.parseFloat(jFormattedTextFieldPesoMagra.getText()));
+        c.setPorcentual_gordura(Float.parseFloat(jFormattedTextFieldPorGordura.getText()));
+        c.setPressao_arterial(Float.parseFloat(jFormattedTextFieldPARepouso.getText()));
+        c.setRcq(Float.parseFloat(jFormattedTextFieldRCQ.getText()));
+        
+        m.setImc(Float.parseFloat(jFormattedTextFieldIMC3.getText()));
+        m.setPeso(Float.parseFloat(jFormattedTextFieldPeso3.getText()));
+        m.setPorcentual_gordura(Float.parseFloat(jFormattedTextFieldPorGordura3.getText()));
+        
+        avaliacao.setAluno(aluno);
+        avaliacao.setInstrutor(instrutor);
+        avaliacao.setAnamnese(a);
+        avaliacao.setComposicao_corporal(c);
+        avaliacao.setData(Util.getDate(datejFormattedTextField.getText()));
+        avaliacao.setDobras_Cutaneas(d);
+        avaliacao.setMetas_ideais(m);
+        avaliacao.setPerimetria(p);
+        avaliacao.setProxima_avaliacao(Util.getDate(dateProxAvjFormattedTextField.getText()));
+        
+        return avaliacao;
+    }
+
 }

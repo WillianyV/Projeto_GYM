@@ -32,7 +32,7 @@ public class ControleFinanceiroDao {
             
             statement.execute();
         } catch (Exception ex) {
-            Mensagem.exibirMensagem("Erro ao cadastrar Controle Financeiro!");
+            Mensagem.exibirMensagem("Erro ao cadastrar Controle Financeiro!"+ex.getMessage());
         }
         
         

@@ -22,11 +22,16 @@ public class PagamentoDao {
     
     public void cadastrar(Pagamento p){
         try {
+//            valor,descricao,data,dataVenc,formaPag,aluno_id,funcionario_id
             statement = SQLUtil.prepareStatement(SQLUtil.INSERIR_PAGAMENTO);
             
             statement.setFloat(1, p.getValor());
-            statement.setInt(2, p.getAluno().getId());
-            statement.setInt(3, p.getFuncionario().getId());
+            statement.setString(2, p.getDescricao());
+            statement.setDate(3, p.getData());
+            statement.setDate(4, p.getDataVenc());
+            statement.setString(5, p.getFormaPag());
+            statement.setInt(6, p.getAluno().getId());
+            statement.setInt(7, p.getFuncionario().getId());
             
             statement.execute();
         } catch (Exception ex) {

@@ -5,16 +5,28 @@
  */
 package view;
 
+import app.Projeto_GYM;
+import app.Util;
+import model.Aluno;
+import model.ControleFinanceiro;
+import model.Funcionario;
+import model.Pagamento;
+
 /**
  *
  * @author Insinuante
  */
 public class AlunosLancarFaturaJFrame extends javax.swing.JFrame {
-
+    private Pagamento p;
+    private Aluno aluno;
+    private ControleFinanceiro c;
     /**
      * Creates new form NewJFrameLogin
      */
-    public AlunosLancarFaturaJFrame() {
+    public AlunosLancarFaturaJFrame(Aluno aluno) {
+        p = new Pagamento();
+        this.aluno = aluno;
+        jTextFieldUsuario.setText(aluno.getNome());
         initComponents();
     }
 
@@ -40,12 +52,12 @@ public class AlunosLancarFaturaJFrame extends javax.swing.JFrame {
         jLabelData = new javax.swing.JLabel();
         jLabelData1 = new javax.swing.JLabel();
         jButtonFechar = new javax.swing.JButton();
-        jFormattedTextFieldDN = new javax.swing.JFormattedTextField();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldDataPag = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldValor = new javax.swing.JFormattedTextField();
         jLabelDados = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jFormattedTextFieldDN1 = new javax.swing.JFormattedTextField();
+        jComboBoxFormaPag = new javax.swing.JComboBox<>();
+        jFormattedTextFieldDataVenc = new javax.swing.JFormattedTextField();
         jLabelData2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -145,19 +157,19 @@ public class AlunosLancarFaturaJFrame extends javax.swing.JFrame {
         });
 
         try {
-            jFormattedTextFieldDN.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            jFormattedTextFieldDataPag.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextFieldDN.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jFormattedTextFieldDN.addActionListener(new java.awt.event.ActionListener() {
+        jFormattedTextFieldDataPag.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jFormattedTextFieldDataPag.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextFieldDNActionPerformed(evt);
+                jFormattedTextFieldDataPagActionPerformed(evt);
             }
         });
 
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
-        jFormattedTextField1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jFormattedTextFieldValor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        jFormattedTextFieldValor.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         jLabelDados.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 24)); // NOI18N
         jLabelDados.setForeground(new java.awt.Color(45, 118, 232));
@@ -167,18 +179,18 @@ public class AlunosLancarFaturaJFrame extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(45, 118, 232));
         jLabel1.setText("Forma de Pagamento");
 
-        jComboBox1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dinheiro", "Cartão Crétido", "Cartão Débito", "Cheque" }));
+        jComboBoxFormaPag.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jComboBoxFormaPag.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dinheiro", "Cartão Crétido", "Cartão Débito", "Cheque" }));
 
         try {
-            jFormattedTextFieldDN1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            jFormattedTextFieldDataVenc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextFieldDN1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jFormattedTextFieldDN1.addActionListener(new java.awt.event.ActionListener() {
+        jFormattedTextFieldDataVenc.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jFormattedTextFieldDataVenc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextFieldDN1ActionPerformed(evt);
+                jFormattedTextFieldDataVencActionPerformed(evt);
             }
         });
 
@@ -203,21 +215,21 @@ public class AlunosLancarFaturaJFrame extends javax.swing.JFrame {
                             .addComponent(jLabelServico)
                             .addComponent(jLabel1)
                             .addComponent(jTextFieldId)
-                            .addComponent(jComboBox1, 0, 135, Short.MAX_VALUE))
+                            .addComponent(jComboBoxFormaPag, 0, 135, Short.MAX_VALUE))
                         .addGap(41, 41, 41)
                         .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelLoginLayout.createSequentialGroup()
                                 .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelData2)
-                                    .addComponent(jFormattedTextFieldDN1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jFormattedTextFieldDataVenc, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelData)
-                                    .addComponent(jFormattedTextFieldDN, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jFormattedTextFieldDataPag, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jButtonLancar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(27, 27, 27)
                                 .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jFormattedTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabelData1)
                                     .addComponent(jButtonFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -254,15 +266,15 @@ public class AlunosLancarFaturaJFrame extends javax.swing.JFrame {
                                 .addGap(12, 12, 12)
                                 .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jComboBoxServico, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jFormattedTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanelLoginLayout.createSequentialGroup()
                                 .addComponent(jLabelData2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
-                                .addComponent(jFormattedTextFieldDN1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jFormattedTextFieldDataVenc, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanelLoginLayout.createSequentialGroup()
                         .addComponent(jLabelData, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(jFormattedTextFieldDN, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jFormattedTextFieldDataPag, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelLoginLayout.createSequentialGroup()
@@ -273,7 +285,7 @@ public class AlunosLancarFaturaJFrame extends javax.swing.JFrame {
                     .addGroup(jPanelLoginLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(12, 12, 12)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)))
+                        .addComponent(jComboBoxFormaPag, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)))
                 .addGap(28, 28, 28))
         );
 
@@ -303,7 +315,8 @@ public class AlunosLancarFaturaJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
 
     private void jButtonLancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLancarActionPerformed
-       
+       Projeto_GYM.fachada.cadastrarPagamento(get());
+       Projeto_GYM.fachada.cadastrarControleFinanceiro(c);
     }//GEN-LAST:event_jButtonLancarActionPerformed
 
     private void jTextFieldIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdActionPerformed
@@ -318,23 +331,23 @@ public class AlunosLancarFaturaJFrame extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonFecharActionPerformed
 
-    private void jFormattedTextFieldDNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldDNActionPerformed
+    private void jFormattedTextFieldDataPagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldDataPagActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextFieldDNActionPerformed
+    }//GEN-LAST:event_jFormattedTextFieldDataPagActionPerformed
 
-    private void jFormattedTextFieldDN1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldDN1ActionPerformed
+    private void jFormattedTextFieldDataVencActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldDataVencActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextFieldDN1ActionPerformed
+    }//GEN-LAST:event_jFormattedTextFieldDataVencActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonFechar;
     private javax.swing.JButton jButtonLancar;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBoxFormaPag;
     private javax.swing.JComboBox<String> jComboBoxServico;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextFieldDN;
-    private javax.swing.JFormattedTextField jFormattedTextFieldDN1;
+    private javax.swing.JFormattedTextField jFormattedTextFieldDataPag;
+    private javax.swing.JFormattedTextField jFormattedTextFieldDataVenc;
+    private javax.swing.JFormattedTextField jFormattedTextFieldValor;
     private javax.swing.JLabel jLabeSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelDados;
@@ -349,4 +362,22 @@ public class AlunosLancarFaturaJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldId;
     private javax.swing.JTextField jTextFieldUsuario;
     // End of variables declaration//GEN-END:variables
+
+    private Pagamento get(){
+        p.setAluno(aluno);
+        p.setData(Util.getDate(jFormattedTextFieldDataPag.getText()));
+        p.setDataVenc(Util.getDate(jFormattedTextFieldDataVenc.getText()));
+        p.setDescricao(jComboBoxServico.getSelectedItem()+"");
+        p.setFormaPag(jComboBoxFormaPag.getSelectedItem()+"");
+        p.setFuncionario(Projeto_GYM.fachada.getFuncionarioLogado());
+        p.setValor(Float.parseFloat(jFormattedTextFieldValor.getText()));
+        
+        c.setData(Util.getDate(jFormattedTextFieldDataPag.getText()));
+        c.setDescricao(aluno.getNome());
+        c.setValor(Float.parseFloat(jFormattedTextFieldValor.getText()));
+        c.setConta(Projeto_GYM.fachada.getByNomeConta(jComboBoxServico.getSelectedItem()+""));
+                
+        return p;
+    }
+
 }

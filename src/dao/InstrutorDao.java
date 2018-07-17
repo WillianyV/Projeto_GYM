@@ -5,7 +5,10 @@
  */
 package dao;
 
+import app.Projeto_GYM;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,16 +37,33 @@ public class InstrutorDao {
     public void editar(Instrutor i){}
     public void excluir(Instrutor i){}
     public Instrutor getById(int id){return null;}
+    
     public Instrutor getByIdFunc(int func_id){
+        ResultSet result;
         try {
             statement=SQLUtil.prepareStatement(SQLUtil.SELECT_INSTRUTOR_BY_ID_FUNCIONARIO);
+            statement.setInt(1, func_id);
+            result=statement.executeQuery();
+            result.next();
+            
+            return get(result);
         } catch (Exception ex) {
-            Logger.getLogger(InstrutorDao.class.getName()).log(Level.SEVERE, null, ex);
+            Mensagem.exibirMensagem("Erro ao selecionar instrutor!");
         }
-        
-        
         return null;
     }
     public Instrutor getByCREF(int cref){return null;}
     public ArrayList<Instrutor> getAll(){return null;}
+    
+    public Instrutor get(ResultSet result){
+        Instrutor instrutor=new Instrutor();
+        try {
+            instrutor.setId(result.getInt(1));
+            instrutor.setCref(result.getInt(2));
+            instrutor.getFuncionario().setId(result.getInt(3));//Quando fizer o select de Funcionario por ID preencher o obj
+        } catch (SQLException ex) {
+            Mensagem.exibirMensagem("Erro ao pegar Instrutor!");
+        }
+        return instrutor; 
+    }
 }

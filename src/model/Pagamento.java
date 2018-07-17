@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.sql.Date;
+
 /**
  *
  * @author Elvis
@@ -13,7 +15,8 @@ public class Pagamento {
     private int id;
     private float valor;
     private Aluno aluno;
-    private String descricao;
+    private Date data,dataVenc;
+    private String descricao,formaPag,servico;
     private Funcionario funcionario;
 
     public int getId() {
@@ -54,6 +57,38 @@ public class Pagamento {
 
     public void setFuncionario(Funcionario funcionario) {
         this.funcionario = funcionario;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public Date getDataVenc() {
+        return dataVenc;
+    }
+
+    public void setDataVenc(Date dataVenc) {
+        this.dataVenc = dataVenc;
+    }
+
+    public String getFormaPag() {
+        return formaPag;
+    }
+
+    public void setFormaPag(String formaPag) {
+        this.formaPag = formaPag;
+    }
+
+    public String getServico() {
+        return servico;
+    }
+
+    public void setServico(String servico) {
+        this.servico = servico;
     }
     
     

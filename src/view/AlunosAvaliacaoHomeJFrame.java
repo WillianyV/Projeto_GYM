@@ -5,16 +5,20 @@
  */
 package view;
 
+import app.Projeto_GYM;
+import model.Aluno;
+
 /**
  *
  * @author Insinuante
  */
 public class AlunosAvaliacaoHomeJFrame extends javax.swing.JFrame {
-
+    private Aluno a;
     /**
      * Creates new form AlunosJFrame
      */
-    public AlunosAvaliacaoHomeJFrame() {
+    public AlunosAvaliacaoHomeJFrame(Aluno a) {
+        this.a=a;
         initComponents();
     }
 
@@ -196,7 +200,8 @@ public class AlunosAvaliacaoHomeJFrame extends javax.swing.JFrame {
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         this.dispose();
-        new AlunosAvaliacaoJFrame().show();
+        new AlunosAvaliacaoJFrame(a,Projeto_GYM.fachada.getByFuncionario_IdInstrutor(
+                    Projeto_GYM.fachada.getFuncionarioLogado().getId())).show();
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed

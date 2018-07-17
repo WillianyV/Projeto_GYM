@@ -161,7 +161,7 @@
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jTextFieldLogradouro1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldEmail" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="1" attributes="0">
                                               <Group type="102" attributes="0">
@@ -169,12 +169,17 @@
                                                       <Component id="jTextFieldBairro" alignment="0" min="-2" pref="125" max="-2" attributes="0"/>
                                                       <Component id="jLabelBairro" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="jLabelNumero" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldNumero" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="jLabelUF" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jComboBoxSexo" min="-2" pref="58" max="-2" attributes="0"/>
+                                                      <Component id="jComboBoxUf" min="-2" pref="58" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="jLabelCEP" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jFormattedTextFieldCEP" min="-2" pref="129" max="-2" attributes="0"/>
@@ -207,7 +212,7 @@
                                                           <Component id="jLabelSexo" min="-2" max="-2" attributes="0"/>
                                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                       </Group>
-                                                      <Component id="jComboBoxSexo1" max="32767" attributes="0"/>
+                                                      <Component id="jComboBoxSexo" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <Component id="jTextFieldNome" alignment="0" max="32767" attributes="0"/>
@@ -237,7 +242,7 @@
                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                           <Component id="jLabelStatus" min="-2" max="-2" attributes="0"/>
                                                           <Component id="jTextFieldCidade" max="32767" attributes="0"/>
-                                                          <Component id="jComboBoxSexo2" alignment="0" pref="106" max="32767" attributes="0"/>
+                                                          <Component id="jComboBoxStatus" alignment="0" pref="106" max="32767" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                               </Group>
@@ -278,7 +283,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jTextFieldRG" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                               <Component id="jFormattedTextFieldCelular" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="jComboBoxSexo1" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="jComboBoxSexo" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                               <Component id="jFormattedTextFieldCPF1" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -287,29 +292,38 @@
                               <Component id="jLabelCidade" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldLogradouro" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="jTextFieldCidade" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabelBairro" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelUF" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelCEP" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelStatus" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldBairro" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="jComboBoxSexo" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldCEP" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="jComboBoxSexo2" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jTextFieldLogradouro" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldCidade" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabelBairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelUF" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelCEP" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jTextFieldBairro" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                      <Component id="jComboBoxUf" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                      <Component id="jFormattedTextFieldCEP" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                      <Component id="jComboBoxStatus" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabelNumero" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTextFieldNumero" min="-2" pref="29" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabelEmail" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jTextFieldLogradouro1" min="-2" pref="29" max="-2" attributes="0"/>
-                          <EmptySpace pref="122" max="32767" attributes="0"/>
+                          <Component id="jTextFieldEmail" min="-2" pref="29" max="-2" attributes="0"/>
+                          <EmptySpace pref="19" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -460,7 +474,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldRGActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBoxSexo">
+                <Component class="javax.swing.JComboBox" name="jComboBoxUf">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
@@ -498,7 +512,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxSexoActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxUfActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -613,7 +627,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldBairroActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBoxSexo1">
+                <Component class="javax.swing.JComboBox" name="jComboBoxSexo">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
@@ -626,7 +640,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxSexo1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxSexoActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -645,7 +659,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextFieldCPF1ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBoxSexo2">
+                <Component class="javax.swing.JComboBox" name="jComboBoxStatus">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
@@ -658,21 +672,42 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxSexo2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxStatusActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldLogradouro1">
+                <Component class="javax.swing.JTextField" name="jTextFieldEmail">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldLogradouro1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldEmailActionPerformed"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="jTextFieldNumero">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="12" style="1"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNumeroActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="jLabelNumero">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Arial" size="12" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="e8" green="76" red="2d" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="N&#xfa;mero"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -752,8 +787,8 @@
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="jTextFieldId3" min="-2" pref="125" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldId2" min="-2" pref="125" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldId4" min="-2" pref="125" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldSenha" min="-2" pref="125" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldLogin" min="-2" pref="125" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -771,7 +806,7 @@
                                   <EmptySpace pref="43" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabelPesgunta4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldId4" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldLogin" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -780,7 +815,7 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jTextFieldId2" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldSenha" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                                       <Component id="jLabelPesgunta3" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
@@ -836,14 +871,14 @@
                             <Property name="text" type="java.lang.String" value="Confirme a senha"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextFieldId2">
+                        <Component class="javax.swing.JTextField" name="jTextFieldSenha">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Arial" size="12" style="1"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldId2ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldSenhaActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextFieldId3">
@@ -856,14 +891,14 @@
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldId3ActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextFieldId4">
+                        <Component class="javax.swing.JTextField" name="jTextFieldLogin">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Arial" size="12" style="1"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldId4ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldLoginActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabelPesgunta4">
@@ -901,18 +936,6 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jSeparator3" max="32767" attributes="0"/>
                                       <Component id="jSeparator2" alignment="1" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          <Component id="jLabelCadAluno7" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jLabelCadAluno8" min="-2" pref="69" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jLabelCadAluno9" min="-2" pref="41" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                          <Component id="jLabelCadAluno10" min="-2" pref="41" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                                          <Component id="jLabelCadAluno11" min="-2" max="-2" attributes="0"/>
-                                      </Group>
                                       <Component id="jSeparator4" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jSeparator5" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jSeparator6" alignment="0" max="32767" attributes="0"/>
@@ -920,100 +943,124 @@
                                       <Component id="jSeparator8" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jSeparator9" alignment="0" max="32767" attributes="0"/>
                                       <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jLabelCadAluno" min="-2" pref="147" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabelCadAluno7" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="jLabelCadAluno8" min="-2" pref="69" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="jLabelCadAluno9" min="-2" pref="41" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                                  <Component id="jLabelCadAluno10" min="-2" pref="41" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                                  <Component id="jLabelCadAluno11" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox14" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox21" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox28" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace pref="105" max="32767" attributes="0"/>
-                                                  <Component id="jCheckBox35" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jLabelCadAluno1" min="-2" pref="147" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox15" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox22" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox29" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="jCheckBox36" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jLabelCadAluno2" min="-2" pref="147" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox16" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox23" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox30" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="jCheckBox37" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jLabelCadAluno3" min="-2" pref="147" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox4" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox17" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox24" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox31" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="jCheckBox38" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="jLabelCadAluno4" min="-2" pref="147" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox5" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox18" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox25" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox32" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="jCheckBox39" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="jLabelCadAluno2" min="-2" pref="147" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                                          <Component id="avFisicaAcessojCheckBox" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                                          <Component id="jCheckBox16" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                                          <Component id="jCheckBox23" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                                          <Component id="jCheckBox30" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                                                          <Component id="jCheckBox37" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="jLabelCadAluno3" min="-2" pref="147" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                                          <Component id="fichaTreinoAcessojCheckBox" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                                          <Component id="jCheckBox17" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                                          <Component id="jCheckBox24" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                                          <Component id="jCheckBox31" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                                                          <Component id="jCheckBox38" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="jLabelCadAluno4" min="-2" pref="147" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                                          <Component id="relatoriosAcessojCheckBox" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                                          <Component id="relatorioCadastrarjCheckBox" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                                          <Component id="relatorioEditarjCheckBox" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                                          <Component id="relatorioExcluirjCheckBox" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                                                          <Component id="relatorioRecebPagjCheckBox" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="jLabelCadAluno" min="-2" pref="147" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                                          <Component id="cadAlunoAcessojCheckBox" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                                          <Component id="cadAlunoCadastrarjCheckBox" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                                          <Component id="cadAlunoEditarjCheckBox" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                                          <Component id="cadAlunoExcluirjCheckBox" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                                                          <Component id="cadAlunoRecebPagjCheckBox" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="jLabelCadAluno1" min="-2" pref="147" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                                          <Component id="cadFunAcessojCheckBox" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                                          <Component id="cadFuncCadastrarjCheckBox" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                                                          <Component id="cadFuncEditarjCheckBox" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                                                          <Component id="cadFuncExcluirjCheckBox" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                                                          <Component id="cadFuncRecebPagjCheckBox" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="jLabelCadAluno5" min="-2" pref="147" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox6" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lancarPagamentosAcessojCheckBox" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox19" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="LancarPagCadastrarjCheckBox" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox26" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="LancarPagEditarjCheckBox" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox33" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="jCheckBox40" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="LancarPagExcluirjCheckBox" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                                                  <Component id="LancarPagRecebPagjCheckBox" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="jLabelCadAluno6" min="-2" pref="147" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox7" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="controleCaixaAcessojCheckBox" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox20" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="controleCaixaCadastrarjCheckBox" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox27" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="controleCaixaEditarjCheckBox" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                                                  <Component id="jCheckBox34" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="jCheckBox41" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="controleCaixaExcluirjCheckBox" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                                                  <Component id="controleCaixaRecebPagjCheckBox" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
@@ -1036,110 +1083,162 @@
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabelCadAluno" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox14" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cadAlunoCadastrarjCheckBox" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="cadAlunoAcessojCheckBox" min="-2" max="-2" attributes="0"/>
+                                              <Component id="cadAlunoRecebPagjCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jCheckBox35" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox21" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox28" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cadAlunoEditarjCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cadAlunoExcluirjCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jCheckBox15" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="cadFuncCadastrarjCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="cadFuncEditarjCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="cadFuncExcluirjCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabelCadAluno1" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="cadFunAcessojCheckBox" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabelCadAluno1" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="cadFuncRecebPagjCheckBox" min="-2" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jSeparator4" min="-2" pref="10" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jCheckBox36" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox22" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox29" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jCheckBox16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jCheckBox16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckBox23" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckBox30" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabelCadAluno2" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="avFisicaAcessojCheckBox" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabelCadAluno2" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="jCheckBox37" min="-2" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jSeparator5" min="-2" pref="10" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jCheckBox37" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox23" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox30" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jCheckBox17" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jCheckBox4" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabelCadAluno3" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="fichaTreinoAcessojCheckBox" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabelCadAluno3" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="jCheckBox38" alignment="1" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jSeparator6" min="-2" pref="10" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jCheckBox38" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jCheckBox24" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jCheckBox31" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jCheckBox18" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="relatorioCadastrarjCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="relatorioEditarjCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="relatorioExcluirjCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jCheckBox5" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabelCadAluno4" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="relatoriosAcessojCheckBox" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabelCadAluno4" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="relatorioRecebPagjCheckBox" min="-2" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jSeparator7" min="-2" pref="10" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jCheckBox39" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox25" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox32" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jCheckBox19" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="LancarPagCadastrarjCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jCheckBox6" min="-2" max="-2" attributes="0"/>
+                                              <Component id="lancarPagamentosAcessojCheckBox" min="-2" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                                                   <Component id="jLabelCadAluno5" min="-2" max="-2" attributes="0"/>
                                               </Group>
+                                              <Component id="LancarPagRecebPagjCheckBox" alignment="1" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jSeparator8" min="-2" pref="10" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jCheckBox40" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox26" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox33" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="LancarPagEditarjCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="LancarPagExcluirjCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jCheckBox20" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="controleCaixaCadastrarjCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="controleCaixaEditarjCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="controleCaixaExcluirjCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jCheckBox7" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabelCadAluno6" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="controleCaixaAcessojCheckBox" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabelCadAluno6" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="controleCaixaRecebPagjCheckBox" min="-2" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="jSeparator9" min="-2" pref="10" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="jCheckBox41" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox27" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jCheckBox34" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="45" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -1279,7 +1378,7 @@
                             <Property name="text" type="java.lang.String" value="Receb/Pag"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+                        <Component class="javax.swing.JCheckBox" name="cadAlunoAcessojCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1287,10 +1386,10 @@
                             <Property name="selected" type="boolean" value="true"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox1ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadAlunoAcessojCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox14">
+                        <Component class="javax.swing.JCheckBox" name="cadAlunoCadastrarjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1298,10 +1397,10 @@
                             <Property name="selected" type="boolean" value="true"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox14ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadAlunoCadastrarjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox21">
+                        <Component class="javax.swing.JCheckBox" name="cadAlunoEditarjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1309,10 +1408,10 @@
                             <Property name="selected" type="boolean" value="true"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox21ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadAlunoEditarjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox28">
+                        <Component class="javax.swing.JCheckBox" name="cadAlunoExcluirjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1320,34 +1419,34 @@
                             <Property name="selected" type="boolean" value="true"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox28ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadAlunoExcluirjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox35">
+                        <Component class="javax.swing.JCheckBox" name="cadAlunoRecebPagjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox35ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadAlunoRecebPagjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JSeparator" name="jSeparator3">
                         </Component>
                         <Component class="javax.swing.JSeparator" name="jSeparator4">
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox36">
+                        <Component class="javax.swing.JCheckBox" name="cadFuncRecebPagjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox36ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadFuncRecebPagjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox29">
+                        <Component class="javax.swing.JCheckBox" name="cadFuncExcluirjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1355,10 +1454,10 @@
                             <Property name="selected" type="boolean" value="true"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox29ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadFuncExcluirjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox22">
+                        <Component class="javax.swing.JCheckBox" name="cadFuncEditarjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1366,10 +1465,10 @@
                             <Property name="selected" type="boolean" value="true"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox22ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadFuncEditarjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox15">
+                        <Component class="javax.swing.JCheckBox" name="cadFuncCadastrarjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1377,10 +1476,10 @@
                             <Property name="selected" type="boolean" value="true"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox15ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadFuncCadastrarjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+                        <Component class="javax.swing.JCheckBox" name="cadFunAcessojCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1388,19 +1487,19 @@
                             <Property name="selected" type="boolean" value="true"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox2ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadFunAcessojCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JSeparator" name="jSeparator5">
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox3">
+                        <Component class="javax.swing.JCheckBox" name="avFisicaAcessojCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox3ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="avFisicaAcessojCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="jCheckBox16">
@@ -1493,19 +1592,19 @@
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox17ActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox4">
+                        <Component class="javax.swing.JCheckBox" name="fichaTreinoAcessojCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox4ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fichaTreinoAcessojCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JSeparator" name="jSeparator7">
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox5">
+                        <Component class="javax.swing.JCheckBox" name="relatoriosAcessojCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1513,52 +1612,52 @@
                             <Property name="selected" type="boolean" value="true"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox5ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="relatoriosAcessojCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox18">
+                        <Component class="javax.swing.JCheckBox" name="relatorioCadastrarjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox18ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="relatorioCadastrarjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox25">
+                        <Component class="javax.swing.JCheckBox" name="relatorioEditarjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox25ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="relatorioEditarjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox32">
+                        <Component class="javax.swing.JCheckBox" name="relatorioExcluirjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox32ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="relatorioExcluirjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox39">
+                        <Component class="javax.swing.JCheckBox" name="relatorioRecebPagjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox39ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="relatorioRecebPagjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JSeparator" name="jSeparator8">
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox6">
+                        <Component class="javax.swing.JCheckBox" name="lancarPagamentosAcessojCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1566,10 +1665,10 @@
                             <Property name="selected" type="boolean" value="true"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox6ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lancarPagamentosAcessojCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox19">
+                        <Component class="javax.swing.JCheckBox" name="LancarPagCadastrarjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1577,30 +1676,30 @@
                             <Property name="selected" type="boolean" value="true"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox19ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LancarPagCadastrarjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox26">
+                        <Component class="javax.swing.JCheckBox" name="LancarPagEditarjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox26ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LancarPagEditarjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox33">
+                        <Component class="javax.swing.JCheckBox" name="LancarPagExcluirjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox33ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LancarPagExcluirjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox40">
+                        <Component class="javax.swing.JCheckBox" name="LancarPagRecebPagjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1608,12 +1707,12 @@
                             <Property name="selected" type="boolean" value="true"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox40ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LancarPagRecebPagjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JSeparator" name="jSeparator9">
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox7">
+                        <Component class="javax.swing.JCheckBox" name="controleCaixaAcessojCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1621,47 +1720,47 @@
                             <Property name="selected" type="boolean" value="true"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox7ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="controleCaixaAcessojCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox20">
+                        <Component class="javax.swing.JCheckBox" name="controleCaixaCadastrarjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox20ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="controleCaixaCadastrarjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox27">
+                        <Component class="javax.swing.JCheckBox" name="controleCaixaEditarjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox27ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="controleCaixaEditarjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox34">
+                        <Component class="javax.swing.JCheckBox" name="controleCaixaExcluirjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox34ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="controleCaixaExcluirjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JCheckBox" name="jCheckBox41">
+                        <Component class="javax.swing.JCheckBox" name="controleCaixaRecebPagjCheckBox">
                           <Properties>
                             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox41ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="controleCaixaRecebPagjCheckBoxActionPerformed"/>
                           </Events>
                         </Component>
                       </SubComponents>
@@ -1704,7 +1803,7 @@
                                           </Group>
                                       </Group>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jComboBoxSexo4" max="32767" attributes="0"/>
+                                          <Component id="jComboBoxFuncaoFuncionario" max="32767" attributes="0"/>
                                           <Component id="jTextFieldCRf" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -1723,11 +1822,11 @@
                                   <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabelSal" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jFormattedTextFieldSal" min="-2" pref="120" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldSalario" min="-2" pref="109" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="80" max="32767" attributes="0"/>
+                          <EmptySpace pref="91" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1739,7 +1838,7 @@
                           <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabelFuncao" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBoxSexo4" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                              <Component id="jComboBoxFuncaoFuncionario" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                               <Component id="jCheckBoxPROFAV" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -1757,9 +1856,9 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jFormattedTextFieldDTD" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                               <Component id="jFormattedTextFieldDtAd" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextFieldSal" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="jTextFieldSalario" alignment="1" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="180" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1787,7 +1886,7 @@
                     <Property name="text" type="java.lang.String" value="Fun&#xe7;&#xe3;o"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBoxSexo4">
+                <Component class="javax.swing.JComboBox" name="jComboBoxFuncaoFuncionario">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
@@ -1801,7 +1900,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxSexo4ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxFuncaoFuncionarioActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1899,11 +1998,8 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextFieldDtAdActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldSal">
+                <Component class="javax.swing.JTextField" name="jTextFieldSalario">
                   <Properties>
-                    <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                      <Format subtype="0" type="4"/>
-                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Arial" size="12" style="1"/>
                     </Property>

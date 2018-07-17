@@ -26,13 +26,15 @@ public class AvaliacaoDao{
 
             statement=SQLUtil.prepareStatement(SQLUtil.INSERIR_AVALIACAO);
             statement.setString(1, a.getObjetivo());
-            statement.setDate(2, a.getData());
-            statement.setInt(3, a.getAnamnese().getId());
-            statement.setInt(4, a.getComposicao_corporal().getId());
-            statement.setInt(5, a.getMetas_ideais().getId());
-            statement.setInt(6, a.getPerimetria().getId());
-            statement.setInt(7, a.getDobras_Cutaneas().getId());
-            
+            statement.setDate(2, a.getProxima_avaliacao());
+            statement.setDate(3, a.getData());
+            statement.setInt(4, SQLUtil.getLastIdTabela("anamnese"));
+            statement.setInt(5, SQLUtil.getLastIdTabela("composicao_corporal"));
+            statement.setInt(6, SQLUtil.getLastIdTabela("metas_ideais"));
+            statement.setInt(7, SQLUtil.getLastIdTabela("perimetria"));
+            statement.setInt(8, SQLUtil.getLastIdTabela("dobras_cutaneas"));
+            statement.setInt(9, a.getAluno().getId());
+            statement.setInt(10, a.getInstrutor().getId());
             statement.execute();
         } catch (Exception ex) {
             Mensagem.exibirMensagem("Erro ao cadastrar Avaliação!");

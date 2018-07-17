@@ -36,6 +36,10 @@ public class InstrutorBusiness {
         return dao.getById(id);
     }
     
+    public Instrutor getByIdFunc(int func_id){
+        return dao.getByCREF(func_id);
+    }
+    
     public ArrayList<Instrutor> getAll() {
         return dao.getAll();
     }

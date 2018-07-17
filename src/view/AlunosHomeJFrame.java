@@ -5,17 +5,20 @@
  */
 package view;
 
+import dao.AlunoDao;
+import fachada.Fachada;
+import java.util.List;
+import model.Aluno;
+
 /**
  *
  * @author Insinuante
  */
 public class AlunosHomeJFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AlunosJFrame
-     */
     public AlunosHomeJFrame() {
         initComponents();
+
     }
 
     /**
@@ -115,6 +118,11 @@ public class AlunosHomeJFrame extends javax.swing.JFrame {
 
         jLabelIconPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8_Search_20px_2.png"))); // NOI18N
         jLabelIconPesquisar.setToolTipText("Pesquisar");
+        jLabelIconPesquisar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelIconPesquisarMouseClicked(evt);
+            }
+        });
 
         jButtonCadastrar.setBackground(new java.awt.Color(45, 118, 232));
         jButtonCadastrar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -204,6 +212,22 @@ public class AlunosHomeJFrame extends javax.swing.JFrame {
         new AlunosCadastroJFrame().show();
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
+    private void jLabelIconPesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIconPesquisarMouseClicked
+        String busca = this.jTextFieldProsucar.getText();
+
+        if (busca.trim().length() == 0) {
+            Mensagem.exibirMensagem("Digite uma busca");
+            return;
+        }
+        List<Aluno> alunos = Fachada.getInstance().getAlunosPosBusca(busca);
+
+        carregarTabela(alunos);
+
+        System.out.println(alunos);
+
+
+    }//GEN-LAST:event_jLabelIconPesquisarMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCadastrar;
@@ -218,4 +242,8 @@ public class AlunosHomeJFrame extends javax.swing.JFrame {
     private javax.swing.JTable jTableAlunos;
     private javax.swing.JTextField jTextFieldProsucar;
     // End of variables declaration//GEN-END:variables
+
+    private void carregarTabela(List<Aluno> alunos) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

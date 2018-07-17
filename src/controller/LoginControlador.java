@@ -31,8 +31,7 @@ public class LoginControlador implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         String usuario=login.getjTextFieldUsuario().getText();
         String senha=login.getjPasswordFieldSenha().getText();
-        
-        
+
         if(Projeto_GYM.fachada.login(senha, usuario)!=null){
           
             login.dispose();

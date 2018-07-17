@@ -5,11 +5,25 @@
  */
 package view;
 
+import app.Projeto_GYM;
+import java.awt.Image;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.nio.channels.FileChannel;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import model.Academia;
+
 /**
  *
  * @author Insinuante
  */
 public class AcademiaCadastroJFrame extends javax.swing.JFrame {
+
+    private Academia a;
 
     /**
      * Creates new form AlunosJFrame
@@ -41,7 +55,7 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
         jLabelCelular = new javax.swing.JLabel();
         jLabelCidade = new javax.swing.JLabel();
         jFormattedTextFieldCelular = new javax.swing.JFormattedTextField();
-        jTextFieldLogradouro2 = new javax.swing.JTextField();
+        jTextFieldEmail = new javax.swing.JTextField();
         jLabelEmail1 = new javax.swing.JLabel();
         jComboBoxSexo3 = new javax.swing.JComboBox<>();
         jFormattedTextFieldCEP1 = new javax.swing.JFormattedTextField();
@@ -55,15 +69,17 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
         jLabelNomeF = new javax.swing.JLabel();
         jTextFieldNomeP = new javax.swing.JTextField();
         jLabelCNPJ1 = new javax.swing.JLabel();
-        jFormattedTextFieldCPF2 = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldCNPJ = new javax.swing.JFormattedTextField();
         jTextFieldCidade = new javax.swing.JTextField();
         jLabelCidade1 = new javax.swing.JLabel();
-        jFormattedTextFieldCelular1 = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldTelefone = new javax.swing.JFormattedTextField();
         logojPanel = new javax.swing.JPanel();
         logoAcademiajLabel = new javax.swing.JLabel();
         jLabelCpf1 = new javax.swing.JLabel();
         addjButton = new javax.swing.JButton();
         removjButton = new javax.swing.JButton();
+        jFormattedTextFieldNum = new javax.swing.JFormattedTextField();
+        jLabelUF2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro  de aluno");
@@ -75,7 +91,7 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
         jLabeAlunos.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 36)); // NOI18N
         jLabeAlunos.setForeground(new java.awt.Color(255, 255, 255));
         jLabeAlunos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8_Gym_50px.png"))); // NOI18N
-        jLabeAlunos.setText(" Cadastrar academia");
+        jLabeAlunos.setText(" Academia");
 
         javax.swing.GroupLayout jPanelBlueLayout = new javax.swing.GroupLayout(jPanelBlue);
         jPanelBlue.setLayout(jPanelBlueLayout);
@@ -167,10 +183,10 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldLogradouro2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jTextFieldLogradouro2.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldEmail.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTextFieldEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldLogradouro2ActionPerformed(evt);
+                jTextFieldEmailActionPerformed(evt);
             }
         });
 
@@ -251,14 +267,14 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
         jLabelCNPJ1.setText("Nome do proprietário");
 
         try {
-            jFormattedTextFieldCPF2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+            jFormattedTextFieldCNPJ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextFieldCPF2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jFormattedTextFieldCPF2.addActionListener(new java.awt.event.ActionListener() {
+        jFormattedTextFieldCNPJ.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jFormattedTextFieldCNPJ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextFieldCPF2ActionPerformed(evt);
+                jFormattedTextFieldCNPJActionPerformed(evt);
             }
         });
 
@@ -274,14 +290,14 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
         jLabelCidade1.setText("Telefone");
 
         try {
-            jFormattedTextFieldCelular1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+            jFormattedTextFieldTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextFieldCelular1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jFormattedTextFieldCelular1.addActionListener(new java.awt.event.ActionListener() {
+        jFormattedTextFieldTelefone.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jFormattedTextFieldTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextFieldCelular1ActionPerformed(evt);
+                jFormattedTextFieldTelefoneActionPerformed(evt);
             }
         });
 
@@ -326,6 +342,12 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
             }
         });
 
+        jFormattedTextFieldNum.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        jLabelUF2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabelUF2.setForeground(new java.awt.Color(45, 118, 232));
+        jLabelUF2.setText("N°");
+
         javax.swing.GroupLayout jPanelBackLayout = new javax.swing.GroupLayout(jPanelBack);
         jPanelBack.setLayout(jPanelBackLayout);
         jPanelBackLayout.setHorizontalGroup(
@@ -341,8 +363,8 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
                         .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jTextFieldNome, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelBackLayout.createSequentialGroup()
-                                .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelBackLayout.createSequentialGroup()
+                                .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBackLayout.createSequentialGroup()
                                         .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jTextFieldNomeF)
                                             .addGroup(jPanelBackLayout.createSequentialGroup()
@@ -350,12 +372,12 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
                                                 .addGap(0, 133, Short.MAX_VALUE)))
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jFormattedTextFieldCPF2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jFormattedTextFieldCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabelCNPJ)))
-                                    .addComponent(jTextFieldNomeP)
-                                    .addComponent(jTextFieldLogradouro2)
-                                    .addComponent(jTextFieldLogradouro3)
-                                    .addGroup(jPanelBackLayout.createSequentialGroup()
+                                    .addComponent(jTextFieldNomeP, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldLogradouro3, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBackLayout.createSequentialGroup()
                                         .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabelCNPJ1)
                                             .addComponent(jLabelLogradouro1)
@@ -369,7 +391,7 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
                                     .addComponent(jFormattedTextFieldCEP1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
                                     .addComponent(jFormattedTextFieldCPF1)
                                     .addComponent(jLabelCidade1)
-                                    .addComponent(jFormattedTextFieldCelular1)
+                                    .addComponent(jFormattedTextFieldTelefone)
                                     .addComponent(jLabelCEP1))))
                         .addGap(11, 11, 11)))
                 .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,28 +402,32 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
                             .addComponent(addjButton)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(removjButton)))
-                    .addComponent(jLabelCelular)
                     .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanelBackLayout.createSequentialGroup()
                             .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanelBackLayout.createSequentialGroup()
-                            .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextFieldCidade, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelCidade, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jFormattedTextFieldCelular, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
+                            .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jTextFieldCidade, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelCidade, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jFormattedTextFieldCelular, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
+                                .addComponent(jLabelCelular))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jComboBoxSexo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabelUF1)))))
+                                .addComponent(jLabelUF2)
+                                .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jComboBoxSexo3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabelUF1)
+                                    .addComponent(jFormattedTextFieldNum))))))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
         jPanelBackLayout.setVerticalGroup(
             jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBackLayout.createSequentialGroup()
                 .addComponent(jPanelBlue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelNome)
                     .addComponent(jLabelCpf1))
@@ -418,7 +444,7 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jTextFieldNomeF, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jFormattedTextFieldCPF2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jFormattedTextFieldCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanelBackLayout.createSequentialGroup()
                                 .addComponent(jLabelCpf)
                                 .addGap(11, 11, 11)
@@ -453,21 +479,22 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
                         .addComponent(jLabelUF1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jComboBoxSexo3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(5, 5, 5)
+                .addGap(11, 11, 11)
                 .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelBackLayout.createSequentialGroup()
-                        .addComponent(jLabelCelular)
-                        .addGap(11, 11, 11)
-                        .addComponent(jFormattedTextFieldCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jFormattedTextFieldCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jFormattedTextFieldNum, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelBackLayout.createSequentialGroup()
                         .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelCidade1)
-                            .addComponent(jLabelEmail1))
+                            .addComponent(jLabelEmail1)
+                            .addComponent(jLabelCelular)
+                            .addComponent(jLabelUF2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jFormattedTextFieldCelular1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldLogradouro2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                            .addComponent(jFormattedTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -510,12 +537,13 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        // TODO add your handling code here:
+        Projeto_GYM.fachada.cadastrarEndereco(a.getEndereco());
+        Projeto_GYM.fachada.cadastrarAcademia(a);
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
-    private void jTextFieldLogradouro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLogradouro2ActionPerformed
+    private void jTextFieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldLogradouro2ActionPerformed
+    }//GEN-LAST:event_jTextFieldEmailActionPerformed
 
     private void jComboBoxSexo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSexo3ActionPerformed
         // TODO add your handling code here:
@@ -541,24 +569,26 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomePActionPerformed
 
-    private void jFormattedTextFieldCPF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCPF2ActionPerformed
+    private void jFormattedTextFieldCNPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCNPJActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextFieldCPF2ActionPerformed
+    }//GEN-LAST:event_jFormattedTextFieldCNPJActionPerformed
 
     private void jTextFieldCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCidadeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCidadeActionPerformed
 
-    private void jFormattedTextFieldCelular1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldCelular1ActionPerformed
+    private void jFormattedTextFieldTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldTelefoneActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextFieldCelular1ActionPerformed
+    }//GEN-LAST:event_jFormattedTextFieldTelefoneActionPerformed
 
     private void addjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addjButtonActionPerformed
-        // TODO add your handling code here:
+        a.setLogo(copy(this));
+        logoAcademiajLabel.setIcon(new ImageIcon(a.getLogo()));
     }//GEN-LAST:event_addjButtonActionPerformed
 
     private void removjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removjButtonActionPerformed
-        // TODO add your handling code here:
+        a.setLogo("");
+        logoAcademiajLabel.setText("Inserir logo");
     }//GEN-LAST:event_removjButtonActionPerformed
 
 
@@ -568,10 +598,11 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JComboBox<String> jComboBoxSexo3;
     private javax.swing.JFormattedTextField jFormattedTextFieldCEP1;
+    private javax.swing.JFormattedTextField jFormattedTextFieldCNPJ;
     private javax.swing.JFormattedTextField jFormattedTextFieldCPF1;
-    private javax.swing.JFormattedTextField jFormattedTextFieldCPF2;
     private javax.swing.JFormattedTextField jFormattedTextFieldCelular;
-    private javax.swing.JFormattedTextField jFormattedTextFieldCelular1;
+    private javax.swing.JFormattedTextField jFormattedTextFieldNum;
+    private javax.swing.JFormattedTextField jFormattedTextFieldTelefone;
     private javax.swing.JLabel jLabeAlunos;
     private javax.swing.JLabel jLabelBairro1;
     private javax.swing.JLabel jLabelCEP1;
@@ -587,12 +618,13 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelNomeF;
     private javax.swing.JLabel jLabelUF1;
+    private javax.swing.JLabel jLabelUF2;
     private javax.swing.JPanel jPanelBack;
     private javax.swing.JPanel jPanelBlue;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JTextField jTextFieldBairro1;
     private javax.swing.JTextField jTextFieldCidade;
-    private javax.swing.JTextField jTextFieldLogradouro2;
+    private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldLogradouro3;
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldNomeF;
@@ -601,4 +633,54 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel logojPanel;
     private javax.swing.JButton removjButton;
     // End of variables declaration//GEN-END:variables
+
+    private Academia get(){
+        a.setCelular(jFormattedTextFieldCelular.getText());
+        a.setCnpj(jFormattedTextFieldCNPJ.getText());
+        a.setCpf(jFormattedTextFieldCPF1.getText());
+        a.setEmail(jTextFieldEmail.getText());
+        a.getEndereco().setBairro(jTextFieldBairro1.getText());
+        a.getEndereco().setCep(jFormattedTextFieldCEP1.getText());
+        a.getEndereco().setCidade(jTextFieldCidade.getText());
+        a.getEndereco().setLogradouro(jTextFieldLogradouro3.getText());
+        a.getEndereco().setNum(Integer.parseInt(jFormattedTextFieldNum.getText()));
+        a.getEndereco().setUf(jComboBoxSexo3.getSelectedItem()+"");
+        a.setNome(jTextFieldNome.getText());
+        a.setNomeFantasia(jTextFieldNomeF.getText());
+        a.setNomeProprietario(jTextFieldNomeP.getText());
+        a.setTelefone(jFormattedTextFieldTelefone.getText());
+        
+        return a;
+    }
+    
+    
+    
+
+    private static String copy(JFrame tela) {
+        try {
+            JFileChooser chooser = new JFileChooser();
+            chooser.showOpenDialog(tela);
+            File file = chooser.getSelectedFile();
+
+            String l = file.getAbsolutePath();
+            String i = "";
+
+            i = "src/imagens/" + file.getName();            
+
+            FileInputStream fisDe = new FileInputStream(l);
+            FileOutputStream fisPara = new FileOutputStream(i);
+
+            FileChannel fcPara = fisDe.getChannel();
+            FileChannel fcDe = fisPara.getChannel();
+
+            if (fcPara.transferTo(0, fcPara.size(), fcDe) == 0L) {
+                fcPara.close();
+                fcDe.close();
+            }
+            return i;
+        } catch (Exception x) {
+            JOptionPane.showMessageDialog(null, x);
+        }
+        return null;
+    }
 }

@@ -5,6 +5,8 @@
  */
 package view;
 
+import app.Projeto_GYM;
+import controller.LoginControlador;
 import javax.swing.JPanel;
 
 /**
@@ -33,12 +35,14 @@ public class HomeJFrame extends javax.swing.JFrame {
         jPanelCabecario = new javax.swing.JPanel();
         jLabeAcademia = new javax.swing.JLabel();
         jLabeGym = new javax.swing.JLabel();
-        jLabeSair = new javax.swing.JLabel();
+        jLabeLogout = new javax.swing.JLabel();
         jTextFieldPesquisar = new javax.swing.JTextField();
         jSeparator = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabeAcademia1 = new javax.swing.JLabel();
+        jLabeSair = new javax.swing.JLabel();
+        jLabeConfig = new javax.swing.JLabel();
         jPanelAlunos = new javax.swing.JPanel();
         jLabelAlunos = new javax.swing.JLabel();
         jLabelIconAlunos = new javax.swing.JLabel();
@@ -76,13 +80,13 @@ public class HomeJFrame extends javax.swing.JFrame {
         jLabeGym.setForeground(new java.awt.Color(255, 255, 255));
         jLabeGym.setText("GYM");
 
-        jLabeSair.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabeSair.setForeground(new java.awt.Color(255, 255, 255));
-        jLabeSair.setText("  X");
-        jLabeSair.setToolTipText("Sair");
-        jLabeSair.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabeLogout.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabeLogout.setForeground(new java.awt.Color(255, 255, 255));
+        jLabeLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8_Logout_Rounded_Up_30px_1.png"))); // NOI18N
+        jLabeLogout.setToolTipText("Logout");
+        jLabeLogout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabeSairMousePressed(evt);
+                jLabeLogoutMousePressed(evt);
             }
         });
 
@@ -106,6 +110,26 @@ public class HomeJFrame extends javax.swing.JFrame {
         jLabeAcademia1.setForeground(new java.awt.Color(255, 255, 255));
         jLabeAcademia1.setText("de Musculação");
 
+        jLabeSair.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabeSair.setForeground(new java.awt.Color(255, 255, 255));
+        jLabeSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8_Cancel_30px_1.png"))); // NOI18N
+        jLabeSair.setToolTipText("Sair");
+        jLabeSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabeSairMousePressed(evt);
+            }
+        });
+
+        jLabeConfig.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabeConfig.setForeground(new java.awt.Color(255, 255, 255));
+        jLabeConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8_Settings_30px_1.png"))); // NOI18N
+        jLabeConfig.setToolTipText("Configurações");
+        jLabeConfig.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabeConfigMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelCabecarioLayout = new javax.swing.GroupLayout(jPanelCabecario);
         jPanelCabecario.setLayout(jPanelCabecarioLayout);
         jPanelCabecarioLayout.setHorizontalGroup(
@@ -123,16 +147,21 @@ public class HomeJFrame extends javax.swing.JFrame {
                         .addComponent(jLabeAcademia)))
                 .addGroup(jPanelCabecarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelCabecarioLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabeSair, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelCabecarioLayout.createSequentialGroup()
                         .addGap(64, 64, 64)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelCabecarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jSeparator)
                             .addComponent(jTextFieldPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 119, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCabecarioLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabeConfig)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabeLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabeSair)
+                        .addGap(23, 23, 23))))
         );
         jPanelCabecarioLayout.setVerticalGroup(
             jPanelCabecarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,7 +174,12 @@ public class HomeJFrame extends javax.swing.JFrame {
                     .addGroup(jPanelCabecarioLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(jLabeGym))
-                    .addComponent(jLabeSair))
+                    .addGroup(jPanelCabecarioLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanelCabecarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabeLogout)
+                            .addComponent(jLabeConfig)
+                            .addComponent(jLabeSair))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelCabecarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelCabecarioLayout.createSequentialGroup()
@@ -529,9 +563,13 @@ public class HomeJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldPesquisarActionPerformed
 
-    private void jLabeSairMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabeSairMousePressed
-        System.exit(0);
-    }//GEN-LAST:event_jLabeSairMousePressed
+    private void jLabeLogoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabeLogoutMousePressed
+        dispose();
+        // ESTA CERTO?
+        LoginJFrame login = new LoginJFrame();
+        login.setVisible(true);
+        new LoginControlador(login);
+    }//GEN-LAST:event_jLabeLogoutMousePressed
 
     private void jPanelFinanceiroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelFinanceiroMouseEntered
         setColor(jPanelFinanceiro);
@@ -544,6 +582,14 @@ public class HomeJFrame extends javax.swing.JFrame {
     private void jPanelFinanceiroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelFinanceiroMousePressed
         new FincanceiroJFrame().show();
     }//GEN-LAST:event_jPanelFinanceiroMousePressed
+
+    private void jLabeSairMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabeSairMousePressed
+       System.exit(0);
+    }//GEN-LAST:event_jLabeSairMousePressed
+
+    private void jLabeConfigMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabeConfigMousePressed
+        new AcademiaCadastroJFrame().show();
+    }//GEN-LAST:event_jLabeConfigMousePressed
 
     // ME: 
     public static void setColor(JPanel panel){
@@ -559,7 +605,9 @@ public class HomeJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabeAcademia;
     private javax.swing.JLabel jLabeAcademia1;
+    private javax.swing.JLabel jLabeConfig;
     private javax.swing.JLabel jLabeGym;
+    private javax.swing.JLabel jLabeLogout;
     private javax.swing.JLabel jLabeSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;

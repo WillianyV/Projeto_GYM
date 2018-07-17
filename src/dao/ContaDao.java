@@ -6,6 +6,9 @@
 package dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,5 +39,52 @@ public class ContaDao {
     public void editar(Conta c){}
     public void excluir(Conta c){}
     public Conta getById(int id){return null;}
+    
+    public ArrayList<String> getAllNomeContas(){
+        ResultSet result;
+        ArrayList<String> contas = new ArrayList<>();
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.SELECT_CONTA_ALL_NOMES);
+            result=statement.executeQuery();
+            while (result.next()) {                
+                contas.add(result.getString(1));
+            }
+            return contas;
+        } catch (Exception ex) {
+            Mensagem.exibirMensagem("Erro ao pegar nome das contas!\n"+ex.getMessage());
+        }
+        
+        return contas;
+    }
+    
+    public Conta getByNome(String nome){
+        ResultSet result;
+        try {
+            statement=SQLUtil.prepareStatement(SQLUtil.SELECT_CONTA_BY_NOME);
+            statement.setString(1, nome);
+            result=statement.executeQuery();
+            
+            result.next();
+            
+            return get(result);
+        } catch (Exception ex) {
+            Mensagem.exibirMensagem("Erro ao pegar Conta pelo nome!");
+        }
+        return null;
+    }
     public Conta getByData(Calendar c){return null;}
+    
+    private Conta get(ResultSet result){
+        Conta c = new Conta();
+        
+        try {
+            c.setId(result.getInt(1));
+            c.setDescricao(result.getString(2));
+            c.setTipo(result.getString(3));
+            return c;
+        } catch (SQLException ex) {
+            Mensagem.exibirMensagem("Erro ao pegar Conta!");
+        }
+        return c;        
+    }
 }

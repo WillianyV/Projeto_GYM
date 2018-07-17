@@ -7,43 +7,55 @@ package business;
 
 import dao.AlunoDao;
 import java.util.ArrayList;
+import java.util.List;
 import model.Aluno;
-
-
 
 /**
  *
  * @author Elvis
  */
 public class AlunoBusiness {
+
     private AlunoDao dao;
-    
-    public AlunoBusiness(){
-        this.dao=new AlunoDao();
+
+    public AlunoBusiness() {
+        this.dao = new AlunoDao();
     }
-    
-    public Aluno cadastrar(Aluno aluno){
+
+    public Aluno cadastrar(Aluno aluno) {
         return dao.cadastrar(aluno);
     }
-    
-    public void editar(Aluno aluno){
+
+    public void editar(Aluno aluno) {
         dao.editar(aluno);
     }
-    
-    public void excluir(Aluno aluno){
+
+    public void excluir(Aluno aluno) {
         dao.excluir(aluno);
     }
-    
-    public Aluno getById(int id){
+
+    public Aluno getById(int id) {
         return dao.getAlunoById(id);
     }
-    
-    public Aluno getByNome(String nome){
+
+    public Aluno getByNome(String nome) {
         return dao.getAlunoByNome(nome);
     }
-    
-    public ArrayList<Aluno> getall(){
+
+    public ArrayList<Aluno> getall() {
         return dao.getAll();
     }
-    
+
+    public List<Aluno> getPorBusca(String busca) {
+        List<Aluno> alunosBusca = new ArrayList<>();
+        for (Aluno a : getall()) {
+            if (a.getCpf().contains(busca) || a.getNome().contains(busca) || a.getEmail().contains(busca)) {
+                alunosBusca.add(a);
+            }
+        }
+
+        return alunosBusca;
+
+    }
+
 }

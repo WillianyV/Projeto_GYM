@@ -6,6 +6,7 @@
 package business;
 
 import dao.ContaDao;
+import java.util.ArrayList;
 import java.util.Calendar;
 import model.Conta;
 
@@ -36,8 +37,15 @@ public class ContaBusiness {
         return dao.getById(id);
     }
     
+    public Conta getByNome(String nome){
+        return dao.getByNome(nome);
+    }
+    
     public Conta getByData(Calendar c){
         return dao.getByData(c);
     }
     
+    public ArrayList<String> getAllNomeContas(){      
+        return dao.getAllNomeContas();
+    }
 }

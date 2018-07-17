@@ -5,17 +5,24 @@
  */
 package view;
 
+import app.Projeto_GYM;
+import app.Util;
+import java.util.ArrayList;
+import model.ControleFinanceiro;
+
 /**
  *
  * @author Insinuante
  */
 public class FinanceiroLancarFaturaJFrame extends javax.swing.JFrame {
-
+    private ControleFinanceiro c;
     /**
      * Creates new form NewJFrameLogin
      */
     public FinanceiroLancarFaturaJFrame() {
+        c = new ControleFinanceiro();
         initComponents();
+        this.preencherComboBox();
     }
 
     /**
@@ -31,20 +38,20 @@ public class FinanceiroLancarFaturaJFrame extends javax.swing.JFrame {
         jPanelSair = new javax.swing.JPanel();
         jLabeSair = new javax.swing.JLabel();
         jLabelTipo = new javax.swing.JLabel();
-        jTextFieldUsuario = new javax.swing.JTextField();
+        jTextFieldDescricao = new javax.swing.JTextField();
         jLabelDescricao = new javax.swing.JLabel();
         jButtonLancar = new javax.swing.JButton();
         jLabelLogin3 = new javax.swing.JLabel();
         jTextFieldId = new javax.swing.JTextField();
-        jComboBoxServico = new javax.swing.JComboBox<>();
+        jComboBoxHistorico = new javax.swing.JComboBox<>();
         jLabelData = new javax.swing.JLabel();
         jLabelData1 = new javax.swing.JLabel();
         jButtonFechar = new javax.swing.JButton();
-        jFormattedTextFieldDN = new javax.swing.JFormattedTextField();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldData = new javax.swing.JFormattedTextField();
         jLabelDados = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBoxFormaPag = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        jTextFieldValor = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Lançamento");
@@ -82,9 +89,9 @@ public class FinanceiroLancarFaturaJFrame extends javax.swing.JFrame {
         jLabelTipo.setForeground(new java.awt.Color(45, 118, 232));
         jLabelTipo.setText("Historico");
 
-        jTextFieldUsuario.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldDescricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldUsuarioActionPerformed(evt);
+                jTextFieldDescricaoActionPerformed(evt);
             }
         });
 
@@ -114,10 +121,10 @@ public class FinanceiroLancarFaturaJFrame extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxServico.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jComboBoxServico.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxHistorico.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jComboBoxHistorico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxServicoActionPerformed(evt);
+                jComboBoxHistoricoActionPerformed(evt);
             }
         });
 
@@ -141,26 +148,23 @@ public class FinanceiroLancarFaturaJFrame extends javax.swing.JFrame {
         });
 
         try {
-            jFormattedTextFieldDN.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            jFormattedTextFieldData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextFieldDN.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jFormattedTextFieldDN.addActionListener(new java.awt.event.ActionListener() {
+        jFormattedTextFieldData.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jFormattedTextFieldData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextFieldDNActionPerformed(evt);
+                jFormattedTextFieldDataActionPerformed(evt);
             }
         });
-
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
-        jFormattedTextField1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         jLabelDados.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 24)); // NOI18N
         jLabelDados.setForeground(new java.awt.Color(45, 118, 232));
         jLabelDados.setText("Lançamento de conta");
 
-        jComboBox1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dinheiro", "Cartão Crétido", "Cartão Débito", "Cheque" }));
+        jComboBoxFormaPag.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jComboBoxFormaPag.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dinheiro", "Cartão Crétido", "Cartão Débito", "Cheque" }));
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(45, 118, 232));
@@ -188,25 +192,25 @@ public class FinanceiroLancarFaturaJFrame extends javax.swing.JFrame {
                             .addGroup(jPanelLoginLayout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jComboBox1, 0, 137, Short.MAX_VALUE))
+                            .addComponent(jComboBoxFormaPag, 0, 137, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabelDescricao)
-                                .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLoginLayout.createSequentialGroup()
                                 .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabelData, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jFormattedTextFieldDN, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jFormattedTextFieldData, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButtonLancar, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabelData1)
-                                    .addComponent(jButtonFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jButtonFechar, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldValor))))
                         .addContainerGap(46, Short.MAX_VALUE))
                     .addGroup(jPanelLoginLayout.createSequentialGroup()
-                        .addComponent(jComboBoxServico, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxHistorico, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanelLoginLayout.setVerticalGroup(
@@ -221,7 +225,7 @@ public class FinanceiroLancarFaturaJFrame extends javax.swing.JFrame {
                     .addComponent(jLabelDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,10 +233,8 @@ public class FinanceiroLancarFaturaJFrame extends javax.swing.JFrame {
                         .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelData1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBoxServico, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(13, 13, 13)
+                        .addComponent(jComboBoxHistorico, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelLoginLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -243,12 +245,14 @@ public class FinanceiroLancarFaturaJFrame extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel1)
                                 .addGap(12, 12, 12)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)))
+                                .addComponent(jComboBoxFormaPag, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)))
                         .addGap(28, 28, 28))
                     .addGroup(jPanelLoginLayout.createSequentialGroup()
                         .addComponent(jLabelData, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(jFormattedTextFieldDN, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jFormattedTextFieldData, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -273,38 +277,38 @@ public class FinanceiroLancarFaturaJFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jLabeSairMousePressed
 
-    private void jTextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioActionPerformed
+    private void jTextFieldDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
+    }//GEN-LAST:event_jTextFieldDescricaoActionPerformed
 
     private void jButtonLancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLancarActionPerformed
-       
+        get();
+        Projeto_GYM.fachada.cadastrarControleFinanceiro(c);
     }//GEN-LAST:event_jButtonLancarActionPerformed
 
     private void jTextFieldIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldIdActionPerformed
 
-    private void jComboBoxServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxServicoActionPerformed
+    private void jComboBoxHistoricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxHistoricoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxServicoActionPerformed
+    }//GEN-LAST:event_jComboBoxHistoricoActionPerformed
 
     private void jButtonFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFecharActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButtonFecharActionPerformed
 
-    private void jFormattedTextFieldDNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldDNActionPerformed
+    private void jFormattedTextFieldDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldDataActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextFieldDNActionPerformed
+    }//GEN-LAST:event_jFormattedTextFieldDataActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonFechar;
     private javax.swing.JButton jButtonLancar;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBoxServico;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextFieldDN;
+    private javax.swing.JComboBox<String> jComboBoxFormaPag;
+    private javax.swing.JComboBox<String> jComboBoxHistorico;
+    private javax.swing.JFormattedTextField jFormattedTextFieldData;
     private javax.swing.JLabel jLabeSair;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelDados;
@@ -315,7 +319,27 @@ public class FinanceiroLancarFaturaJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelTipo;
     private javax.swing.JPanel jPanelLogin;
     private javax.swing.JPanel jPanelSair;
+    private javax.swing.JTextField jTextFieldDescricao;
     private javax.swing.JTextField jTextFieldId;
-    private javax.swing.JTextField jTextFieldUsuario;
+    private javax.swing.JTextField jTextFieldValor;
     // End of variables declaration//GEN-END:variables
+    
+    private ControleFinanceiro get(){
+        c.setConta(Projeto_GYM.fachada.getByNomeConta(jComboBoxHistorico.getSelectedItem()+""));
+        c.setData(Util.getDate(jFormattedTextFieldData.getText()));
+        c.setDescricao(jTextFieldDescricao.getText());
+        Mensagem.exibirMensagem(jTextFieldValor.getText());
+        c.setValor(Float.parseFloat(jTextFieldValor.getText()));
+        return c;
+    }
+    
+    private void preencherComboBox(){
+        ArrayList<String> contas = Projeto_GYM.fachada.getAllNomeContas();
+        if(contas!=null){
+            jComboBoxHistorico.removeAllItems();
+            for(String c : contas){
+                jComboBoxHistorico.addItem(c);
+            }
+        }
+    }
 }
