@@ -1333,10 +1333,11 @@ public class FucionariosCadastroJFrame extends javax.swing.JFrame {
                     .addComponent(jLabelDataDe)
                     .addComponent(jLabelSal))
                 .addGap(18, 18, 18)
-                .addGroup(jPaneAdicionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFormattedTextFieldDTD, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextFieldDtAd, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPaneAdicionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldSalario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPaneAdicionaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jFormattedTextFieldDTD, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jFormattedTextFieldDtAd, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(182, 182, 182))
         );
 
@@ -1471,6 +1472,7 @@ public class FucionariosCadastroJFrame extends javax.swing.JFrame {
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
           f = getFuncionario();
+          Projeto_GYM.fachada.cadastrarEndereco(f.getEndereco());
           Projeto_GYM.fachada.cadastrarFuncionario(f);
           if(jCheckBoxPROFAV.isSelected())              
             Projeto_GYM.fachada.cadastrarInstrutor(i);

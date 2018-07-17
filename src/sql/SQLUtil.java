@@ -27,8 +27,8 @@ public class SQLUtil {
             + "cadFuncExcluir,cadFuncRecebPag,avFisicaAcessar,fichaTreinoAcessar,relatorioAcessar,"
             + "relatorioCadastrar,relatorioEditar,relatorioExcluir,relatorioRecebPag,lancarPagAcessar,lancarPagCadastrar,"
             + "lancarPagEditar,lancarPagExcluir,lancarPagRecebPag,controleCaixaAcessar,controleCaixaCadastrar,controleCaixaEditar,"
-            + "controleCaixaExcluir,controleCaixaRecebPag,endereco_id) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,"
-            + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            + "controleCaixaExcluir,controleCaixaRecebPag,endereco_id) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,"
+            + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
 	
     public static String INSERIR_COMPOSICAO_CORPORAL = "insert into composicao_corporal (peso_gorda,peso_magra,imc,rcq,porcentual_gordura,"
