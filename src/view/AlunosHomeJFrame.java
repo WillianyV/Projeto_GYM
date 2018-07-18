@@ -7,18 +7,22 @@ package view;
 
 import dao.AlunoDao;
 import fachada.Fachada;
+import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JTable;
 import model.Aluno;
+import model.ModeloTabela;
 
 /**
  *
  * @author Insinuante
  */
 public class AlunosHomeJFrame extends javax.swing.JFrame {
-
+    Fachada fachada;
     public AlunosHomeJFrame() {
+        fachada = Fachada.getInstance();
         initComponents();
-
+        carregarTabela(Fachada.getInstance().getAllAluno());            
     }
 
     /**
@@ -219,7 +223,7 @@ public class AlunosHomeJFrame extends javax.swing.JFrame {
             Mensagem.exibirMensagem("Digite uma busca");
             return;
         }
-        List<Aluno> alunos = Fachada.getInstance().getAlunosPosBusca(busca);
+        ArrayList<Aluno> alunos = Fachada.getInstance().getAlunosPosBusca(busca);
 
         carregarTabela(alunos);
 
@@ -243,7 +247,22 @@ public class AlunosHomeJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldProsucar;
     // End of variables declaration//GEN-END:variables
 
-    private void carregarTabela(List<Aluno> alunos) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void carregarTabela(ArrayList<Aluno> alunos) {
+        String[] colunas = new String[]{"ID","NOME"};
+        ArrayList<Object[]> dados = new ArrayList<>();
+        
+        for(Aluno a:alunos){
+            dados.add(new Object[]{a.getId(),a.getNome()});
+        }
+        
+        ModeloTabela modeloTabela =  new ModeloTabela(dados, colunas);   
+        jTableAlunos.setModel(modeloTabela);      
+        jTableAlunos.getColumnModel().getColumn(0).setPreferredWidth(40);
+        jTableAlunos.getColumnModel().getColumn(0).setResizable(false);
+        jTableAlunos.getColumnModel().getColumn(1).setPreferredWidth(410);
+        jTableAlunos.getColumnModel().getColumn(1).setResizable(false);
+        jTableAlunos.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
     }
+    
+    
 }
