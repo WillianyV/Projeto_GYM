@@ -26,7 +26,6 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
     public AlunosCadastroJFrame() {
         initComponents();
         a=new Aluno();
-        a.setEndereco(new Endereco());
     }
 
     /**
@@ -279,7 +278,7 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
         });
 
         jComboBoxSexo1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jComboBoxSexo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Feminino", "Masulino" }));
+        jComboBoxSexo1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Feminino", "Masculino" }));
         jComboBoxSexo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxSexo1ActionPerformed(evt);
@@ -952,6 +951,28 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
         a.getEndereco().setUf(getjComboBoxUF().getSelectedItem()+"");
         
         return a;
+    }
+    
+    public void setAluno(Aluno a){
+//        int num = Integer.parseInt(getjTextFieldNumero().getText());
+        this.a=a;
+        jFormattedTextFieldCPF1.setText(a.getCpf());
+        getjFormattedTextFieldDN().setText(Util.getDateString(a.getData_nascimento()));
+        getjTextFieldNome().setText(a.getNome());
+        getjComboBoxSexo1().setSelectedItem(a.getSexo());
+//        a.setStatus(getjComboBoxStatus().getSelectedItem()+"");
+//        a.setRg(getjTextFieldRG().getText());
+//        a.setEmail(getjTextFieldemail().getText());
+//        a.setCelular(getjFormattedTextFieldCelular().getText());
+//        //Acrescentar campo de data de vencimento da mensalidade
+//              
+//        
+//        a.getEndereco().setBairro(getjTextFieldBairro().getText());
+//        a.getEndereco().setCep(getjFormattedTextFieldCEP().getText());
+//        a.getEndereco().setCidade(getjTextFieldCidade().getText());
+//        a.getEndereco().setLogradouro(getjTextFieldLogradouro().getText());
+//        a.getEndereco().setNum(num);
+//        a.getEndereco().setUf(getjComboBoxUF().getSelectedItem()+"");
     }
     
     public JComboBox<String> getjComboBoxSexo1() {
