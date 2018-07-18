@@ -33,7 +33,7 @@ public class FichaExercicioDao {
             
             statement.execute();
         } catch (Exception ex) {
-            Mensagem.exibirMensagem("Erro ao cadastrar em Ficha_Exercicio!");
+            Mensagem.exibirMensagem("Erro ao cadastrar em Ficha_Exercicio!\n"+ex.getMessage());
         }
     }
     public void excluir(FichaExercicio f){}

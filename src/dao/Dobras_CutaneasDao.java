@@ -34,7 +34,7 @@ public class Dobras_CutaneasDao {
             
             statement.execute();
         } catch (Exception ex) {
-            Mensagem.exibirMensagem("Erro ao cadastrar dobras cutânea!");
+            Mensagem.exibirMensagem("Erro ao cadastrar dobras cutânea!\n"+ex.getMessage());
         }
         
         

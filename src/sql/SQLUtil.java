@@ -37,7 +37,7 @@ public class SQLUtil {
     public static String INSERIR_PERIMETRIA = "insert into perimetria (altura,cintura,peso,coxa_esquerda,ombro,braco_esquerdo,"
             + "coxa_direita,abdomem,torax,quadril,panturrilha_direita,braco_direito, ante_braco_direito,ante_braco_esquerdo) values (?,"
             + "?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-    public static String INSERIR_DOBRAS_CUTANEAS ="insert into dobras_cutaneas (peitoral,axilar_media,abdominal,coxa,bicipital,supra_iliaca,"
+    public static String INSERIR_DOBRAS_CUTANEAS ="insert into dobras_cutaneas (peitoral,axilar_media,abdominal,coxa,bicipita,supra_iliaca,"
             + "subscapular,tricipital) values (?,?,?,?,?,?,?,?)";
     public static String INSERIR_EXERCICIO = "insert into exercicio (tipo,nome) values (?,?)";
     public static String INSERIR_INSTRUTOR = "insert into instrutor (cref,funcionario_id) values (?,?)";
@@ -46,7 +46,7 @@ public class SQLUtil {
     public static String INSERIR_ANAMNESE = "insert into anamnese (tabagismo,restricaoArticular,cardiopatias,medicamentos,"
             + "hipertensao,outros,diabetes,probPulmonares,ativFisica,nivel,tabagismoObs,restricaoArticularObs,cardiopatiasObs,"
             + "medicamentosObs,hipertensaoObs,outrosObs,diabetesObs,probPulmonaresObs,ativFisicaObs) values (?,?,?,?,?,?,?,?,?,?,"
-            + "?,?,?,?,?,?,?,?)";
+            + "?,?,?,?,?,?,?,?,?)";
     public static String INSERIR_AVALIACAO = "insert into avaliacao (objetivo,proxima_avaliacao,data,anamnese_id,composicao_corporal_id,metas_ideais_id"
              + ",perimetria_id,dobras_cutaneas_id,aluno_id,instrutor_id) values (?,?,?,?,?,?,?,?,?,?)";
     public static String INSERIR_PAGAMENTO = "insert into pagamento (valor,descricao,data,dataVenc,formaPag,aluno_id,funcionario_id) values (?,?,?,?,?,?,?)";
@@ -58,6 +58,8 @@ public class SQLUtil {
     public static String SELECT_INSTRUTOR_BY_ID_FUNCIONARIO = "select * from instrutor where funcionario_id=?";
     public static String SELECT_CONTA_BY_NOME = "select * from historico where nome=?";
     public static String SELECT_CONTA_ALL_NOMES = "select nome from historico";
+    public static String SELECT_ALL_ALUNO = "select * from aluno";
+    public static String SELECT_BY_ID_ALUNO = "select * from aluno where id=?";
     
     public static String URL_POSTGRES = "jdbc:postgresql://localhost:5432/gym";
     public static String USUARIO_POSTGRES = "postgres";

@@ -46,16 +46,14 @@ public class AlunoBusiness {
         return dao.getAll();
     }
 
-    public List<Aluno> getPorBusca(String busca) {
-        List<Aluno> alunosBusca = new ArrayList<>();
+    public ArrayList<Aluno> getPorBusca(String busca) {
+        ArrayList<Aluno> alunosBusca = new ArrayList<>();
         for (Aluno a : getall()) {
             if (a.getCpf().contains(busca) || a.getNome().contains(busca) || a.getEmail().contains(busca)) {
                 alunosBusca.add(a);
             }
         }
-
         return alunosBusca;
-
     }
 
 }

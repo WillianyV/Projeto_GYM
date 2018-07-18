@@ -42,7 +42,7 @@ public class PerimetriaDao {
             statement.execute();
             
         } catch (Exception ex) {
-            Mensagem.exibirMensagem("Erro ao salvar Perimetria!");
+            Mensagem.exibirMensagem("Erro ao salvar Perimetria!\n"+ex.getMessage());
         }
         
     }

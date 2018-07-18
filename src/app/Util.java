@@ -22,6 +22,19 @@ public class Util {
         return data;
     }
     
+    public static String getDateString(Date date){
+        if(date == null)
+            return "esta data está vazia";
+        String data = date.toString();
+        data = data.replaceAll("-", "");
+        String ano = data.substring(0, 4);
+        String mes = data.substring(4, 6);
+        String dia = data.substring(6, 8);
+       
+        data = dia+mes+ano;
+        return data;
+    }
+    
     public static Float imc(float peso, float altura){
         return peso/(altura*altura);
     }

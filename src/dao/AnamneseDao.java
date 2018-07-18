@@ -46,7 +46,7 @@ public class AnamneseDao {
             
             statement.execute();
         } catch (Exception ex) {
-            Mensagem.exibirMensagem("Erro ao salvar Anamnese!");
+            Mensagem.exibirMensagem("Erro ao salvar Anamnese!\n"+ex.getMessage());
         }
     }
     public void editar(Anamnese a){}

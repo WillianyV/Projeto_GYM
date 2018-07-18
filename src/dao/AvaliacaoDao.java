@@ -37,7 +37,7 @@ public class AvaliacaoDao{
             statement.setInt(10, a.getInstrutor().getId());
             statement.execute();
         } catch (Exception ex) {
-            Mensagem.exibirMensagem("Erro ao cadastrar Avaliação!");
+            Mensagem.exibirMensagem("Erro ao cadastrar Avaliação!\n"+ex.getMessage());
         }
     }
     public void editar(Avaliacao a){}

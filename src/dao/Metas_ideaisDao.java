@@ -29,7 +29,7 @@ public class Metas_ideaisDao {
             statement.setFloat(4, m.getPorcentual_gordura());
             statement.execute();
         } catch (Exception ex) {
-            Mensagem.exibirMensagem("Erro ao cadastrar metas ideais!");
+            Mensagem.exibirMensagem("Erro ao cadastrar metas ideais!\n"+ex.getMessage());
         }
         
     }

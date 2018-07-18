@@ -22,7 +22,7 @@ public class AlunosHomeJFrame extends javax.swing.JFrame {
     public AlunosHomeJFrame() {
         fachada = Fachada.getInstance();
         initComponents();
-        carregarTabela(Fachada.getInstance().getAllAluno());            
+        carregarTabela(fachada.getAllAluno());            
     }
 
     /**
@@ -86,6 +86,11 @@ public class AlunosHomeJFrame extends javax.swing.JFrame {
                 "Id", "Nome"
             }
         ));
+        jTableAlunos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableAlunosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableAlunos);
 
         jButtonExcluir.setBackground(new java.awt.Color(45, 118, 232));
@@ -231,6 +236,16 @@ public class AlunosHomeJFrame extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jLabelIconPesquisarMouseClicked
+
+    private void jTableAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAlunosMouseClicked
+        if(evt.getClickCount()==2){
+            AlunosCadastroJFrame tela = new AlunosCadastroJFrame();
+            tela.setAluno(
+            fachada.getByIdAluno(Integer.parseInt(jTableAlunos.getValueAt
+            (jTableAlunos.getSelectedRow(), 0)+"")));
+            tela.show();
+        }
+    }//GEN-LAST:event_jTableAlunosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

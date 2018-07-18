@@ -32,7 +32,7 @@ public class Composicao_corporalDao {
             
             statement.execute();
         } catch (Exception ex) {
-            Mensagem.exibirMensagem("Erro ao cadastrar Composição Corporal");
+            Mensagem.exibirMensagem("Erro ao cadastrar Composição Corporal\n"+ex.getMessage());
         }
     }
     public void editar(Composicao_corporal c){}

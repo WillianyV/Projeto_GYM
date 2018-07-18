@@ -420,7 +420,7 @@ public class Fachada {
         return academiaBusiness.getById(id);
     }
 
-    public List<Aluno> getAlunosPosBusca(String busca) {
+    public ArrayList<Aluno> getAlunosPosBusca(String busca) {
        return alunoBusiness.getPorBusca(busca);
     }
     
