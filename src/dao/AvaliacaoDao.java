@@ -26,6 +26,7 @@ public class AvaliacaoDao{
 
             statement=SQLUtil.prepareStatement(SQLUtil.INSERIR_AVALIACAO);
             statement.setString(1, a.getObjetivo());
+            System.out.println("dao.AvaliacaoDao.cadastrar()");
             statement.setDate(2, a.getProxima_avaliacao());
             statement.setDate(3, a.getData());
             statement.setInt(4, SQLUtil.getLastIdTabela("anamnese"));

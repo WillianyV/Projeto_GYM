@@ -6,8 +6,11 @@
 package dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Aluno;
 import model.Endereco;
 import sql.SQLUtil;
 import view.Mensagem;
@@ -37,5 +40,39 @@ public class EnderecoDao {
    }  
    public void editar(Endereco c){}
    public void excluir(Endereco c){}
-   public Endereco getById(int id){return null;}
+   public Endereco getById(int id){
+        ResultSet result;
+        try {
+           statement = SQLUtil.prepareStatement(SQLUtil.SELECT_BY_ID_ENDERECO);
+           statement.setInt(1, id);
+           
+           result = statement.executeQuery();
+           result.next();
+           return get(result);
+       } catch (Exception ex) {
+           Logger.getLogger(EnderecoDao.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       return null;
+   }
+   
+   public Endereco get(ResultSet result){
+       Endereco e = new Endereco();
+       
+       try {
+           e.setId(result.getInt(1));
+           e.setBairro(result.getString(2));
+           e.setUf(result.getString(3));
+           e.setCidade(result.getString(4));
+           e.setCep(result.getString(5));
+           e.setLogradouro(result.getString(6));
+           e.setNum((result.getInt(7)));
+           
+           return e;
+       } catch (SQLException ex) {
+           Logger.getLogger(EnderecoDao.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       
+       
+       return null;
+   }
 }

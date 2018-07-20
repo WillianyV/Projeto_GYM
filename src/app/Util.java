@@ -5,13 +5,23 @@
  */
 package app;
 
+import java.awt.Component;
 import java.sql.Date;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Elvis
  */
 public class Util {
+    
+    
     public static Date getDate(String d){
         d = d.replaceAll("/", "");
         int ano = (Integer.parseInt(d.substring(4, 8))) - 1900;
@@ -41,6 +51,35 @@ public class Util {
     
     public static Float rcq(float cintura, float quadril){
         return cintura/quadril;
+    }
+    
+     public static void bloquearCampos(JPanel p){
+         
+         for (int i=0; i < p.getComponentCount(); i++) { //For para todos os componentes do Panel 
+             System.out.println(p.getComponentCount());
+                 Component c = p.getComponent(i);   
+                 if (c instanceof JTextField) {  //Verificação da instanacia do componente 
+                      JTextField field = (JTextField) c;   
+                      System.out.println("app.Util.bloquearCampos()");
+                      field.setEditable(false);  
+                  }else if(c instanceof JFormattedTextField) {   
+                      JFormattedTextField field = (JFormattedTextField) c;   
+                      field.setEditable(false);  
+                  }else if(c instanceof JComboBox){
+                      JComboBox combo = (JComboBox) c;   
+                      combo.setEnabled(false);
+                  }else if(c instanceof JScrollPane) {
+                      for (int j=0; j < ((JScrollPane) c).getComponentCount(); j++) {
+                          Component a = p.getComponent(i);
+                          if (a instanceof JTextArea) {  //Verificação da instanacia do componente
+                              JTextArea field = (JTextArea) a;
+                              field.setEditable(false);
+                          }
+                      }
+                      
+                  }
+                 
+         } 
     }
     
 }

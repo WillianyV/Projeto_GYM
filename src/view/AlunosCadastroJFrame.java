@@ -10,6 +10,7 @@ import app.Util;
 import java.sql.Date;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import model.Aluno;
 import model.Endereco;
@@ -825,7 +826,10 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        a=Projeto_GYM.fachada.cadastrarAluno(getAluno());
+        if(a.getId()==0)
+            a=Projeto_GYM.fachada.cadastrarAluno(getAluno());
+        else
+            Projeto_GYM.fachada.editarAluno(getAluno());
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jPanelAvalicaoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAvalicaoMouseEntered
@@ -960,19 +964,18 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
         getjFormattedTextFieldDN().setText(Util.getDateString(a.getData_nascimento()));
         getjTextFieldNome().setText(a.getNome());
         getjComboBoxSexo1().setSelectedItem(a.getSexo());
-//        a.setStatus(getjComboBoxStatus().getSelectedItem()+"");
-//        a.setRg(getjTextFieldRG().getText());
-//        a.setEmail(getjTextFieldemail().getText());
-//        a.setCelular(getjFormattedTextFieldCelular().getText());
-//        //Acrescentar campo de data de vencimento da mensalidade
-//              
-//        
-//        a.getEndereco().setBairro(getjTextFieldBairro().getText());
-//        a.getEndereco().setCep(getjFormattedTextFieldCEP().getText());
-//        a.getEndereco().setCidade(getjTextFieldCidade().getText());
-//        a.getEndereco().setLogradouro(getjTextFieldLogradouro().getText());
-//        a.getEndereco().setNum(num);
-//        a.getEndereco().setUf(getjComboBoxUF().getSelectedItem()+"");
+        getjComboBoxStatus().setSelectedItem(a.getStatus());
+        getjTextFieldRG().setText(a.getRg());
+        getjTextFieldemail().setText(a.getEmail());
+        getjFormattedTextFieldCelular().setText(a.getCelular());
+        //Acrescentar campo de data de vencimento da mensalidade
+        
+        getjTextFieldBairro().setText(a.getEndereco().getBairro());
+        getjFormattedTextFieldCEP().setText(a.getEndereco().getCep());
+        getjTextFieldCidade().setText(a.getEndereco().getCidade());
+        getjTextFieldLogradouro().setText( a.getEndereco().getLogradouro());
+        jTextFieldNumero.setText(a.getEndereco().getNum()+"");
+        getjComboBoxUF().setSelectedItem(a.getEndereco().getUf());
     }
     
     public JComboBox<String> getjComboBoxSexo1() {
@@ -1033,6 +1036,10 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
 
     public JTextField getjTextFieldNumero() {
         return jTextFieldNumero;
+    }
+
+    public JPanel getjPanelCadastro() {
+        return jPanelCadastro;
     }
 
     

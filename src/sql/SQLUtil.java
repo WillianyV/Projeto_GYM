@@ -36,7 +36,7 @@ public class SQLUtil {
     public static String INSERIR_METAS_IDEAIS = "insert into metas_ideais (peso,imc,nivel,porcentual_gordura) values (?,?,?,?)";
     public static String INSERIR_PERIMETRIA = "insert into perimetria (altura,cintura,peso,coxa_esquerda,ombro,braco_esquerdo,"
             + "coxa_direita,abdomem,torax,quadril,panturrilha_direita,braco_direito, ante_braco_direito,ante_braco_esquerdo) values (?,"
-            + "?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            + "?,?,?,?,?,?,?,?,?,?,?,?,?)";
     public static String INSERIR_DOBRAS_CUTANEAS ="insert into dobras_cutaneas (peitoral,axilar_media,abdominal,coxa,bicipita,supra_iliaca,"
             + "subscapular,tricipital) values (?,?,?,?,?,?,?,?)";
     public static String INSERIR_EXERCICIO = "insert into exercicio (tipo,nome) values (?,?)";
@@ -60,6 +60,10 @@ public class SQLUtil {
     public static String SELECT_CONTA_ALL_NOMES = "select nome from historico";
     public static String SELECT_ALL_ALUNO = "select * from aluno";
     public static String SELECT_BY_ID_ALUNO = "select * from aluno where id=?";
+    public static String SELECT_BY_ID_ENDERECO = "select * from endereco where id=?";
+    
+    public static String UPDATE_ALUNO = "update aluno set nome=?,cpf=?,data_nascimento=?,sexo=?,"
+            + "vencimento_mens=?,endereco_id=?,rg=?,email=?,celular=?,status=? where id=?";
     
     public static String URL_POSTGRES = "jdbc:postgresql://localhost:5432/gym";
     public static String USUARIO_POSTGRES = "postgres";

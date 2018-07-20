@@ -29,6 +29,7 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
      * Creates new form AlunosJFrame
      */
     public AcademiaCadastroJFrame() {
+        a = new Academia();
         initComponents();
     }
 
@@ -82,7 +83,8 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
         jLabelUF2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro  de aluno");
+        setTitle("Cadastro da academia");
+        setExtendedState(6);
 
         jPanelBack.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -104,10 +106,10 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
         );
         jPanelBlueLayout.setVerticalGroup(
             jPanelBlueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBlueLayout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
+            .addGroup(jPanelBlueLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
                 .addComponent(jLabeAlunos)
-                .addGap(28, 28, 28))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jButtonSalvar.setBackground(new java.awt.Color(45, 118, 232));
@@ -427,7 +429,7 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
             jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBackLayout.createSequentialGroup()
                 .addComponent(jPanelBlue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGap(90, 90, 90)
                 .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelNome)
                     .addComponent(jLabelCpf1))
@@ -494,11 +496,11 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
                         .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jFormattedTextFieldTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
                 .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         addjButton.getAccessibleContext().setAccessibleDescription("Adicionar");
@@ -515,7 +517,7 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
             .addComponent(jPanelBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(856, 613));
+        setSize(new java.awt.Dimension(856, 648));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -583,11 +585,13 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
 
     private void addjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addjButtonActionPerformed
         a.setLogo(copy(this));
+        logoAcademiajLabel.setText("");
         logoAcademiajLabel.setIcon(new ImageIcon(a.getLogo()));
     }//GEN-LAST:event_addjButtonActionPerformed
 
     private void removjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removjButtonActionPerformed
         a.setLogo("");
+        logoAcademiajLabel.setIcon(new ImageIcon(a.getLogo()));
         logoAcademiajLabel.setText("Inserir logo");
     }//GEN-LAST:event_removjButtonActionPerformed
 
@@ -666,7 +670,7 @@ public class AcademiaCadastroJFrame extends javax.swing.JFrame {
             String i = "";
 
             i = "src/imagens/" + file.getName();            
-
+            Mensagem.exibirMensagem(i);
             FileInputStream fisDe = new FileInputStream(l);
             FileOutputStream fisPara = new FileOutputStream(i);
 

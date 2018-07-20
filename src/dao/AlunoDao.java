@@ -49,7 +49,31 @@ public class AlunoDao {
         }
         return null;
     }
-    public void editar(Aluno aluno){}
+    public void editar(Aluno aluno){
+        try {
+            statement=SQLUtil.prepareStatement(SQLUtil.UPDATE_ALUNO);
+
+//              nome=?,cpf=?,data_nascimento=?,sexo=?,"
+//            + "vencimento_mens=?,endereco_id=?,rg=?,email=?,celular=?,status=? where id=?            
+
+            statement.setString(1, aluno.getNome());
+            statement.setString(2, aluno.getCpf());
+            statement.setDate(3, aluno.getData_nascimento());
+            statement.setString(4, aluno.getSexo());
+            statement.setDate(5, aluno.getVencimento_mens());
+            statement.setInt(6, aluno.getEndereco().getId());
+            statement.setString(7, aluno.getRg());
+            statement.setString(8, aluno.getEmail());
+            statement.setString(9, aluno.getCelular());
+            statement.setString(10, aluno.getStatus());
+            statement.setInt(11, aluno.getId());
+            
+            statement.execute();
+            
+        } catch (Exception ex) {
+            Mensagem.exibirMensagem("Erro ao editar aluno!\n"+ex.getMessage());
+        }
+    }
     public void excluir(Aluno aluno){}
     
     public Aluno getAlunoById(int id){

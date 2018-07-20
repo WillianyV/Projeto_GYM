@@ -5,6 +5,7 @@
  */
 package view;
 
+import app.Util;
 import dao.AlunoDao;
 import fachada.Fachada;
 import java.util.ArrayList;
@@ -209,7 +210,11 @@ public class AlunosHomeJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        // TODO add your handling code here:
+        AlunosCadastroJFrame tela = new AlunosCadastroJFrame();
+        tela.setAluno(
+        fachada.getByIdAluno(Integer.parseInt(jTableAlunos.getValueAt
+            (jTableAlunos.getSelectedRow(), 0)+"")));
+            tela.show();
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jTextFieldProsucarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProsucarActionPerformed
@@ -239,7 +244,9 @@ public class AlunosHomeJFrame extends javax.swing.JFrame {
 
     private void jTableAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAlunosMouseClicked
         if(evt.getClickCount()==2){
+            
             AlunosCadastroJFrame tela = new AlunosCadastroJFrame();
+            Util.bloquearCampos(tela.getjPanelCadastro());
             tela.setAluno(
             fachada.getByIdAluno(Integer.parseInt(jTableAlunos.getValueAt
             (jTableAlunos.getSelectedRow(), 0)+"")));

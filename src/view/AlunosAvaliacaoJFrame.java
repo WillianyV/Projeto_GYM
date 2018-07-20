@@ -1484,9 +1484,9 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         jLabeIMC.setForeground(new java.awt.Color(45, 118, 232));
         jLabeIMC.setText("IMC");
 
+        jFormattedTextFieldIMC.setEditable(false);
         jFormattedTextFieldIMC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         jFormattedTextFieldIMC.setToolTipText("Cálculo automático");
-        jFormattedTextFieldIMC.setEnabled(false);
         jFormattedTextFieldIMC.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jFormattedTextFieldIMC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1643,6 +1643,7 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         jLabelcm32.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelcm32.setText("kg/m2");
 
+        jFormattedTextFieldIMC3.setEditable(false);
         jFormattedTextFieldIMC3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         jFormattedTextFieldIMC3.setToolTipText("Cálculo automático");
         jFormattedTextFieldIMC3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -2033,7 +2034,8 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButtonAvancadoActionPerformed
 
     private void jFormattedTextFieldIMC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldIMC3ActionPerformed
-        // TODO add your handling code here:
+        jFormattedTextFieldIMC.setText(Util.imc(Float.parseFloat(jFormattedTextFieldPeso3.getText()), 
+                Float.parseFloat(jFormattedTextFieldAltura.getText()))+"");
     }//GEN-LAST:event_jFormattedTextFieldIMC3ActionPerformed
 
     private void jFormattedTextFieldPorGordura3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldPorGordura3ActionPerformed
