@@ -61,6 +61,8 @@ public class SQLUtil {
     public static String SELECT_ALL_ALUNO = "select * from aluno";
     public static String SELECT_BY_ID_ALUNO = "select * from aluno where id=?";
     public static String SELECT_BY_ID_ENDERECO = "select * from endereco where id=?";
+    public static String SELECT_ALL_FUNCIONARIO = "select * from funcionario";
+    public static String SELECT_ALL_EXERCICIOS = "select * from exercicio";
     
     public static String UPDATE_ALUNO = "update aluno set nome=?,cpf=?,data_nascimento=?,sexo=?,"
             + "vencimento_mens=?,endereco_id=?,rg=?,email=?,celular=?,status=? where id=?";

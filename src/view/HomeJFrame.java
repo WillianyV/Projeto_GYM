@@ -75,6 +75,7 @@ public class HomeJFrame extends javax.swing.JFrame {
         setLocationByPlatform(true);
         setMinimumSize(new java.awt.Dimension(991, 635));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(2147483647, 2147483647));
 
         jPanelBackground.setBackground(new java.awt.Color(255, 255, 255));
         jPanelBackground.setVerifyInputWhenFocusTarget(false);

@@ -5,6 +5,13 @@
  */
 package view;
 
+import fachada.Fachada;
+import java.util.ArrayList;
+import javax.swing.JTable;
+import model.Exercicio;
+import model.Funcionario;
+import model.ModeloTabela;
+
 /**
  *
  * @author Insinuante
@@ -16,7 +23,9 @@ public class ExerciciosHomeJFrame extends javax.swing.JFrame {
      */
     public ExerciciosHomeJFrame() {
         initComponents();
+        carregarTabela(Fachada.getInstance().getExercicioAll());
     }
+        
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,7 +40,7 @@ public class ExerciciosHomeJFrame extends javax.swing.JFrame {
         jPanelBlue = new javax.swing.JPanel();
         jLabeAlunos = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableAlunos = new javax.swing.JTable();
+        jTableExercicio = new javax.swing.JTable();
         jButtonExcluir = new javax.swing.JButton();
         jButtonEditar = new javax.swing.JButton();
         jLabelProcurar = new javax.swing.JLabel();
@@ -70,8 +79,8 @@ public class ExerciciosHomeJFrame extends javax.swing.JFrame {
                 .addGap(28, 28, 28))
         );
 
-        jTableAlunos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jTableAlunos.setModel(new javax.swing.table.DefaultTableModel(
+        jTableExercicio.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTableExercicio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -82,7 +91,7 @@ public class ExerciciosHomeJFrame extends javax.swing.JFrame {
                 "Id", "Exercício", "Tipo do exercício"
             }
         ));
-        jScrollPane1.setViewportView(jTableAlunos);
+        jScrollPane1.setViewportView(jTableExercicio);
 
         jButtonExcluir.setBackground(new java.awt.Color(45, 118, 232));
         jButtonExcluir.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -244,7 +253,27 @@ public class ExerciciosHomeJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelBack;
     private javax.swing.JPanel jPanelBlue;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableAlunos;
+    private javax.swing.JTable jTableExercicio;
     private javax.swing.JTextField jTextFieldProsucar;
     // End of variables declaration//GEN-END:variables
+
+    private void carregarTabela(ArrayList<Exercicio> exercicios){
+        String[] colunas = new String[]{"ID","NOME","TIPO DE EXERCICIO"};
+        ArrayList<Object[]> dados = new ArrayList<>();
+        
+        for(Exercicio e : exercicios){
+            dados.add(new Object[]{e.getId(),e.getNome(),e.getTipo()});
+        }
+        
+        ModeloTabela modeloTabela =  new ModeloTabela(dados, colunas);   
+        jTableExercicio.setModel(modeloTabela);      
+        jTableExercicio.getColumnModel().getColumn(0).setPreferredWidth(40);
+        jTableExercicio.getColumnModel().getColumn(0).setResizable(false);
+        jTableExercicio.getColumnModel().getColumn(1).setPreferredWidth(300);
+        jTableExercicio.getColumnModel().getColumn(1).setResizable(false);
+        jTableExercicio.getColumnModel().getColumn(2).setPreferredWidth(143);
+        jTableExercicio.getColumnModel().getColumn(2).setResizable(false);
+        jTableExercicio.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+    }
+
 }

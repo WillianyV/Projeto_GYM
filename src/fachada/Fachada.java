@@ -424,4 +424,12 @@ public class Fachada {
        return alunoBusiness.getPorBusca(busca);
     }
     
+    public ArrayList<Funcionario> getFuncionariosBusca(String busca){
+        return funcionarioBusiness.getBusca(busca);
+    }
+    
+    public ArrayList<Exercicio> getExercicioAll(){
+        return exercicioBusiness.getByAll();
+    }
+    
 }

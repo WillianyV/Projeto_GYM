@@ -18,12 +18,12 @@ public class AvaliacaoDao{
     private PreparedStatement statement;
             
     public void cadastrar(Avaliacao a){
+        System.out.println("dao.AvaliacaoDao.cadastrar()");
+        System.out.println(a.getObjetivo());
         try {
             //        (objetivo,proxima_avaliacao,data,anamnese_id,composicao_corporal_id,metas_ideais_id"
 //             + ",perimetria_id,dobras_cutaneas_id)
-            a.getAnamnese().setId(SQLUtil.getLastIdTabela("anamnese"));
-            a.getComposicao_corporal().setId(SQLUtil.getLastIdTabela(""));
-
+            System.out.println("dao.AvaliacaoDao.cadastrar()");
             statement=SQLUtil.prepareStatement(SQLUtil.INSERIR_AVALIACAO);
             statement.setString(1, a.getObjetivo());
             System.out.println("dao.AvaliacaoDao.cadastrar()");

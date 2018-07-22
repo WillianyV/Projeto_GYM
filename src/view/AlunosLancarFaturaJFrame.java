@@ -315,7 +315,8 @@ public class AlunosLancarFaturaJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
 
     private void jButtonLancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLancarActionPerformed
-       Projeto_GYM.fachada.cadastrarPagamento(get());
+       p = get();
+       Projeto_GYM.fachada.cadastrarPagamento(p);
        Projeto_GYM.fachada.cadastrarControleFinanceiro(c);
     }//GEN-LAST:event_jButtonLancarActionPerformed
 

@@ -6,6 +6,7 @@
 package business;
 
 import dao.FuncionarioDao;
+import fachada.Fachada;
 import java.util.ArrayList;
 import model.Funcionario;
 
@@ -43,6 +44,17 @@ public class FuncionarioBusiness {
     
     public Funcionario login(String senha,String login){
         return dao.login(senha,login);
+    }
+    
+    public ArrayList<Funcionario> getBusca(String busca){
+        ArrayList<Funcionario> funcionarios = new ArrayList<>();
+        for(Funcionario f : getAll()){
+            if(f.getCpf().contains(busca) || f.getNome().contains(busca) || f.getRg().contains(busca) || 
+                f.getEmail().contains(busca)){
+                funcionarios.add(f);
+            }
+        }
+        return funcionarios;
     }
 
 }

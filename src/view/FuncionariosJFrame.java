@@ -5,6 +5,13 @@
  */
 package view;
 
+import fachada.Fachada;
+import java.util.ArrayList;
+import javax.swing.JTable;
+import model.Aluno;
+import model.Funcionario;
+import model.ModeloTabela;
+
 /**
  *
  * @author Williany
@@ -16,6 +23,7 @@ public class FuncionariosJFrame extends javax.swing.JFrame {
      */
     public FuncionariosJFrame() {
         initComponents();
+        carregarTabela(Fachada.getInstance().getAllFuncionario());
     }
 
     /**
@@ -31,7 +39,7 @@ public class FuncionariosJFrame extends javax.swing.JFrame {
         jPanelBlue = new javax.swing.JPanel();
         jLabeFuncionario = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableAlunos = new javax.swing.JTable();
+        jTableFuncionarios = new javax.swing.JTable();
         jButtonExcluir = new javax.swing.JButton();
         jButtonEditar = new javax.swing.JButton();
         jLabelProcurar = new javax.swing.JLabel();
@@ -68,7 +76,7 @@ public class FuncionariosJFrame extends javax.swing.JFrame {
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        jTableAlunos.setModel(new javax.swing.table.DefaultTableModel(
+        jTableFuncionarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -79,7 +87,7 @@ public class FuncionariosJFrame extends javax.swing.JFrame {
                 "Id", "Nome", "Função"
             }
         ));
-        jScrollPane1.setViewportView(jTableAlunos);
+        jScrollPane1.setViewportView(jTableFuncionarios);
 
         jButtonExcluir.setBackground(new java.awt.Color(45, 118, 232));
         jButtonExcluir.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -115,6 +123,11 @@ public class FuncionariosJFrame extends javax.swing.JFrame {
 
         jLabelIconPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8_Search_20px_2.png"))); // NOI18N
         jLabelIconPesquisar.setToolTipText("Pesquisar");
+        jLabelIconPesquisar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelIconPesquisarMouseClicked(evt);
+            }
+        });
 
         jButtonCadastrar.setBackground(new java.awt.Color(45, 118, 232));
         jButtonCadastrar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -145,9 +158,12 @@ public class FuncionariosJFrame extends javax.swing.JFrame {
                         .addGap(79, 79, 79)
                         .addComponent(jButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(79, 79, 79)
-                        .addComponent(jButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(124, Short.MAX_VALUE))
+            .addGroup(jPanelBackLayout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 517, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelBackLayout.setVerticalGroup(
             jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,9 +177,9 @@ public class FuncionariosJFrame extends javax.swing.JFrame {
                 .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextFieldProsucar, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                     .addComponent(jLabelIconPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(33, 33, 33)
+                .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(41, 41, 41)
                 .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -203,6 +219,17 @@ public class FuncionariosJFrame extends javax.swing.JFrame {
         new FucionariosCadastroJFrame().show();
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
+    private void jLabelIconPesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIconPesquisarMouseClicked
+        String busca = jTextFieldProsucar.getText();
+        if(busca.trim().length() == 0){
+            Mensagem.exibirMensagem("Digite alguma coisa!");
+            return;
+        }
+        
+        ArrayList<Funcionario> f = Fachada.getInstance().getFuncionariosBusca(busca);
+        carregarTabela(f);
+    }//GEN-LAST:event_jLabelIconPesquisarMouseClicked
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -215,7 +242,27 @@ public class FuncionariosJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelBack;
     private javax.swing.JPanel jPanelBlue;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableAlunos;
+    private javax.swing.JTable jTableFuncionarios;
     private javax.swing.JTextField jTextFieldProsucar;
     // End of variables declaration//GEN-END:variables
+
+        private void carregarTabela(ArrayList<Funcionario> funcionarios) {
+        String[] colunas = new String[]{"ID","NOME","FUNÇÃO"};
+        ArrayList<Object[]> dados = new ArrayList<>();
+        
+        for(Funcionario f : funcionarios){
+            dados.add(new Object[]{f.getId(),f.getNome(),f.getFuncao()});
+        }
+        
+        ModeloTabela modeloTabela =  new ModeloTabela(dados, colunas);   
+        jTableFuncionarios.setModel(modeloTabela);      
+        jTableFuncionarios.getColumnModel().getColumn(0).setPreferredWidth(40);
+        jTableFuncionarios.getColumnModel().getColumn(0).setResizable(false);
+        jTableFuncionarios.getColumnModel().getColumn(1).setPreferredWidth(350);
+        jTableFuncionarios.getColumnModel().getColumn(1).setResizable(false);
+        jTableFuncionarios.getColumnModel().getColumn(2).setPreferredWidth(123);
+        jTableFuncionarios.getColumnModel().getColumn(2).setResizable(false);
+        jTableFuncionarios.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+    }
+
 }

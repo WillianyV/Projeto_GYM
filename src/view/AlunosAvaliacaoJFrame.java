@@ -29,11 +29,13 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
     private Dobras_Cutaneas d;
     private Composicao_corporal c;
     private Metas_ideais m;
+    String objetivo;
     
     /**
      * Creates new form AlunosJFrame
      */
-    public AlunosAvaliacaoJFrame(Aluno aluno, Instrutor instrutor) {
+    public AlunosAvaliacaoJFrame(Aluno aluno, Instrutor instrutor, String objetivo) {
+        this.objetivo = objetivo;
         this.aluno=aluno;
         this.instrutor=instrutor;
         avaliacao = new Avaliacao();
@@ -240,6 +242,8 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastrar avaliação física");
+        setExtendedState(6);
+        setMinimumSize(new java.awt.Dimension(932, 627));
 
         jPanelBack.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1488,6 +1492,11 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         jFormattedTextFieldIMC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         jFormattedTextFieldIMC.setToolTipText("Cálculo automático");
         jFormattedTextFieldIMC.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jFormattedTextFieldIMC.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jFormattedTextFieldIMCMouseClicked(evt);
+            }
+        });
         jFormattedTextFieldIMC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFormattedTextFieldIMCActionPerformed(evt);
@@ -1533,6 +1542,11 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         jFormattedTextFieldRCQ.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         jFormattedTextFieldRCQ.setToolTipText("Cálculo automático");
         jFormattedTextFieldRCQ.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jFormattedTextFieldRCQ.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jFormattedTextFieldRCQMouseClicked(evt);
+            }
+        });
         jFormattedTextFieldRCQ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFormattedTextFieldRCQActionPerformed(evt);
@@ -1647,6 +1661,11 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         jFormattedTextFieldIMC3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         jFormattedTextFieldIMC3.setToolTipText("Cálculo automático");
         jFormattedTextFieldIMC3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jFormattedTextFieldIMC3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jFormattedTextFieldIMC3MouseClicked(evt);
+            }
+        });
         jFormattedTextFieldIMC3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFormattedTextFieldIMC3ActionPerformed(evt);
@@ -1819,6 +1838,7 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
+        avaliacao = get();
         Projeto_GYM.fachada.cadastrarAnamnese(a);
         Projeto_GYM.fachada.cadastrarComposicao_corporal(c);
         Projeto_GYM.fachada.cadastrarDobras_Cutaneas(d);
@@ -1932,8 +1952,7 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jFormattedTextFieldPorGorduraActionPerformed
 
     private void jFormattedTextFieldIMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldIMCActionPerformed
-        jFormattedTextFieldIMC.setText(Util.imc(Float.parseFloat(jFormattedTextFieldPeso.getText()), 
-                Float.parseFloat(jFormattedTextFieldAltura.getText()))+"");
+        
     }//GEN-LAST:event_jFormattedTextFieldIMCActionPerformed
 
     private void jFormattedTextFieldPesoMagraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldPesoMagraActionPerformed
@@ -1945,8 +1964,7 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jFormattedTextFieldPesoGordaActionPerformed
 
     private void jFormattedTextFieldRCQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldRCQActionPerformed
-        jFormattedTextFieldRCQ.setText(Util.rcq(Float.parseFloat(jFormattedTextFieldCintura.getText()), 
-                Float.parseFloat(jFormattedTextFieldQuadril.getText()))+"");
+        
     }//GEN-LAST:event_jFormattedTextFieldRCQActionPerformed
 
     private void jRadioButtonSimTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSimTabActionPerformed
@@ -2045,6 +2063,21 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
     private void jFormattedTextFieldPeso3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldPeso3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextFieldPeso3ActionPerformed
+
+    private void jFormattedTextFieldRCQMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextFieldRCQMouseClicked
+        jFormattedTextFieldRCQ.setText(Util.rcq(Float.parseFloat(jFormattedTextFieldCintura.getText()),
+                Float.parseFloat(jFormattedTextFieldQuadril.getText()))+"");
+    }//GEN-LAST:event_jFormattedTextFieldRCQMouseClicked
+
+    private void jFormattedTextFieldIMCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextFieldIMCMouseClicked
+        jFormattedTextFieldIMC.setText(Util.imc(Float.parseFloat(jFormattedTextFieldPeso.getText()), 
+                Float.parseFloat(jFormattedTextFieldAltura.getText()))+"");
+    }//GEN-LAST:event_jFormattedTextFieldIMCMouseClicked
+
+    private void jFormattedTextFieldIMC3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextFieldIMC3MouseClicked
+        jFormattedTextFieldIMC3.setText(Util.imc(Float.parseFloat(jFormattedTextFieldPeso.getText()), 
+                Float.parseFloat(jFormattedTextFieldAltura.getText()))+"");
+    }//GEN-LAST:event_jFormattedTextFieldIMC3MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -2305,6 +2338,10 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         avaliacao.setMetas_ideais(m);
         avaliacao.setPerimetria(p);
         avaliacao.setProxima_avaliacao(Util.getDate(dateProxAvjFormattedTextField.getText()));
+        avaliacao.setObjetivo(objetivo);
+        if(avaliacao!=null){
+            Mensagem.exibirMensagem(objetivo);
+        }
         
         return avaliacao;
     }

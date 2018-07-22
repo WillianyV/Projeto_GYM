@@ -237,9 +237,6 @@ public class AlunosHomeJFrame extends javax.swing.JFrame {
 
         carregarTabela(alunos);
 
-        System.out.println(alunos);
-
-
     }//GEN-LAST:event_jLabelIconPesquisarMouseClicked
 
     private void jTableAlunosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAlunosMouseClicked

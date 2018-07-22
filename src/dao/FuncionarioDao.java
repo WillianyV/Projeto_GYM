@@ -5,6 +5,7 @@
  */
 package dao;
 
+import fachada.Fachada;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -78,8 +79,25 @@ public class FuncionarioDao {
     }
     public void editar(Funcionario f){}
     public void excluir(Funcionario f){}
+    
     public Funcionario getById(int id){return null;}
-    public ArrayList<Funcionario> getAll(){return null;}
+    public ArrayList<Funcionario> getAll(){
+        ResultSet result;
+        ArrayList<Funcionario> funcionarios = new ArrayList<>();
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.SELECT_ALL_FUNCIONARIO);
+            result = statement.executeQuery();
+            
+            while (result.next()) {                
+                funcionarios.add(get(result));
+            }
+            return funcionarios;
+        } catch (Exception ex) {
+            Mensagem.exibirMensagem("Erro ao pegar alunos"+ex.getMessage());
+        }
+        
+        return null;
+    }
     
     public Funcionario login(String senha, String login){
         try {
@@ -143,8 +161,8 @@ public class FuncionarioDao {
             f.setControleCaixaEditar(result.getBoolean(40));
             f.setControleCaixaExcluir(result.getBoolean(41));
             f.setControleCaixaRecebPag(result.getBoolean(42));
-            f.setId(result.getInt(43));
-            
+            f.setEndereco(Fachada.getInstance().getByIdEndereco(result.getInt(43)));
+
             return f;
         } catch (SQLException ex) {}        
         

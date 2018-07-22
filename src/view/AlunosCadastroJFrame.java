@@ -857,7 +857,7 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
         if((a.getId()==0||a==null))//Fazer a restrição de acesso
             Mensagem.exibirMensagem("Cadastre o aluno antes de fazer a avaliação física");
         else
-            new AlunosAvaliacaoHomeJFrame(a).show();
+            new AlunosAvaliacaoHomeJFrame(a,jTextAreaObj.getText()).show();
     }//GEN-LAST:event_jPanelAvalicaoMousePressed
 
     private void jPanelFichaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelFichaMousePressed

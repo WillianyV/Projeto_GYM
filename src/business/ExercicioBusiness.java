@@ -41,4 +41,8 @@ public class ExercicioBusiness {
     public ArrayList<Exercicio> getByAllTipo(String tipo){
         return dao.getAllTipo(tipo);
     }
+    
+    public ArrayList<Exercicio> getByAll(){
+        return dao.getAll();
+    }
 }

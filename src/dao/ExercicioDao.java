@@ -6,6 +6,8 @@
 package dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -37,4 +39,33 @@ public class ExercicioDao {
     public void excluir(Exercicio e){}
     public Exercicio getById(int id){return null;}
     public ArrayList<Exercicio> getAllTipo(String tipo){return null;}
+    public ArrayList<Exercicio> getAll(){
+        ResultSet result;
+        ArrayList<Exercicio> exercicios = new ArrayList<>();
+        try {
+            statment = SQLUtil.prepareStatement(SQLUtil.SELECT_ALL_EXERCICIOS);
+            result = statment.executeQuery();
+            
+            while (result.next()) {                
+                exercicios.add(get(result));
+            }
+            return exercicios;
+        } catch (Exception ex) {
+            Logger.getLogger(ExercicioDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
+    }
+    
+    private Exercicio get(ResultSet result){
+        Exercicio e = new Exercicio();
+        try {
+            e.setId(result.getInt(1));
+            e.setTipo(result.getString(2));
+            e.setNome(result.getString(3));
+        } catch (SQLException ex) {
+            Logger.getLogger(ExercicioDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return e;
+    }
 }
