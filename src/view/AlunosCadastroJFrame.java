@@ -7,6 +7,7 @@ package view;
 
 import app.Projeto_GYM;
 import app.Util;
+import fachada.Fachada;
 import java.sql.Date;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
@@ -27,6 +28,7 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
     public AlunosCadastroJFrame() {
         initComponents();
         a=new Aluno();
+        a.setEndereco(new Endereco());
     }
 
     /**
@@ -856,6 +858,8 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
 //        this.setVisible(false);
         if((a.getId()==0||a==null))//Fazer a restrição de acesso
             Mensagem.exibirMensagem("Cadastre o aluno antes de fazer a avaliação física");
+        else if(!Fachada.getFuncionarioLogado().isAvFisicaAcessar())
+            Mensagem.exibirMensagem("Você não tem acesso a esta funcionalidade!");
         else
             new AlunosAvaliacaoHomeJFrame(a,jTextAreaObj.getText()).show();
     }//GEN-LAST:event_jPanelAvalicaoMousePressed

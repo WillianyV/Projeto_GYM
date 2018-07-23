@@ -6,6 +6,8 @@
 package dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Anamnese;
@@ -51,6 +53,48 @@ public class AnamneseDao {
     }
     public void editar(Anamnese a){}
     public void excluir(Anamnese a){}
-    public Anamnese getById(int id){return null;}
+    public Anamnese getById(int id){
+        ResultSet result;
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.SELECT_BY_ID_ANMNESE);
+            statement.setInt(1, id);
+            result = statement.executeQuery();
+            result.next();
+            
+            return get(result);
+        } catch (Exception ex) {
+            Logger.getLogger(AnamneseDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    private Anamnese get(ResultSet result){
+        Anamnese a = new Anamnese();
+        try {
+            a.setId(result.getInt(1));
+            a.setTabagismo(result.getBoolean(2));
+            a.setRestricaoArticular(result.getBoolean(3));
+            a.setCardiopatias(result.getBoolean(4));
+            a.setMedicamentos(result.getBoolean(5));
+            a.setHipertensao(result.getBoolean(6));
+            a.setOutros(result.getBoolean(7));
+            a.setDiabetes(result.getBoolean(8));
+            a.setProbPulmonares(result.getBoolean(9));
+            a.setAtivFisica(result.getBoolean(10));
+            a.setNivel(result.getString(11));
+            a.setTabagismoObs(result.getString(12));
+            a.setRestricaoArticularObs(result.getString(13));
+            a.setCardiopatiasObs(result.getString(14));
+            a.setMedicamentosObs(result.getString(15));
+            a.setHipertensaoObs(result.getString(16));
+            a.setOutrosObs(result.getString(17));
+            a.setDiabetesObs(result.getString(18));
+            a.setProbPulmonaresObs(result.getString(19));
+            a.setAtivFisicaObs(result.getString(20));
+        } catch (SQLException ex) {
+            Logger.getLogger(AnamneseDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return a;
+    }
     
 }

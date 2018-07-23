@@ -6,6 +6,7 @@
 package business;
 
 import dao.AvaliacaoDao;
+import java.util.ArrayList;
 import model.Avaliacao;
 
 
@@ -35,6 +36,10 @@ public class AvaliacaoBusiness {
     
     public Avaliacao getById(int id){
         return dao.getById(id);
+    }
+    
+    public ArrayList<Avaliacao> getAll(){
+        return dao.getAll();
     }
     
     

@@ -6,6 +6,7 @@
 package dao;
 
 import app.Projeto_GYM;
+import fachada.Fachada;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -48,7 +49,7 @@ public class InstrutorDao {
             
             return get(result);
         } catch (Exception ex) {
-            Mensagem.exibirMensagem("Erro ao selecionar instrutor!");
+            Mensagem.exibirMensagem("Erro ao selecionar instrutor!"+ex.getMessage());
         }
         return null;
     }
@@ -60,9 +61,9 @@ public class InstrutorDao {
         try {
             instrutor.setId(result.getInt(1));
             instrutor.setCref(result.getInt(2));
-            instrutor.getFuncionario().setId(result.getInt(3));//Quando fizer o select de Funcionario por ID preencher o obj
+            instrutor.setFuncionario(Fachada.getInstance().getByIdFuncionario(result.getInt(3)));//Quando fizer o select de Funcionario por ID preencher o obj
         } catch (SQLException ex) {
-            Mensagem.exibirMensagem("Erro ao pegar Instrutor!");
+            Mensagem.exibirMensagem("Erro ao pegar Instrutor!"+ex.getMessage());
         }
         return instrutor; 
     }

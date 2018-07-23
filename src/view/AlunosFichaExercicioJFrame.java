@@ -6,6 +6,9 @@
 package view;
 
 import model.Aluno;
+import model.Exercicio;
+import model.FichaDeTreino;
+import model.Instrutor;
 
 /**
  *
@@ -13,12 +16,15 @@ import model.Aluno;
  */
 public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form AlunosJFrame
-     */
-
+    private Aluno aluno;
+    private Instrutor instrutor;
+    private FichaDeTreino ficha;
+    private Exercicio exercicio;
+    private String obj, obs;
     
-    public AlunosFichaExercicioJFrame() {
+    public AlunosFichaExercicioJFrame(Aluno aluno, Instrutor instrutor) {
+        this.aluno=aluno;
+        this.instrutor=instrutor;
         initComponents();
     }
 
@@ -47,7 +53,7 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jFormattedTextFieldDataIni = new javax.swing.JFormattedTextField();
         jFormattedTextFieldDataReav = new javax.swing.JFormattedTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jTextFieldNomeProf = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -397,8 +403,8 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
         }
         jFormattedTextFieldDataReav.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
-        jTextField2.setEditable(false);
-        jTextField2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTextFieldNomeProf.setEditable(false);
+        jTextFieldNomeProf.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         jTextField3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
@@ -429,7 +435,7 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
                         .addGroup(jPanelDetalhesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jFormattedTextFieldDataReav, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabeDataReav)))
-                    .addComponent(jTextField2)
+                    .addComponent(jTextFieldNomeProf)
                     .addComponent(jTextField3)
                     .addComponent(jScrollPane1))
                 .addContainerGap(136, Short.MAX_VALUE))
@@ -450,7 +456,7 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addComponent(jLabeProfessor)
                 .addGap(12, 12, 12)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldNomeProf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addComponent(jLabeObejetivo)
                 .addGap(12, 12, 12)
@@ -3068,7 +3074,6 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
@@ -3076,6 +3081,7 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField jTextFieldNomeProf;
     private javax.swing.JTextField jTextFieldRepeticoe;
     private javax.swing.JTextField jTextFieldRepeticoe1;
     private javax.swing.JTextField jTextFieldRepeticoe10;
@@ -3093,7 +3099,14 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel tricepsjLabel;
     // End of variables declaration//GEN-END:variables
 
+public FichaDeTreino getFicha(){
+
     
+    ficha.setAluno(aluno);
+    ficha.setInstrutor(instrutor);
     
+    return ficha;
+}
+     
     
 }

@@ -63,6 +63,13 @@ public class SQLUtil {
     public static String SELECT_BY_ID_ENDERECO = "select * from endereco where id=?";
     public static String SELECT_ALL_FUNCIONARIO = "select * from funcionario";
     public static String SELECT_ALL_EXERCICIOS = "select * from exercicio";
+    public static String SELECT_FUNCIONARIO = "select * from funcionario where id=?";
+    public static String SELECT_BY_ID_ANMNESE = "select * from anamnese where id=?";
+    public static String SELECT_BY_ID_COMPOSICAO_CORPORAL = "select * from composicao_corporal where id=?";
+    public static String SELECT_BY_ID_METAS_IDEAIS = "select * from metas_ideais where id=?";
+    public static String SELECT_BY_ID_DOBRAS_CUTANEAS = "select * from dobras_cutaneas where id=?";
+    public static String SELECT_BY_ID_PERIMETRIA= "select * from perimetria where id=?";
+    public static String SELECT_ALL_AVALIACAO = "select * from avaliacao";
     
     public static String UPDATE_ALUNO = "update aluno set nome=?,cpf=?,data_nascimento=?,sexo=?,"
             + "vencimento_mens=?,endereco_id=?,rg=?,email=?,celular=?,status=? where id=?";

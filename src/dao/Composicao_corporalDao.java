@@ -6,6 +6,8 @@
 package dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Composicao_corporal;
@@ -37,5 +39,34 @@ public class Composicao_corporalDao {
     }
     public void editar(Composicao_corporal c){}
     public void excluir(Composicao_corporal c){}
-    public Composicao_corporal getById(int id){return null;}
+    public Composicao_corporal getById(int id){
+        ResultSet result;
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.SELECT_BY_ID_COMPOSICAO_CORPORAL);
+            statement.setInt(1, id);
+            result = statement.executeQuery();
+            result.next();
+            return get(result);
+        } catch (Exception ex) {
+            Logger.getLogger(Composicao_corporalDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    private Composicao_corporal get(ResultSet result){
+        Composicao_corporal c = new Composicao_corporal();
+        
+        try {
+            c.setId(result.getInt(1));
+            c.setPeso_gorda(result.getFloat(2));
+            c.setPeso_magra(result.getFloat(3));
+            c.setImc(result.getFloat(4));
+            c.setRcq(result.getFloat(5));
+            c.setPorcentual_gordura(result.getFloat(6));
+            c.setPressao_arterial(result.getFloat(7));
+        } catch (SQLException ex) {
+            Logger.getLogger(Composicao_corporalDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return c;
+    }
 }

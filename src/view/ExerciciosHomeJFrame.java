@@ -44,10 +44,10 @@ public class ExerciciosHomeJFrame extends javax.swing.JFrame {
         jButtonExcluir = new javax.swing.JButton();
         jButtonEditar = new javax.swing.JButton();
         jLabelProcurar = new javax.swing.JLabel();
-        jTextFieldProsucar = new javax.swing.JTextField();
+        jTextFieldProcurar = new javax.swing.JTextField();
         jLabelIconPesquisar = new javax.swing.JLabel();
         jLabelProcurar1 = new javax.swing.JLabel();
-        jComboBoxSexo2 = new javax.swing.JComboBox<>();
+        jComboBoxExercicio = new javax.swing.JComboBox<>();
         jButtonCadastrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -119,24 +119,29 @@ public class ExerciciosHomeJFrame extends javax.swing.JFrame {
         jLabelProcurar.setForeground(new java.awt.Color(45, 118, 232));
         jLabelProcurar.setText("Procurar");
 
-        jTextFieldProsucar.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldProcurar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldProsucarActionPerformed(evt);
+                jTextFieldProcurarActionPerformed(evt);
             }
         });
 
         jLabelIconPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8_Search_20px_2.png"))); // NOI18N
         jLabelIconPesquisar.setToolTipText("Pesquisar");
+        jLabelIconPesquisar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelIconPesquisarMouseClicked(evt);
+            }
+        });
 
         jLabelProcurar1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelProcurar1.setForeground(new java.awt.Color(45, 118, 232));
         jLabelProcurar1.setText("Tipo do exercício");
 
-        jComboBoxSexo2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jComboBoxSexo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Abdome", "Aeróbico", "Antebraço", "Bíceps", "Costas", "Glúteo", "Ombro", "Peito", "Perna", "Tríceps" }));
-        jComboBoxSexo2.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxExercicio.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jComboBoxExercicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Abdome", "Aeróbico", "Antebraço", "Bíceps", "Costas", "Glúteo", "Ombro", "Peito", "Perna", "Tríceps" }));
+        jComboBoxExercicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxSexo2ActionPerformed(evt);
+                jComboBoxExercicioActionPerformed(evt);
             }
         });
 
@@ -168,11 +173,11 @@ public class ExerciciosHomeJFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBackLayout.createSequentialGroup()
                         .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelProcurar1)
-                            .addComponent(jComboBoxSexo2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBoxExercicio, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelBackLayout.createSequentialGroup()
-                                .addComponent(jTextFieldProsucar, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabelIconPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabelProcurar)))
@@ -185,7 +190,7 @@ public class ExerciciosHomeJFrame extends javax.swing.JFrame {
                 .addComponent(jPanelBlue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBoxSexo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxExercicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBackLayout.createSequentialGroup()
                         .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelProcurar)
@@ -193,7 +198,7 @@ public class ExerciciosHomeJFrame extends javax.swing.JFrame {
                         .addGap(20, 20, 20)
                         .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabelIconPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextFieldProsucar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jTextFieldProcurar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
@@ -227,25 +232,43 @@ public class ExerciciosHomeJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
-    private void jTextFieldProsucarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProsucarActionPerformed
+    private void jTextFieldProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProcurarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldProsucarActionPerformed
+    }//GEN-LAST:event_jTextFieldProcurarActionPerformed
 
-    private void jComboBoxSexo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSexo2ActionPerformed
+    private void jComboBoxExercicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxExercicioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxSexo2ActionPerformed
+    }//GEN-LAST:event_jComboBoxExercicioActionPerformed
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         this.dispose();
         new ExerciciosCadastroJFrame().show();
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
+    private void jLabelIconPesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIconPesquisarMouseClicked
+        String busca = jTextFieldProcurar.getText();
+        ArrayList<Exercicio> exercicios = new ArrayList<>();
+        if("Todos".equals(jComboBoxExercicio.getSelectedItem()+"")){
+           for(Exercicio e : Fachada.getInstance().getExercicioAll()){
+               if(e.getNome().contains(busca))
+                   exercicios.add(e);
+           } 
+        }else{
+            for(Exercicio e : Fachada.getInstance().getExercicioAll()){
+               if(e.getNome().contains(busca) && e.getTipo().equals(jComboBoxExercicio.getSelectedItem()+""))
+                   exercicios.add(e);
+           }
+        }
+        
+        carregarTabela(exercicios);
+    }//GEN-LAST:event_jLabelIconPesquisarMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCadastrar;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonExcluir;
-    private javax.swing.JComboBox<String> jComboBoxSexo2;
+    private javax.swing.JComboBox<String> jComboBoxExercicio;
     private javax.swing.JLabel jLabeAlunos;
     private javax.swing.JLabel jLabelIconPesquisar;
     private javax.swing.JLabel jLabelProcurar;
@@ -254,7 +277,7 @@ public class ExerciciosHomeJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelBlue;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableExercicio;
-    private javax.swing.JTextField jTextFieldProsucar;
+    private javax.swing.JTextField jTextFieldProcurar;
     // End of variables declaration//GEN-END:variables
 
     private void carregarTabela(ArrayList<Exercicio> exercicios){

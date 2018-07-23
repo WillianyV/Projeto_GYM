@@ -80,7 +80,21 @@ public class FuncionarioDao {
     public void editar(Funcionario f){}
     public void excluir(Funcionario f){}
     
-    public Funcionario getById(int id){return null;}
+    public Funcionario getById(int id){
+        ResultSet result;
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.SELECT_FUNCIONARIO);
+            statement.setInt(1, id);
+            result = statement.executeQuery();
+            result.next();
+            
+            return get(result);
+        } catch (Exception ex) {
+            Mensagem.exibirMensagem("Erro ao selecionar Funcionario!\n"+ex.getMessage());
+        }
+        return null;
+    }
+    
     public ArrayList<Funcionario> getAll(){
         ResultSet result;
         ArrayList<Funcionario> funcionarios = new ArrayList<>();

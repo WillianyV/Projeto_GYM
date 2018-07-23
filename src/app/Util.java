@@ -46,7 +46,8 @@ public class Util {
     }
     
     public static Float imc(float peso, float altura){
-        return peso/(altura*altura);
+        float a = altura/100;
+        return peso/(a*a);
     }
     
     public static Float rcq(float cintura, float quadril){

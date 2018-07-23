@@ -39,6 +39,13 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         this.aluno=aluno;
         this.instrutor=instrutor;
         avaliacao = new Avaliacao();
+        avaliacao.setAnamnese(new Anamnese());
+        avaliacao.setComposicao_corporal(new Composicao_corporal());
+        avaliacao.setDobras_Cutaneas(new Dobras_Cutaneas());
+        avaliacao.setMetas_ideais(new Metas_ideais());
+        avaliacao.setPerimetria(new Perimetria());
+        
+        
         a = new Anamnese();
         p = new Perimetria();
         d = new Dobras_Cutaneas();
@@ -1844,6 +1851,7 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         Projeto_GYM.fachada.cadastrarDobras_Cutaneas(d);
         Projeto_GYM.fachada.cadastrarPerimetria(p);
         Projeto_GYM.fachada.cadastrarMetas_ideais(m);
+        Mensagem.exibirMensagem(avaliacao.getObjetivo());
         Projeto_GYM.fachada.cadastrarAvaliacao(avaliacao);
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 

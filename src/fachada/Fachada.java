@@ -154,6 +154,10 @@ public class Fachada {
         return avaliacaoBusiness.getById(id);
     }
     
+    public ArrayList<Avaliacao> getAllAvaliacao(){
+        return avaliacaoBusiness.getAll();
+    }
+    
     public void cadastrarComposicao_corporal(Composicao_corporal c){
         composicao_corporalBusiness.cadastrar(c);
     }

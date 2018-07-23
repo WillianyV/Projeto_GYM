@@ -6,6 +6,8 @@
 package dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Metas_ideais;
@@ -35,5 +37,33 @@ public class Metas_ideaisDao {
     }
     public void editar(Metas_ideais m){}
     public void excluir(Metas_ideais m){}
-    public Metas_ideais getById(int id){return null;}
+    public Metas_ideais getById(int id){
+        ResultSet result;
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.SELECT_BY_ID_METAS_IDEAIS);
+            statement.setInt(1, id);
+            result = statement.executeQuery();
+            result.next();
+            
+            return get(result);
+        } catch (Exception ex) {
+            Logger.getLogger(Metas_ideaisDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    private Metas_ideais get(ResultSet result){
+        Metas_ideais m = new Metas_ideais();
+        
+        try {
+            m.setId(result.getInt(1));
+            m.setPeso(result.getFloat(2));
+            m.setImc(result.getFloat(3));
+            m.setNivel(result.getString(4));
+            m.setPorcentual_gordura(result.getFloat(5));
+        } catch (SQLException ex) {
+            Logger.getLogger(Metas_ideaisDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return m;
+    }
 }

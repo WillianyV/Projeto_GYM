@@ -6,6 +6,8 @@
 package dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Dobras_Cutaneas;
@@ -41,5 +43,40 @@ public class Dobras_CutaneasDao {
    } 
    public void editar(Dobras_Cutaneas c){} 
    public void excluir(Dobras_Cutaneas c){} 
-   public Dobras_Cutaneas getById(int id){return null;} 
+   
+   public Dobras_Cutaneas getById(int id){
+             
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.SELECT_BY_ID_DOBRAS_CUTANEAS);
+            statement.setInt(1, id);
+            ResultSet result = statement.executeQuery();
+            result.next();
+            
+            return get(result);
+        } catch (Exception ex) {
+            Logger.getLogger(Dobras_CutaneasDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+       return null;
+   }
+   
+   public Dobras_Cutaneas get(ResultSet result){
+       Dobras_Cutaneas d = new Dobras_Cutaneas();
+       
+        try {
+            d.setId(result.getInt(1));
+            d.setPeitoral(result.getFloat(2));
+            d.setAxilar_media(result.getFloat(3));
+            d.setAbdominal(result.getFloat(4));
+            d.setCoxa(result.getFloat(5));
+            d.setBicipita(result.getFloat(6));
+            d.setSupra_iliaca(result.getFloat(7));
+            d.setSubscapular(result.getFloat(8));
+            d.setTricipital(result.getFloat(9));
+        } catch (SQLException ex) {
+            Logger.getLogger(Dobras_CutaneasDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return d;
+   }
 }

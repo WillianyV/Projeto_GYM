@@ -6,7 +6,13 @@
 package view;
 
 import app.Projeto_GYM;
+import fachada.Fachada;
+import java.util.ArrayList;
+import javax.swing.JTable;
 import model.Aluno;
+import model.Avaliacao;
+import model.Instrutor;
+import model.ModeloTabela;
 
 /**
  *
@@ -21,7 +27,13 @@ public class AlunosAvaliacaoHomeJFrame extends javax.swing.JFrame {
     public AlunosAvaliacaoHomeJFrame(Aluno a, String objetivo) {
         this.a=a;
         this.objetivo=objetivo;
+        ArrayList<Avaliacao> avaliacoes = new ArrayList<>();
         initComponents();
+        for (Avaliacao av : Fachada.getInstance().getAllAvaliacao()) {
+            if(av.getAluno().getId()==a.getId())
+                avaliacoes.add(av);
+        }
+        carregarTabela(avaliacoes);
     }
 
     /**
@@ -37,7 +49,7 @@ public class AlunosAvaliacaoHomeJFrame extends javax.swing.JFrame {
         jPanelBlue = new javax.swing.JPanel();
         jLabeAlunos = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableAlunos = new javax.swing.JTable();
+        jTableAvFísica = new javax.swing.JTable();
         jButtonCadastrar = new javax.swing.JButton();
         jButtonExcluir = new javax.swing.JButton();
         jButtonEditar = new javax.swing.JButton();
@@ -76,8 +88,8 @@ public class AlunosAvaliacaoHomeJFrame extends javax.swing.JFrame {
                 .addGap(28, 28, 28))
         );
 
-        jTableAlunos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jTableAlunos.setModel(new javax.swing.table.DefaultTableModel(
+        jTableAvFísica.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTableAvFísica.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -88,7 +100,7 @@ public class AlunosAvaliacaoHomeJFrame extends javax.swing.JFrame {
                 "Avalição nº", "Data", "Nome Aluno", "Instrutor"
             }
         ));
-        jScrollPane1.setViewportView(jTableAlunos);
+        jScrollPane1.setViewportView(jTableAvFísica);
 
         jButtonCadastrar.setBackground(new java.awt.Color(45, 118, 232));
         jButtonCadastrar.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -205,8 +217,13 @@ public class AlunosAvaliacaoHomeJFrame extends javax.swing.JFrame {
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         this.dispose();
-        new AlunosAvaliacaoJFrame(a,Projeto_GYM.fachada.getByFuncionario_IdInstrutor(
-                    Projeto_GYM.fachada.getFuncionarioLogado().getId()), objetivo).show();
+        Instrutor i = Projeto_GYM.fachada.getByFuncionario_IdInstrutor(
+                    Projeto_GYM.fachada.getFuncionarioLogado().getId());
+        Mensagem.exibirMensagem(i.getId()+"");
+        if(i.getId()!=0)
+            new AlunosAvaliacaoJFrame(a,i, objetivo).show();
+        else
+            Mensagem.exibirMensagem("Acesso permitido apenas para instrutores!");
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
@@ -232,7 +249,24 @@ public class AlunosAvaliacaoHomeJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelBack;
     private javax.swing.JPanel jPanelBlue;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableAlunos;
+    private javax.swing.JTable jTableAvFísica;
     private javax.swing.JTextField jTextFieldProsucar;
     // End of variables declaration//GEN-END:variables
+
+    private void carregarTabela(ArrayList<Avaliacao> avaliacao){
+        String [] colunas = {"Avaliação Nº","Data","Nome Aluno","Instrutor"};
+        ArrayList<Object[]> dados = new ArrayList<>();
+        int i=1;
+        for(Avaliacao a : avaliacao)
+            dados.add(new Object[]{i++,a.getData(),a.getAluno().getNome(),
+                        a.getInstrutor().getFuncionario().getNome()});
+        
+        ModeloTabela modelo = new ModeloTabela(dados, colunas);
+        jTableAvFísica.setModel(modelo);
+        jTableAvFísica.getColumn(0).setResizable(false);
+        jTableAvFísica.getColumn(1).setResizable(false);
+        jTableAvFísica.getColumn(2).setResizable(false);
+        jTableAvFísica.getColumn(3).setResizable(false);
+        
+        jTableAvFísica.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);    }
 }
