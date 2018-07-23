@@ -5,7 +5,10 @@
  */
 package dao;
 
+import fachada.Fachada;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -40,5 +43,35 @@ public class ControleFinanceiroDao {
     public void editar(ControleFinanceiro c){}
     public void excluir(ControleFinanceiro c){}
     public ControleFinanceiro getById(int id){return null;}
-    public ArrayList<ControleFinanceiro> getAll(){return null;}
+    public ArrayList<ControleFinanceiro> getAll(){
+        ResultSet result;
+        ArrayList<ControleFinanceiro> financeiros = new ArrayList<>();
+        
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.SELECT_ALL_CONTROLE_FINANCEIRO);
+            result = statement.executeQuery();
+            
+            while (result.next()) {                
+                financeiros.add(get(result));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(ControleFinanceiroDao.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+        return financeiros;
+    }
+    
+    private ControleFinanceiro get(ResultSet result){
+        ControleFinanceiro f = new ControleFinanceiro();
+        
+        try {
+            f.setId(result.getInt(1));
+            f.setData(result.getDate(2));
+            f.setDescricao(result.getString(3));
+            f.setValor(result.getFloat(4));
+            f.setConta(Fachada.getInstance().getByIdConta(result.getInt(5)));
+        } catch (SQLException ex) {
+            Logger.getLogger(ControleFinanceiroDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return f;
+    }
 }

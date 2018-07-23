@@ -45,13 +45,14 @@ public class Dobras_CutaneasDao {
    public void excluir(Dobras_Cutaneas c){} 
    
    public Dobras_Cutaneas getById(int id){
-             
+        ResultSet result; 
+        boolean b;
         try {
             statement = SQLUtil.prepareStatement(SQLUtil.SELECT_BY_ID_DOBRAS_CUTANEAS);
             statement.setInt(1, id);
-            ResultSet result = statement.executeQuery();
-            result.next();
-            
+            result = statement.executeQuery();
+            b = result.next();
+            System.out.println(b);
             return get(result);
         } catch (Exception ex) {
             Logger.getLogger(Dobras_CutaneasDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -60,7 +61,7 @@ public class Dobras_CutaneasDao {
        return null;
    }
    
-   public Dobras_Cutaneas get(ResultSet result){
+   private Dobras_Cutaneas get(ResultSet result){
        Dobras_Cutaneas d = new Dobras_Cutaneas();
        
         try {

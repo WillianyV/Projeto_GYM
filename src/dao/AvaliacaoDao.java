@@ -79,7 +79,7 @@ public class AvaliacaoDao{
             a.setComposicao_corporal(Fachada.getInstance().getByIdComposicao_corporal(result.getInt(6)));
             a.setMetas_ideais(Fachada.getInstance().getByIdMetas_ideais(result.getInt(7)));
             a.setPerimetria(Fachada.getInstance().getByIdPerimetria(result.getInt(8)));
-            a.setDobras_Cutaneas(Fachada.getInstance().getByIdDobras_Cutaneas(9));
+            a.setDobras_Cutaneas(Fachada.getInstance().getByIdDobras_Cutaneas(result.getInt(8)));
             a.setAluno(Fachada.getInstance().getByIdAluno(result.getInt(10)));
             a.setInstrutor(Fachada.getInstance().getByIdInstrutor(result.getInt(11)));
             

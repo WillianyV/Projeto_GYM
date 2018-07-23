@@ -257,16 +257,22 @@ public class AlunosAvaliacaoHomeJFrame extends javax.swing.JFrame {
         String [] colunas = {"Avaliação Nº","Data","Nome Aluno","Instrutor"};
         ArrayList<Object[]> dados = new ArrayList<>();
         int i=1;
+        System.out.println(avaliacao.get(0).getInstrutor().getFuncionario().getNome());
         for(Avaliacao a : avaliacao)
             dados.add(new Object[]{i++,a.getData(),a.getAluno().getNome(),
                         a.getInstrutor().getFuncionario().getNome()});
         
         ModeloTabela modelo = new ModeloTabela(dados, colunas);
         jTableAvFísica.setModel(modelo);
-        jTableAvFísica.getColumn(0).setResizable(false);
-        jTableAvFísica.getColumn(1).setResizable(false);
-        jTableAvFísica.getColumn(2).setResizable(false);
-        jTableAvFísica.getColumn(3).setResizable(false);
+        
+        jTableAvFísica.getColumnModel().getColumn(0).setPreferredWidth(40);
+        jTableAvFísica.getColumnModel().getColumn(0).setResizable(false);
+        jTableAvFísica.getColumnModel().getColumn(1).setPreferredWidth(100);
+        jTableAvFísica.getColumnModel().getColumn(1).setResizable(false);
+        jTableAvFísica.getColumnModel().getColumn(2).setPreferredWidth(213);
+        jTableAvFísica.getColumnModel().getColumn(2).setResizable(false);
+        jTableAvFísica.getColumnModel().getColumn(3).setPreferredWidth(205);
+        jTableAvFísica.getColumnModel().getColumn(3).setResizable(false);
         
         jTableAvFísica.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);    }
 }

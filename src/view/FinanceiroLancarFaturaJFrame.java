@@ -328,7 +328,6 @@ public class FinanceiroLancarFaturaJFrame extends javax.swing.JFrame {
         c.setConta(Projeto_GYM.fachada.getByNomeConta(jComboBoxHistorico.getSelectedItem()+""));
         c.setData(Util.getDate(jFormattedTextFieldData.getText()));
         c.setDescricao(jTextFieldDescricao.getText());
-        Mensagem.exibirMensagem(jTextFieldValor.getText());
         c.setValor(Float.parseFloat(jTextFieldValor.getText()));
         return c;
     }

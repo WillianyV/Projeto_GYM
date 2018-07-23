@@ -5,6 +5,13 @@
  */
 package view;
 
+import fachada.Fachada;
+import java.util.ArrayList;
+import javax.swing.JTable;
+import model.Avaliacao;
+import model.ControleFinanceiro;
+import model.ModeloTabela;
+
 /**
  *
  * @author Insinuante
@@ -16,6 +23,9 @@ public class FincanceiroJFrame extends javax.swing.JFrame {
      */
     public FincanceiroJFrame() {
         initComponents();
+        ArrayList<ControleFinanceiro> financeiro = Fachada.getInstance().getAllControleFinanceiro();
+        carregarTabelar(financeiro);
+        jFormattedTextFieldSaldo.setText(calcularSaldo(financeiro)+"");
     }
 
     /**
@@ -42,7 +52,7 @@ public class FincanceiroJFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableCaixa = new javax.swing.JTable();
         jLabelSaldo = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jFormattedTextFieldSaldo = new javax.swing.JFormattedTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabelFiltrar1 = new javax.swing.JLabel();
 
@@ -162,8 +172,8 @@ public class FincanceiroJFrame extends javax.swing.JFrame {
         jLabelSaldo.setForeground(new java.awt.Color(45, 118, 232));
         jLabelSaldo.setText("Saldo:");
 
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
-        jFormattedTextField1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jFormattedTextFieldSaldo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        jFormattedTextFieldSaldo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -224,7 +234,7 @@ public class FincanceiroJFrame extends javax.swing.JFrame {
                         .addGroup(jPanelBackLayout.createSequentialGroup()
                             .addComponent(jLabelSaldo)
                             .addGap(18, 18, 18)
-                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jFormattedTextFieldSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(39, 39, 39)
                             .addComponent(jButtonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
@@ -260,7 +270,7 @@ public class FincanceiroJFrame extends javax.swing.JFrame {
                     .addComponent(jButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelSaldo)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jFormattedTextFieldSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(51, Short.MAX_VALUE))
         );
 
@@ -317,9 +327,9 @@ public class FincanceiroJFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonExcluir;
     private javax.swing.JButton jButtonNovo;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextFieldPeriodo2;
     private javax.swing.JFormattedTextField jFormattedTextFieldPeriodo3;
+    private javax.swing.JFormattedTextField jFormattedTextFieldSaldo;
     private javax.swing.JLabel jLabeConFinanceiro;
     private javax.swing.JLabel jLabelFiltrar;
     private javax.swing.JLabel jLabelFiltrar1;
@@ -333,4 +343,41 @@ public class FincanceiroJFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTableCaixa;
     // End of variables declaration//GEN-END:variables
+
+    private void carregarTabelar(ArrayList<ControleFinanceiro> financeiro){
+        String [] colunas = {"ID","Data","Historico","Descrição","Valor"};
+        ArrayList<Object[]> dados = new ArrayList<>();
+        for(ControleFinanceiro c : financeiro)
+            dados.add(new Object[]{c.getId(),c.getData(),c.getConta().getDescricao(),
+                      c.getDescricao(),c.getValor()});
+        
+        ModeloTabela modelo = new ModeloTabela(dados, colunas);
+        jTableCaixa.setModel(modelo);
+        
+        jTableCaixa.getColumnModel().getColumn(0).setPreferredWidth(40);
+        jTableCaixa.getColumnModel().getColumn(0).setResizable(false);
+        jTableCaixa.getColumnModel().getColumn(1).setPreferredWidth(100);
+        jTableCaixa.getColumnModel().getColumn(1).setResizable(false);
+        jTableCaixa.getColumnModel().getColumn(2).setPreferredWidth(170);
+        jTableCaixa.getColumnModel().getColumn(2).setResizable(false);
+        jTableCaixa.getColumnModel().getColumn(3).setPreferredWidth(170);
+        jTableCaixa.getColumnModel().getColumn(3).setResizable(false);
+        jTableCaixa.getColumnModel().getColumn(4).setPreferredWidth(95);
+        jTableCaixa.getColumnModel().getColumn(4).setResizable(false);
+        
+        jTableCaixa.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);    
+    }
+    
+    private float calcularSaldo(ArrayList<ControleFinanceiro> f){
+        float saldo=0;
+        
+        for (ControleFinanceiro c : f) {
+            if(c.getConta().getTipo().equals("Débito"))
+                saldo-=c.getValor();
+            else
+                saldo+=c.getValor();
+        }
+        return saldo;
+    }
+    
 }

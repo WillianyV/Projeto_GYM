@@ -57,6 +57,7 @@ public class SQLUtil {
     
     public static String SELECT_INSTRUTOR_BY_ID_FUNCIONARIO = "select * from instrutor where funcionario_id=?";
     public static String SELECT_CONTA_BY_NOME = "select * from historico where nome=?";
+    public static String SELECT_CONTA_BY_ID = "select * from historico where id=?";
     public static String SELECT_CONTA_ALL_NOMES = "select nome from historico";
     public static String SELECT_ALL_ALUNO = "select * from aluno";
     public static String SELECT_BY_ID_ALUNO = "select * from aluno where id=?";
@@ -70,6 +71,8 @@ public class SQLUtil {
     public static String SELECT_BY_ID_DOBRAS_CUTANEAS = "select * from dobras_cutaneas where id=?";
     public static String SELECT_BY_ID_PERIMETRIA= "select * from perimetria where id=?";
     public static String SELECT_ALL_AVALIACAO = "select * from avaliacao";
+    public static String SELECT_BY_ID_INSTRUTOR = "select * from instrutor where id=?";
+    public static String SELECT_ALL_CONTROLE_FINANCEIRO = "select * from controle_financeiro";
     
     public static String UPDATE_ALUNO = "update aluno set nome=?,cpf=?,data_nascimento=?,sexo=?,"
             + "vencimento_mens=?,endereco_id=?,rg=?,email=?,celular=?,status=? where id=?";

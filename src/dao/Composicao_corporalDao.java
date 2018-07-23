@@ -39,6 +39,7 @@ public class Composicao_corporalDao {
     }
     public void editar(Composicao_corporal c){}
     public void excluir(Composicao_corporal c){}
+    
     public Composicao_corporal getById(int id){
         ResultSet result;
         try {

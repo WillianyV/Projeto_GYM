@@ -38,7 +38,22 @@ public class ContaDao {
     }
     public void editar(Conta c){}
     public void excluir(Conta c){}
-    public Conta getById(int id){return null;}
+    public Conta getById(int id){
+        ResultSet result;
+        
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.SELECT_CONTA_BY_ID);
+            statement.setInt(1, id);
+            result = statement.executeQuery();
+            result.next();
+            
+            return get(result);
+        } catch (Exception ex) {
+            Logger.getLogger(ContaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
+    }
     
     public ArrayList<String> getAllNomeContas(){
         ResultSet result;
