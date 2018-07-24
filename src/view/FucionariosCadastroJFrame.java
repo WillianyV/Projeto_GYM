@@ -7,6 +7,7 @@ package view;
 
 import app.Projeto_GYM;
 import app.Util;
+import fachada.Fachada;
 import java.sql.Date;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -1665,10 +1666,15 @@ public class FucionariosCadastroJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxPROFAVMouseClicked
 
     private void jCheckBoxPROFAVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxPROFAVActionPerformed
-        if(jCheckBoxPROFAV.isSelected())
+        if(jCheckBoxPROFAV.isSelected()){
             jTextFieldCRf.setEditable(true);
-        else
+            jComboBoxFuncaoFuncionario.setSelectedItem("Instrutor");
+            jComboBoxFuncaoFuncionario.setEnabled(false);
+        }else{
             jTextFieldCRf.setEditable(false);
+            jComboBoxFuncaoFuncionario.setSelectedItem("Atendente");
+            jComboBoxFuncaoFuncionario.setEnabled(true);
+        }
     }//GEN-LAST:event_jCheckBoxPROFAVActionPerformed
 
 
@@ -1867,6 +1873,74 @@ public class FucionariosCadastroJFrame extends javax.swing.JFrame {
         
         return f;
     }
+    
+    public void setFuncionario(){
+        getjFormattedTextFieldDN().setText(Util.getDateString(f.getData_nascimento()));
+        jFormattedTextFieldDTD.setText(Util.getDateString(f.getData_demissao()));       
+        
+        //CADASTRO:
+        getjTextFieldNome().setText(f.getNome());
+        getjFormattedTextFieldCPF1().setText(f.getCpf());
+        this.getjFormattedTextFieldCelular().setText(f.getTelefone());
+        getjTextFieldRG().setText(f.getRg());
+        getjTextFieldLogradouro1().setText(f.getEmail());
+        getjComboBoxSexo().setSelectedItem(f.getSexo());
+        getjComboBoxStatus().setSelectedItem(f.getStatus());
+            //ENDEREÇO:
+        getjTextFieldBairro().setText(f.getEndereco().getBairro());
+        getjTextFieldCidade().setText(f.getEndereco().getCidade());
+        getjTextFieldLogradouro().setText(f.getEndereco().getLogradouro());
+        getjTextFieldNumero().setText(f.getEndereco().getNum()+"");
+        getjComboBoxUf().setSelectedItem(f.getEndereco().getUf());
+        this.getjFormattedTextFieldCEP().setText(f.getEndereco().getCep());        
+        //ACESSO:
+            // CONTROLE DE ACESSO:
+        getjTextFieldId4().setText(f.getLogin());
+        getjTextFieldId2().setText(f.getSenha());
+            // PERMISSÃO DE ACESSO:
+        getCadAlunoAcessojCheckBox().setSelected(f.isCadAlunoAcessar());
+        getCadAlunoCadastrarjCheckBox().setSelected(f.isCadAlunoCadastrar());
+        getCadFuncEditarjCheckBox().setSelected(f.isCadAlunoEditar());
+        getCadFuncExcluirjCheckBox().setSelected(f.isCadAlunoExcluir());
+        getCadAlunoRecebPagjCheckBox().setSelected(f.isCadAlunoRecebPag());
+        getCadFunAcessojCheckBox().setSelected(f.isCadFuncAcessar());
+        getCadFuncCadastrarjCheckBox().setSelected(f.isCadFuncCadastrar());
+        getCadFuncEditarjCheckBox().setSelected(f.isCadFuncEditar());
+        getCadFuncExcluirjCheckBox().setSelected(f.isCadFuncExcluir());
+        getCadFuncRecebPagjCheckBox().setSelected(f.isCadFuncRecebPag());        
+        getAvFisicaAcessojCheckBox().setSelected(f.isAvFisicaAcessar());
+        getFichaTreinoAcessojCheckBox().setSelected(f.isFichaTreinoAcessar());
+        getRelatoriosAcessojCheckBox().setSelected(f.isRelatorioAcessar());
+        getRelatorioCadastrarjCheckBox().setSelected(f.isRelatorioCadastrar());
+        getRelatorioEditarjCheckBox().setSelected(f.isRelatorioEditar());
+        getRelatorioExcluirjCheckBox().setSelected(f.isRelatorioExcluir());
+        getRelatorioRecebPagjCheckBox().setSelected(f.isRelatorioRecebPag());
+        getLancarPagamentosAcessojCheckBox().setSelected(f.isLancarPagAcessar());
+        getLancarPagCadastrarjCheckBox().setSelected(f.isLancarPagCadastrar());
+        getLancarPagEditarjCheckBox().setSelected(f.isLancarPagEditar());
+        getLancarPagExcluirjCheckBox().setSelected(f.isLancarPagExcluir());
+        getLancarPagamentosAcessojCheckBox().setSelected(f.isLancarPagRecebPag());
+        getControleCaixaAcessojCheckBox().setSelected(f.isControleCaixaAcessar());
+        getControleCaixaCadastrarjCheckBox().setSelected(f.isControleCaixaCadastrar());
+        getControleCaixaEditarjCheckBox().setSelected(f.isControleCaixaEditar());
+        getControleCaixaExcluirjCheckBox().setSelected(f.isControleCaixaExcluir());
+        getControleCaixaRecebPagjCheckBox().setSelected(f.isControleCaixaRecebPag());
+            //DADOS ADICIONAIS:
+        getjComboBoxFuncaoFuncionario().setSelectedItem(f.getFuncao());
+        jTextFieldSalario.setText( f.getSalario()+""); 
+        getjFormattedTextFieldDtAd().setText(Util.getDateString(f.getData_admissao()));
+        
+        i = Fachada.getInstance().getByFuncionario_IdInstrutor(f.getId());
+       
+            // falta : CRF e PRof ava, se for instrutor?  
+        if(i!=null){
+            jTextFieldCRf.setText(i.getCref()+"");
+            jComboBoxFuncaoFuncionario.setSelectedItem("Instrutor");
+            jComboBoxFuncaoFuncionario.enable();
+            jCheckBoxPROFAV.setSelected(true);
+        }
+        
+            }
 
     public JButton getjButtonCancelar() {
         return jButtonCancelar;
