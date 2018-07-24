@@ -1227,6 +1227,16 @@ public class FucionariosCadastroJFrame extends javax.swing.JFrame {
         jCheckBoxPROFAV.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBoxPROFAV.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jCheckBoxPROFAV.setText("Professor/Avaliador");
+        jCheckBoxPROFAV.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBoxPROFAVMouseClicked(evt);
+            }
+        });
+        jCheckBoxPROFAV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxPROFAVActionPerformed(evt);
+            }
+        });
 
         jLabelCRF.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelCRF.setForeground(new java.awt.Color(45, 118, 232));
@@ -1649,6 +1659,17 @@ public class FucionariosCadastroJFrame extends javax.swing.JFrame {
     private void jTextFieldId3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldId3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldId3ActionPerformed
+
+    private void jCheckBoxPROFAVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxPROFAVMouseClicked
+        
+    }//GEN-LAST:event_jCheckBoxPROFAVMouseClicked
+
+    private void jCheckBoxPROFAVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxPROFAVActionPerformed
+        if(jCheckBoxPROFAV.isSelected())
+            jTextFieldCRf.setEditable(true);
+        else
+            jTextFieldCRf.setEditable(false);
+    }//GEN-LAST:event_jCheckBoxPROFAVActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
