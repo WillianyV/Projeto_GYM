@@ -217,7 +217,7 @@ public class HomeJFrame extends javax.swing.JFrame {
 
         jLabelAlunos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelAlunos.setForeground(new java.awt.Color(45, 118, 232));
-        jLabelAlunos.setText("Alunos");
+        jLabelAlunos.setText("    Alunos");
 
         jLabelIconAlunos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/group_52px.png"))); // NOI18N
 
@@ -225,15 +225,12 @@ public class HomeJFrame extends javax.swing.JFrame {
         jPanelAlunos.setLayout(jPanelAlunosLayout);
         jPanelAlunosLayout.setHorizontalGroup(
             jPanelAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelAlunosLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAlunosLayout.createSequentialGroup()
                 .addContainerGap(41, Short.MAX_VALUE)
-                .addGroup(jPanelAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAlunosLayout.createSequentialGroup()
-                        .addComponent(jLabelAlunos)
-                        .addGap(49, 49, 49))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelAlunosLayout.createSequentialGroup()
-                        .addComponent(jLabelIconAlunos, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39))))
+                .addGroup(jPanelAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelIconAlunos, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                    .addComponent(jLabelAlunos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(39, 39, 39))
         );
         jPanelAlunosLayout.setVerticalGroup(
             jPanelAlunosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,7 +301,7 @@ public class HomeJFrame extends javax.swing.JFrame {
 
         jLabelFinanceiro.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelFinanceiro.setForeground(new java.awt.Color(45, 118, 232));
-        jLabelFinanceiro.setText("Relatórios");
+        jLabelFinanceiro.setText(" Relatórios");
 
         jLabelIconFinanceiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/list_64px.png"))); // NOI18N
 
@@ -314,9 +311,9 @@ public class HomeJFrame extends javax.swing.JFrame {
             jPanelRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelRelatorioLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(jPanelRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelIconFinanceiro)
-                    .addComponent(jLabelFinanceiro))
+                .addGroup(jPanelRelatorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelIconFinanceiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelFinanceiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanelRelatorioLayout.setVerticalGroup(
@@ -345,7 +342,7 @@ public class HomeJFrame extends javax.swing.JFrame {
 
         jLabellInfo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabellInfo.setForeground(new java.awt.Color(45, 118, 232));
-        jLabellInfo.setText("Infomação");
+        jLabellInfo.setText("  Infomação");
 
         jLabelIconlInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/about.png"))); // NOI18N
 
@@ -387,7 +384,7 @@ public class HomeJFrame extends javax.swing.JFrame {
 
         jLabellExercicios.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabellExercicios.setForeground(new java.awt.Color(45, 118, 232));
-        jLabellExercicios.setText("Exercícios");
+        jLabellExercicios.setText(" Exercícios");
 
         jLabelIconlExer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Blue.png"))); // NOI18N
 
@@ -515,7 +512,7 @@ public class HomeJFrame extends javax.swing.JFrame {
 
         jLabellExercicios2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabellExercicios2.setForeground(new java.awt.Color(45, 118, 232));
-        jLabellExercicios2.setText("Logout");
+        jLabellExercicios2.setText("  Logout");
 
         jLabelIconlExer2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8_Logout_Rounded_Up_50px.png"))); // NOI18N
 
@@ -525,9 +522,9 @@ public class HomeJFrame extends javax.swing.JFrame {
             jPanelLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLogoutLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addGroup(jPanelLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelIconlExer2)
-                    .addComponent(jLabellExercicios2))
+                .addGroup(jPanelLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelIconlExer2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabellExercicios2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanelLogoutLayout.setVerticalGroup(
@@ -535,9 +532,9 @@ public class HomeJFrame extends javax.swing.JFrame {
             .addGroup(jPanelLogoutLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(jLabelIconlExer2)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(jLabellExercicios2)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanelBackgroundLayout = new javax.swing.GroupLayout(jPanelBackground);

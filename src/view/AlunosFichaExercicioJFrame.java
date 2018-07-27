@@ -266,17 +266,17 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
         jCheckBox67 = new javax.swing.JCheckBox();
         jCheckBox68 = new javax.swing.JCheckBox();
         jCheckBox69 = new javax.swing.JCheckBox();
-        jCheckBox70 = new javax.swing.JCheckBox();
+        peitoSeg = new javax.swing.JCheckBox();
         peitojLabel = new javax.swing.JLabel();
         ombrojLabel = new javax.swing.JLabel();
-        jCheckBox71 = new javax.swing.JCheckBox();
+        ombroSeg = new javax.swing.JCheckBox();
         jCheckBox72 = new javax.swing.JCheckBox();
         jCheckBox73 = new javax.swing.JCheckBox();
         jCheckBox74 = new javax.swing.JCheckBox();
         jCheckBox75 = new javax.swing.JCheckBox();
         jCheckBox76 = new javax.swing.JCheckBox();
         jCheckBox77 = new javax.swing.JCheckBox();
-        jCheckBox78 = new javax.swing.JCheckBox();
+        pernSeg = new javax.swing.JCheckBox();
         jCheckBox79 = new javax.swing.JCheckBox();
         jCheckBox80 = new javax.swing.JCheckBox();
         jCheckBox81 = new javax.swing.JCheckBox();
@@ -284,7 +284,7 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
         jCheckBox83 = new javax.swing.JCheckBox();
         jCheckBox84 = new javax.swing.JCheckBox();
         pernajLabel = new javax.swing.JLabel();
-        jCheckBox85 = new javax.swing.JCheckBox();
+        tripSeg = new javax.swing.JCheckBox();
         jCheckBox86 = new javax.swing.JCheckBox();
         jCheckBox87 = new javax.swing.JCheckBox();
         jCheckBox88 = new javax.swing.JCheckBox();
@@ -305,6 +305,7 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastrar avaliação física");
+        setExtendedState(6);
 
         jPanelBack.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -2094,10 +2095,10 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
 
         jCheckBox69.setBackground(new java.awt.Color(255, 255, 255));
 
-        jCheckBox70.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox70.addActionListener(new java.awt.event.ActionListener() {
+        peitoSeg.setBackground(new java.awt.Color(255, 255, 255));
+        peitoSeg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox70ActionPerformed(evt);
+                peitoSegActionPerformed(evt);
             }
         });
 
@@ -2109,9 +2110,14 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
         ombrojLabel.setForeground(new java.awt.Color(45, 118, 232));
         ombrojLabel.setText("Ombro");
 
-        jCheckBox71.setBackground(new java.awt.Color(255, 255, 255));
+        ombroSeg.setBackground(new java.awt.Color(255, 255, 255));
 
         jCheckBox72.setBackground(new java.awt.Color(255, 255, 255));
+        jCheckBox72.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox72ActionPerformed(evt);
+            }
+        });
 
         jCheckBox73.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -2133,10 +2139,10 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox78.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox78.addActionListener(new java.awt.event.ActionListener() {
+        pernSeg.setBackground(new java.awt.Color(255, 255, 255));
+        pernSeg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox78ActionPerformed(evt);
+                pernSegActionPerformed(evt);
             }
         });
 
@@ -2166,10 +2172,10 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
         pernajLabel.setForeground(new java.awt.Color(45, 118, 232));
         pernajLabel.setText("Perna");
 
-        jCheckBox85.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox85.addActionListener(new java.awt.event.ActionListener() {
+        tripSeg.setBackground(new java.awt.Color(255, 255, 255));
+        tripSeg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox85ActionPerformed(evt);
+                tripSegActionPerformed(evt);
             }
         });
 
@@ -2277,13 +2283,13 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
                                         .addGroup(jPanelFichaLayout.createSequentialGroup()
                                             .addComponent(ombrojLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(61, 61, 61)
-                                            .addComponent(jCheckBox71)
+                                            .addComponent(ombroSeg)
                                             .addGap(30, 30, 30)
                                             .addComponent(jCheckBox72))
                                         .addGroup(jPanelFichaLayout.createSequentialGroup()
                                             .addComponent(peitojLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(61, 61, 61)
-                                            .addComponent(jCheckBox70)
+                                            .addComponent(peitoSeg)
                                             .addGap(30, 30, 30)
                                             .addComponent(jCheckBox69)))
                                     .addGap(30, 30, 30)
@@ -2297,11 +2303,11 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
                                 .addGap(61, 61, 61)
                                 .addGroup(jPanelFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanelFichaLayout.createSequentialGroup()
-                                        .addComponent(jCheckBox85)
+                                        .addComponent(tripSeg)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jCheckBox91))
                                     .addGroup(jPanelFichaLayout.createSequentialGroup()
-                                        .addComponent(jCheckBox78)
+                                        .addComponent(pernSeg)
                                         .addGap(30, 30, 30)
                                         .addComponent(jCheckBox84)))
                                 .addGap(30, 30, 30)
@@ -2467,7 +2473,7 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addGroup(jPanelFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ombrojLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jCheckBox71, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ombroSeg, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jCheckBox72, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jCheckBox73, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelFichaLayout.createSequentialGroup()
@@ -2482,7 +2488,7 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
                 .addGap(7, 7, 7)
                 .addGroup(jPanelFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(peitojLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jCheckBox70, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(peitoSeg, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jCheckBox69, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jCheckBox68, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jCheckBox66, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -2494,7 +2500,7 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addGroup(jPanelFichaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(pernajLabel)
-                    .addComponent(jCheckBox78)
+                    .addComponent(pernSeg)
                     .addComponent(jCheckBox84)
                     .addComponent(jCheckBox83)
                     .addComponent(jCheckBox81)
@@ -2511,7 +2517,7 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
                         .addComponent(jCheckBox90)
                         .addComponent(jCheckBox88)
                         .addComponent(jCheckBox89))
-                    .addComponent(jCheckBox85)
+                    .addComponent(tripSeg)
                     .addComponent(jCheckBox86)
                     .addComponent(jCheckBox87))
                 .addContainerGap(55, Short.MAX_VALUE))
@@ -2798,13 +2804,13 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox77ActionPerformed
 
-    private void jCheckBox70ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox70ActionPerformed
+    private void peitoSegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peitoSegActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox70ActionPerformed
+    }//GEN-LAST:event_peitoSegActionPerformed
 
-    private void jCheckBox78ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox78ActionPerformed
+    private void pernSegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pernSegActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox78ActionPerformed
+    }//GEN-LAST:event_pernSegActionPerformed
 
     private void jCheckBox79ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox79ActionPerformed
         // TODO add your handling code here:
@@ -2814,9 +2820,9 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox81ActionPerformed
 
-    private void jCheckBox85ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox85ActionPerformed
+    private void tripSegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tripSegActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox85ActionPerformed
+    }//GEN-LAST:event_tripSegActionPerformed
 
     private void jCheckBox86ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox86ActionPerformed
         // TODO add your handling code here:
@@ -2829,6 +2835,10 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
     private void jButtonImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonImprimirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonImprimirActionPerformed
+
+    private void jCheckBox72ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox72ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox72ActionPerformed
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -2911,22 +2921,18 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBox68;
     private javax.swing.JCheckBox jCheckBox69;
     private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox70;
-    private javax.swing.JCheckBox jCheckBox71;
     private javax.swing.JCheckBox jCheckBox72;
     private javax.swing.JCheckBox jCheckBox73;
     private javax.swing.JCheckBox jCheckBox74;
     private javax.swing.JCheckBox jCheckBox75;
     private javax.swing.JCheckBox jCheckBox76;
     private javax.swing.JCheckBox jCheckBox77;
-    private javax.swing.JCheckBox jCheckBox78;
     private javax.swing.JCheckBox jCheckBox79;
     private javax.swing.JCheckBox jCheckBox80;
     private javax.swing.JCheckBox jCheckBox81;
     private javax.swing.JCheckBox jCheckBox82;
     private javax.swing.JCheckBox jCheckBox83;
     private javax.swing.JCheckBox jCheckBox84;
-    private javax.swing.JCheckBox jCheckBox85;
     private javax.swing.JCheckBox jCheckBox86;
     private javax.swing.JCheckBox jCheckBox87;
     private javax.swing.JCheckBox jCheckBox88;
@@ -3093,10 +3099,14 @@ public class AlunosFichaExercicioJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldRepeticoe7;
     private javax.swing.JTextField jTextFieldRepeticoe8;
     private javax.swing.JTextField jTextFieldRepeticoe9;
+    private javax.swing.JCheckBox ombroSeg;
     private javax.swing.JLabel ombrojLabel;
+    private javax.swing.JCheckBox peitoSeg;
     private javax.swing.JLabel peitojLabel;
+    private javax.swing.JCheckBox pernSeg;
     private javax.swing.JLabel pernajLabel;
     private javax.swing.JLabel tricepsjLabel;
+    private javax.swing.JCheckBox tripSeg;
     // End of variables declaration//GEN-END:variables
 
 public FichaDeTreino getFicha(){
@@ -3105,6 +3115,32 @@ public FichaDeTreino getFicha(){
     ficha.setAluno(aluno);
     ficha.setInstrutor(instrutor);
     
+    //FICHA:
+        //segunda
+        ficha.setAbSegunda(abdomenSeg.isSelected());
+        ficha.setAeSegunda(aerobSeg.isSelected());
+        ficha.setAntSegunda(antebSeg.isSelected());
+        ficha.setBiSegunda(bicepsSeg.isSelected());
+        ficha.setCoSegunda(costasSeg.isSelected());
+        ficha.setGluSegunda(gluteoSeg.isSelected());
+        ficha.setOmbSegunda(ombroSeg.isSelected());
+        ficha.setPeiSegunda(peitoSeg.isSelected());
+        ficha.setPerSegunda(pernSeg.isSelected());
+        ficha.setTriSegunda(tripSeg.isSelected());
+        //terca
+        ficha.setAbTerca(jCheckBox2.isSelected());
+        ficha.setAeTerca(jCheckBox22.isSelected());
+        ficha.setAntTerca(jCheckBox37.isSelected());
+        ficha.setBiTerca(jCheckBox48.isSelected());
+        ficha.setCoTerca(jCheckBox55.isSelected());
+        ficha.setGluTerca(jCheckBox62.isSelected());
+        ficha.setOmbTerca(jCheckBox72.isSelected());
+        ficha.setPeiTerca(jCheckBox69.isSelected());
+        ficha.setPerTerca(jCheckBox84.isSelected());
+        ficha.setTriTerca(jCheckBox91.isSelected());
+        
+        
+        
     return ficha;
 }
      

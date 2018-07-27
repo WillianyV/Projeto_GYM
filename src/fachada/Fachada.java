@@ -21,6 +21,7 @@ import business.FuncionarioBusiness;
 import business.InstrutorBusiness;
 import business.Metas_ideaisBusiness;
 import business.PagamentoBusiness;
+import business.ParcelasBusiness;
 import business.PerimetriaBusiness;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -41,6 +42,7 @@ import model.Funcionario;
 import model.Instrutor;
 import model.Metas_ideais;
 import model.Pagamento;
+import model.Parcelas;
 import model.Perimetria;
 
 /**
@@ -67,6 +69,7 @@ public class Fachada {
     private static PagamentoBusiness pagamentoBusiness;
     private static PerimetriaBusiness perimetriaBusiness;
     private static AcademiaBusiness academiaBusiness;
+    private static ParcelasBusiness parcelasBusiness;
     
     private static Fachada fachada;
     
@@ -94,6 +97,7 @@ public class Fachada {
         pagamentoBusiness = new PagamentoBusiness();
         perimetriaBusiness = new PerimetriaBusiness();
         academiaBusiness = new AcademiaBusiness();
+        parcelasBusiness = new ParcelasBusiness();
     }
     
     public Aluno cadastrarAluno(Aluno a){
@@ -111,6 +115,10 @@ public class Fachada {
     
     public Aluno getByIdAluno(int id){
         return alunoBusiness.getById(id);
+    }
+    
+    public ArrayList<Aluno> getAlunosPosBusca(String busca) {
+       return alunoBusiness.getPorBusca(busca);
     }
     
     public Aluno getByNomeAluno(String nome){
@@ -274,6 +282,10 @@ public class Fachada {
         return exercicioBusiness.getByAllTipo(tipo);
     }
     
+    public ArrayList<Exercicio> getExercicioAll(){
+        return exercicioBusiness.getByAll();
+    }
+    
     public void cadastrarFichaDeTreino(FichaDeTreino f){
         fichaDeTreinoBusiness.Cadastrar(f);
     }
@@ -316,6 +328,10 @@ public class Fachada {
     
     public Funcionario getByIdFuncionario(int id){
         return funcionarioBusiness.getById(id);
+    }
+    
+    public ArrayList<Funcionario> getFuncionariosBusca(String busca){
+        return funcionarioBusiness.getBusca(busca);
     }
     
     public ArrayList<Funcionario> getAllFuncionario(){
@@ -424,16 +440,20 @@ public class Fachada {
         return academiaBusiness.getById(id);
     }
 
-    public ArrayList<Aluno> getAlunosPosBusca(String busca) {
-       return alunoBusiness.getPorBusca(busca);
+    public void cadastrarParcelas(Parcelas p){
+        parcelasBusiness.cadastrar(p);
     }
     
-    public ArrayList<Funcionario> getFuncionariosBusca(String busca){
-        return funcionarioBusiness.getBusca(busca);
+    public void editarParcelas(Parcelas p){
+        parcelasBusiness.editar(p);
     }
     
-    public ArrayList<Exercicio> getExercicioAll(){
-        return exercicioBusiness.getByAll();
+    public Parcelas getByIdParcelas(int id){
+        return parcelasBusiness.getById(id);
+    }
+    
+    public ArrayList<Parcelas> getAllParcelas(){
+        return parcelasBusiness.getAll();
     }
     
 }

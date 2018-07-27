@@ -5,8 +5,12 @@
  */
 package app;
 
+import fachada.Fachada;
 import java.awt.Component;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
@@ -14,6 +18,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import model.Aluno;
+import model.Parcelas;
 
 /**
  *
@@ -45,6 +51,21 @@ public class Util {
         return data;
     }
     
+    public static Date converterCalendarToDate(Calendar cal){
+        int dia = cal.get(GregorianCalendar.DAY_OF_MONTH);
+        int mes = cal.getInstance().get(GregorianCalendar.MONTH);
+        int ano = cal.getInstance().get(GregorianCalendar.YEAR);
+        String c = "";
+        if(mes>9)
+            c =(cal.get(GregorianCalendar.DAY_OF_MONTH)+"/"
+                +cal.get(GregorianCalendar.MONTH)+"/"+(cal.get(GregorianCalendar.YEAR)-1900));
+        else
+            c =(cal.get(GregorianCalendar.DAY_OF_MONTH)+"/0"
+                +cal.get(GregorianCalendar.MONTH)+"/"+(cal.get(GregorianCalendar.YEAR)-1900));
+      
+        return getDate(c);
+    }
+    
     public static Float imc(float peso, float altura){
         float a = altura/100;
         return peso/(a*a);
@@ -52,6 +73,53 @@ public class Util {
     
     public static Float rcq(float cintura, float quadril){
         return cintura/quadril;
+    }
+    
+    public static void criarMensalidade(Aluno a){
+        int numPrcelas;
+        int dia = a.getVencimento_mens();
+        int mes = Calendar.getInstance().get(GregorianCalendar.MONTH);
+        int ano = Calendar.getInstance().get(GregorianCalendar.YEAR);
+        Date d = new Date(ano,mes,dia);
+        Parcelas p = new Parcelas();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(d);
+        cal.add(Calendar.MONTH, 1);
+//        Mensal
+//        Trimestral
+//        Semestral
+//        Anual
+        if(a.getPlano().equals("Mensal"))
+            numPrcelas=1;
+        else if(a.getPlano().equals("Trimestral"))
+            numPrcelas=3;
+        else if(a.getPlano().equals("Semestral"))
+             numPrcelas=6;   
+        else
+            numPrcelas=12;
+        
+        for(int i=0;i<numPrcelas;i++){
+           p.setData_de_Vencimento(converterCalendarToDate(cal));
+           p.setAlunos(a);
+           p.setStatus("Em aberto");
+           p.setValor(a.getValorPlano()/numPrcelas);            
+           
+           Fachada.getInstance().cadastrarParcelas(p);
+           cal.add(Calendar.MONTH, 1);
+        }
+         
+    }
+    
+    public static void atualizarMensalidades(){
+        int dia = Calendar.getInstance().get(GregorianCalendar.DAY_OF_MONTH);
+        System.out.println(dia+"");
+        ArrayList<Aluno> alunos = Fachada.getInstance().getAllAluno();
+        for(Aluno a : alunos){
+            System.out.println(a.getVencimento_mens());
+            if((a.getVencimento_mens()==dia) && (a.getStatus().equals("Ativo"))){
+                criarMensalidade(a);
+            }
+        }     
     }
     
      public static void bloquearCampos(JPanel p){

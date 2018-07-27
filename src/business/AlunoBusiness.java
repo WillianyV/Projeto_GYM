@@ -5,7 +5,9 @@
  */
 package business;
 
+import app.Util;
 import dao.AlunoDao;
+import fachada.Fachada;
 import java.util.ArrayList;
 import java.util.List;
 import model.Aluno;
@@ -23,7 +25,12 @@ public class AlunoBusiness {
     }
 
     public Aluno cadastrar(Aluno aluno) {
-        return dao.cadastrar(aluno);
+        Fachada f = Fachada.getInstance();
+        Aluno a = dao.cadastrar(aluno);
+        if(a!=null){
+            Util.criarMensalidade(a);
+        }
+        return a;
     }
 
     public void editar(Aluno aluno) {

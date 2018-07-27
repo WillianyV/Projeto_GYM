@@ -35,11 +35,14 @@ public class AlunoDao {
             statement.setString(2, aluno.getCpf());
             statement.setDate(3, aluno.getData_nascimento());
             statement.setString(4, aluno.getSexo());
-            statement.setDate(5, aluno.getVencimento_mens());
+            statement.setInt(5, aluno.getVencimento_mens());
             statement.setInt(6, SQLUtil.getLastIdTabela("endereco"));
             statement.setString(7, aluno.getRg());
             statement.setString(8, aluno.getEmail());
             statement.setString(9, aluno.getCelular());
+            statement.setString(10, aluno.getPlano());
+            statement.setFloat(11, aluno.getValorPlano());
+            
             statement.execute();
             aluno.setId(SQLUtil.getLastIdTabela("aluno"));
             
@@ -60,13 +63,15 @@ public class AlunoDao {
             statement.setString(2, aluno.getCpf());
             statement.setDate(3, aluno.getData_nascimento());
             statement.setString(4, aluno.getSexo());
-            statement.setDate(5, aluno.getVencimento_mens());
+            statement.setInt(5, aluno.getVencimento_mens());
             statement.setInt(6, aluno.getEndereco().getId());
             statement.setString(7, aluno.getRg());
             statement.setString(8, aluno.getEmail());
             statement.setString(9, aluno.getCelular());
             statement.setString(10, aluno.getStatus());
             statement.setInt(11, aluno.getId());
+            statement.setString(11, aluno.getPlano());
+            statement.setFloat(12, aluno.getValorPlano());
             
             statement.execute();
             
@@ -120,11 +125,13 @@ public class AlunoDao {
             a.setStatus(result.getString(4));
             a.setData_nascimento(result.getDate(5));
             a.setSexo(result.getString(6));
-            a.setVencimento_mens(result.getDate(7));
+            a.setVencimento_mens(result.getInt(7));
             a.setEndereco(f.getByIdEndereco(result.getInt(8)));
             a.setRg(result.getString(9));
             a.setEmail(result.getString(10));
             a.setCelular(result.getString(11));
+            a.setPlano(result.getString(12));
+            a.setValorPlano(result.getFloat(13));
             
         } catch (SQLException ex) {
             Logger.getLogger(AlunoDao.class.getName()).log(Level.SEVERE, null, ex);

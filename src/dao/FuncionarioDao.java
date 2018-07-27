@@ -77,7 +77,62 @@ public class FuncionarioDao {
             Mensagem.exibirMensagem("Erro ao cadastrar Funcionario!"+ex.getMessage());
         }
     }
-    public void editar(Funcionario f){}
+    public void editar(Funcionario f){
+        try {
+            statement=SQLUtil.prepareStatement(SQLUtil.UPDATE_FUNCIONARIO);
+            
+            statement.setString(1, f.getNome());
+            statement.setString(2, f.getCpf());
+            statement.setFloat(3, f.getSalario());
+            statement.setString(4, f.getTelefone());
+            statement.setString(5, f.getLogin());
+            statement.setString(6, f.getSenha());
+            statement.setString(7, f.getRg());
+            statement.setDate(8, f.getData_nascimento());
+            statement.setString(9, f.getSexo());
+            statement.setString(10, f.getStatus());
+            statement.setString(11, f.getEmail());
+            statement.setDate(12, f.getData_admissao());
+            statement.setDate(13, f.getData_demissao());
+            statement.setString(14, f.getFuncao());
+            statement.setBoolean(15, f.isCadAlunoAcessar());
+            statement.setBoolean(16, f.isCadAlunoCadastrar());
+            statement.setBoolean(17, f.isCadAlunoEditar());
+            statement.setBoolean(18, f.isCadAlunoExcluir());
+            statement.setBoolean(19, f.isCadAlunoRecebPag());
+            statement.setBoolean(20, f.isCadFuncAcessar());
+            statement.setBoolean(21, f.isCadFuncCadastrar());
+            statement.setBoolean(22, f.isCadFuncEditar());
+            statement.setBoolean(23, f.isCadFuncExcluir());
+            statement.setBoolean(24, f.isCadFuncRecebPag());
+            statement.setBoolean(25, f.isAvFisicaAcessar());
+            statement.setBoolean(26, f.isFichaTreinoAcessar());
+            statement.setBoolean(27, f.isRelatorioAcessar());
+            statement.setBoolean(28, f.isRelatorioCadastrar());
+            statement.setBoolean(29, f.isRelatorioEditar());
+            statement.setBoolean(30, f.isRelatorioExcluir());
+            statement.setBoolean(31, f.isRelatorioRecebPag());
+            statement.setBoolean(32, f.isLancarPagAcessar());
+            statement.setBoolean(33, f.isLancarPagCadastrar());
+            statement.setBoolean(34, f.isLancarPagEditar());
+            statement.setBoolean(35, f.isLancarPagExcluir());
+            statement.setBoolean(36, f.isLancarPagRecebPag());
+            statement.setBoolean(37, f.isControleCaixaAcessar());
+            statement.setBoolean(38, f.isControleCaixaCadastrar());
+            statement.setBoolean(39, f.isControleCaixaEditar());
+            statement.setBoolean(40, f.isControleCaixaExcluir());
+            statement.setBoolean(41, f.isControleCaixaRecebPag());
+            statement.setInt(42, f.getEndereco().getId());
+            statement.setInt(43, f.getId());
+            
+            statement.execute();
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(EnderecoDao.class.getName()).log(Level.SEVERE, null, ex);
+//            Mensagem.exibirMensagem("Erro ao editar Funcionario!"+ex.getMessage());
+        }
+    }
     public void excluir(Funcionario f){}
     
     public Funcionario getById(int id){

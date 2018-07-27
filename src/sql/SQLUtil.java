@@ -20,7 +20,7 @@ public class SQLUtil {
     
     public static String INSERIR_ENDERECO ="insert into endereco (bairro,uf,cidade,cep,logradouro,num) values (?,?,?,?,?,?)";
     public static String INSERIR_ALUNO = "insert into aluno (nome,cpf,data_nascimento,sexo,vencimento_mens,endereco_id,rg,"
-            + "email,celular,status) values (?,?,?,?,?,?,?,?,?,'Ativo')";
+            + "email,celular,status,tipo_plano,valor_plano) values (?,?,?,?,?,?,?,?,?,'Ativo',?,?)";
     public static String INSERIR_FUNCIONARIO = "insert into funcionario (nome,cpf,salario,telefone,login,senha,rg,data_nascimento,"
             + "sexo,status,email,data_admissao,data_demissao,funcao,cadAlunoAcessar,cadAlunoCadastrar,cadAlunoEditar,cadAlunoExcluir,"
             + "cadAlunoRecebPag,cadFuncAcessar,cadFuncCadastrar,cadFuncEditar,"
@@ -54,6 +54,8 @@ public class SQLUtil {
     public static String INSERIR_CONTROLE_FINANCEIRO = "insert into controle_financeiro (data,descricao,valor,historico_id) values (?,?,?,?)";
     public static String INSERIR_ACADEMIA = "insert into cadastro_academia (nome,nome_fantasia,nome_proprietario,cnpj,cpf,"
             + "logo,email,telefone,celular,endereco_id) values (?,?,?,?,?,?,?,?,?,?)";
+    public static String INSERIR_PARCELAS = "insert into parcelas (data_de_vencimento,valor,status,aluno_id) values "
+            + "(?,?,?,?)";
     
     public static String SELECT_INSTRUTOR_BY_ID_FUNCIONARIO = "select * from instrutor where funcionario_id=?";
     public static String SELECT_CONTA_BY_NOME = "select * from historico where nome=?";
@@ -73,10 +75,26 @@ public class SQLUtil {
     public static String SELECT_ALL_AVALIACAO = "select * from avaliacao";
     public static String SELECT_BY_ID_INSTRUTOR = "select * from instrutor where id=?";
     public static String SELECT_ALL_CONTROLE_FINANCEIRO = "select * from controle_financeiro";
+    public static String SELECT_BY_ID_PARCELAS = "select * from parcelas where id=?";
+    public static String SELECT_ALL_PARCELAS = "select * from parcelas";
     
     public static String UPDATE_ALUNO = "update aluno set nome=?,cpf=?,data_nascimento=?,sexo=?,"
-            + "vencimento_mens=?,endereco_id=?,rg=?,email=?,celular=?,status=? where id=?";
+            + "vencimento_mens=?,endereco_id=?,rg=?,email=?,celular=?,status=?,tipo_plano=?,valor_plano=? where id=?";
+    public static String UPDATE_FUNCIONARIO = "update funcionario set nome=?,cpf=?,salario=?,telefone=?,"
+            + "login=?,senha=?,rg=?,data_nascimento=?,sexo=?,status=?,email=?,data_admissao=?,data_demissao=?,"
+            + "funcao=?,cadAlunoAcessar=?,cadAlunoCadastrar=?,cadAlunoEditar=?,cadAlunoExcluir=?,"
+            + "cadAlunoRecebPag=?,cadFuncAcessar=?,cadFuncCadastrar=?,cadFuncEditar=?,cadFuncExcluir=?,"
+            + "cadFuncRecebPag=?,avFisicaAcessar=?,fichaTreinoAcessar=?,relatorioAcessar=?,"
+            + "relatorioCadastrar=?,relatorioEditar=?,relatorioExcluir=?,relatorioRecebPag=?,lancarPagAcessar=?,"
+            + "lancarPagCadastrar=?,lancarPagEditar=?,lancarPagExcluir=?,lancarPagRecebPag=?,controleCaixaAcessar=?,"
+            + "controleCaixaCadastrar=?,controleCaixaEditar=?,controleCaixaExcluir=?,controleCaixaRecebPag=?,"
+            + "endereco_id=? where id=?";
+    public static String UPDATE_ENDERECO = "update endereco set bairro=?,uf=?,cidade=?,cep=?,logradouro=?,num=?"
+            + " where id=?";
+    public static String UPDATE_PARCELAS = "update parcelas set data_de_vencimento=?,valor=?,status=?,aluno_id=?";
     
+    public static String VERIFICAR_PARCELA = "select id from parcelas where aluno_id=? and data_de_vencimento=?";
+            
     public static String URL_POSTGRES = "jdbc:postgresql://localhost:5432/gym";
     public static String USUARIO_POSTGRES = "postgres";
     public static String SENHA_POSTGRES = "postgres";

@@ -158,6 +158,7 @@ public class FucionariosCadastroJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Cadastro de Funcionários");
+        setExtendedState(6);
 
         jPanelBack.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1388,9 +1389,9 @@ public class FucionariosCadastroJFrame extends javax.swing.JFrame {
                 .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBackLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jTabbedPane1)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelBackLayout.setVerticalGroup(
             jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1482,11 +1483,16 @@ public class FucionariosCadastroJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
+        if(f.getId()==0){  
           f = getFuncionario();
           Projeto_GYM.fachada.cadastrarEndereco(f.getEndereco());
           Projeto_GYM.fachada.cadastrarFuncionario(f);
           if(jCheckBoxPROFAV.isSelected())              
             Projeto_GYM.fachada.cadastrarInstrutor(i);
+        }else{
+            Fachada.getInstance().editarEndereco(f.getEndereco());
+            Fachada.getInstance().editarFuncionario(getFuncionario());
+        }
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jTextFieldSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSenhaActionPerformed
@@ -1811,6 +1817,7 @@ public class FucionariosCadastroJFrame extends javax.swing.JFrame {
         int num = Integer.parseInt(getjTextFieldNumero().getText());
         
         //CADASTRO:
+        
         f.setNome(getjTextFieldNome().getText());
         f.setCpf(this.getjFormattedTextFieldCPF1().getText());
         f.setTelefone(this.getjFormattedTextFieldCelular().getText());
@@ -1874,7 +1881,7 @@ public class FucionariosCadastroJFrame extends javax.swing.JFrame {
         return f;
     }
     
-    public void setFuncionario(){
+    public void setFuncionario(Funcionario f){
         getjFormattedTextFieldDN().setText(Util.getDateString(f.getData_nascimento()));
         jFormattedTextFieldDTD.setText(Util.getDateString(f.getData_demissao()));       
         
@@ -1939,8 +1946,10 @@ public class FucionariosCadastroJFrame extends javax.swing.JFrame {
             jComboBoxFuncaoFuncionario.enable();
             jCheckBoxPROFAV.setSelected(true);
         }
+        jTextFieldId.setText(f.getId()+"");
         
-            }
+        this.f = f;
+    }
 
     public JButton getjButtonCancelar() {
         return jButtonCancelar;

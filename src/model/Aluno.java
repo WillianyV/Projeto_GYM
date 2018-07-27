@@ -14,8 +14,11 @@ import java.sql.Date;
 public class Aluno {
     private int id;
     private String nome, cpf, status, sexo,email,rg,celular;
-    private Date data_nascimento, vencimento_mens;
+    private Date data_nascimento;
+    private int vencimento_mens;
     private Endereco endereco;
+    private String plano;
+    private float valorPlano;
     
 
     public int getId() {
@@ -66,11 +69,11 @@ public class Aluno {
         this.data_nascimento = data_nascimento;
     }
 
-    public Date getVencimento_mens() {
+    public int getVencimento_mens() {
         return vencimento_mens;
     }
 
-    public void setVencimento_mens(Date vencimento_mens) {
+    public void setVencimento_mens(int vencimento_mens) {
         this.vencimento_mens = vencimento_mens;
     }
 
@@ -104,6 +107,22 @@ public class Aluno {
 
     public void setCelular(String celular) {
         this.celular = celular;
+    }
+
+    public String getPlano() {
+        return plano;
+    }
+
+    public void setPlano(String plano) {
+        this.plano = plano;
+    }
+
+    public float getValorPlano() {
+        return valorPlano;
+    }
+
+    public void setValorPlano(float valorPlano) {
+        this.valorPlano = valorPlano;
     }
     
     

@@ -38,7 +38,23 @@ public class EnderecoDao {
            Mensagem.exibirMensagem("Erro ao cadastrar endereço!\n"+ex.getMessage());
        }
    }  
-   public void editar(Endereco c){}
+   public void editar(Endereco e){
+    try {
+           statement = SQLUtil.prepareStatement(SQLUtil.UPDATE_ENDERECO);
+
+            statement.setString(1, e.getBairro());
+            statement.setString(2, e.getUf());
+            statement.setString(3, e.getCidade());
+            statement.setString(4, e.getCep());
+            statement.setString(5, e.getLogradouro());
+            statement.setInt(6, e.getNum());
+            statement.setInt(7, e.getId());
+            
+            statement.execute();
+       } catch (Exception ex) {
+           Mensagem.exibirMensagem("Erro ao editar endereço!\n"+ex.getMessage());
+       }
+   }
    public void excluir(Endereco c){}
    public Endereco getById(int id){
         ResultSet result;

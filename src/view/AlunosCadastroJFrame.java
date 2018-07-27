@@ -9,6 +9,7 @@ import app.Projeto_GYM;
 import app.Util;
 import fachada.Fachada;
 import java.sql.Date;
+import java.util.Calendar;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
@@ -76,6 +77,12 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
         jTextFieldemail = new javax.swing.JTextField();
         jTextFieldNumero = new javax.swing.JTextField();
         jLabelNumero = new javax.swing.JLabel();
+        jFormattedTextFieldDiaVenc = new javax.swing.JFormattedTextField();
+        jLabelId1 = new javax.swing.JLabel();
+        jTextFieldValorMens = new javax.swing.JTextField();
+        jComboBoxPlano = new javax.swing.JComboBox<>();
+        jLabelId2 = new javax.swing.JLabel();
+        jLabelId3 = new javax.swing.JLabel();
         jPanelAdicinais = new javax.swing.JPanel();
         jLabelDados = new javax.swing.JLabel();
         jLabeAV = new javax.swing.JLabel();
@@ -327,12 +334,39 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
         jLabelNumero.setForeground(new java.awt.Color(45, 118, 232));
         jLabelNumero.setText("Número");
 
+        jFormattedTextFieldDiaVenc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        jFormattedTextFieldDiaVenc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldDiaVencActionPerformed(evt);
+            }
+        });
+
+        jLabelId1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabelId1.setForeground(new java.awt.Color(45, 118, 232));
+        jLabelId1.setText("Dia de Venci.");
+
+        jComboBoxPlano.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jComboBoxPlano.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mensal", "Trimestral", "Semestral", "Anual" }));
+        jComboBoxPlano.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxPlanoActionPerformed(evt);
+            }
+        });
+
+        jLabelId2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabelId2.setForeground(new java.awt.Color(45, 118, 232));
+        jLabelId2.setText("Valor do Plano");
+
+        jLabelId3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabelId3.setForeground(new java.awt.Color(45, 118, 232));
+        jLabelId3.setText("Plano");
+
         javax.swing.GroupLayout jPanelCadastroLayout = new javax.swing.GroupLayout(jPanelCadastro);
         jPanelCadastro.setLayout(jPanelCadastroLayout);
         jPanelCadastroLayout.setHorizontalGroup(
             jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
+                .addContainerGap(67, Short.MAX_VALUE)
                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelCadastroLayout.createSequentialGroup()
                         .addComponent(jLabelEmail)
@@ -353,7 +387,7 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
                                         .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabelNumero)
                                             .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                                         .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabelUF)
                                             .addComponent(jComboBoxUF, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -381,22 +415,12 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
                                             .addGroup(jPanelCadastroLayout.createSequentialGroup()
                                                 .addComponent(jLabelSexo)
                                                 .addGap(0, 0, Short.MAX_VALUE))
-                                            .addComponent(jComboBoxSexo1, 0, 82, Short.MAX_VALUE)))
+                                            .addComponent(jComboBoxSexo1, 0, 1, Short.MAX_VALUE)))
                                     .addComponent(jTextFieldNome, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelCadastroLayout.createSequentialGroup()
-                                        .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jTextFieldId, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabelId, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabelNome, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addComponent(jLabelNome)
                                         .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jLabelDN)
-                                            .addComponent(jFormattedTextFieldDN)
-                                            .addComponent(jLabelCelular)
-                                            .addComponent(jFormattedTextFieldCelular, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)))
                                     .addGroup(jPanelCadastroLayout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -404,17 +428,52 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
                                             .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLabelStatus)
                                                 .addComponent(jTextFieldCidade)
-                                                .addComponent(jComboBoxStatus, 0, 106, Short.MAX_VALUE)))))))
-                        .addContainerGap(65, Short.MAX_VALUE))))
+                                                .addComponent(jComboBoxStatus, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabelDN)
+                                            .addComponent(jFormattedTextFieldDN)
+                                            .addComponent(jLabelCelular)
+                                            .addComponent(jFormattedTextFieldCelular, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelCadastroLayout.createSequentialGroup()
+                                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelId))
+                                .addGap(39, 39, 39)
+                                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelId2)
+                                    .addComponent(jTextFieldValorMens, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(42, 42, 42)
+                                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jFormattedTextFieldDiaVenc, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelId1))
+                                .addGap(41, 41, 41)
+                                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelCadastroLayout.createSequentialGroup()
+                                        .addComponent(jLabelId3)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(jComboBoxPlano, 0, 1, Short.MAX_VALUE))))
+                        .addGap(62, 62, 62))))
         );
         jPanelCadastroLayout.setVerticalGroup(
             jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCadastroLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabelId)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
+                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelId)
+                    .addComponent(jLabelId1)
+                    .addComponent(jLabelId2)
+                    .addComponent(jLabelId3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldValorMens, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jFormattedTextFieldDiaVenc, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBoxPlano, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(19, 19, 19)
                 .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelNome)
                     .addComponent(jLabelDN))
@@ -460,7 +519,7 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
                 .addComponent(jLabelEmail)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextFieldemail, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Cadastrar", jPanelCadastro);
@@ -874,11 +933,20 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNumeroActionPerformed
 
+    private void jFormattedTextFieldDiaVencActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldDiaVencActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldDiaVencActionPerformed
+
+    private void jComboBoxPlanoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPlanoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxPlanoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JButton jButtonSalvar1;
+    private javax.swing.JComboBox<String> jComboBoxPlano;
     private javax.swing.JComboBox<String> jComboBoxSexo1;
     private javax.swing.JComboBox<String> jComboBoxStatus;
     private javax.swing.JComboBox<String> jComboBoxUF;
@@ -886,6 +954,7 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFormattedTextFieldCPF1;
     private javax.swing.JFormattedTextField jFormattedTextFieldCelular;
     private javax.swing.JFormattedTextField jFormattedTextFieldDN;
+    private javax.swing.JFormattedTextField jFormattedTextFieldDiaVenc;
     private javax.swing.JLabel jLabeAV;
     private javax.swing.JLabel jLabeAlunos;
     private javax.swing.JLabel jLabeOpenAV;
@@ -902,6 +971,9 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelEmail;
     private javax.swing.JLabel jLabelFicha;
     private javax.swing.JLabel jLabelId;
+    private javax.swing.JLabel jLabelId1;
+    private javax.swing.JLabel jLabelId2;
+    private javax.swing.JLabel jLabelId3;
     private javax.swing.JLabel jLabelLogradouro;
     private javax.swing.JLabel jLabelNome;
     private javax.swing.JLabel jLabelNumero;
@@ -934,6 +1006,7 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNome;
     private javax.swing.JTextField jTextFieldNumero;
     private javax.swing.JTextField jTextFieldRG;
+    private javax.swing.JTextField jTextFieldValorMens;
     private javax.swing.JTextField jTextFieldemail;
     // End of variables declaration//GEN-END:variables
 
@@ -949,8 +1022,10 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
         a.setRg(getjTextFieldRG().getText());
         a.setEmail(getjTextFieldemail().getText());
         a.setCelular(getjFormattedTextFieldCelular().getText());
+        a.setVencimento_mens(Integer.parseInt(jFormattedTextFieldDiaVenc.getText()));
+        a.setPlano(jComboBoxPlano.getSelectedItem()+"");
+        a.setValorPlano(Float.parseFloat(jTextFieldValorMens.getText()));
         //Acrescentar campo de data de vencimento da mensalidade
-              
         
         a.getEndereco().setBairro(getjTextFieldBairro().getText());
         a.getEndereco().setCep(getjFormattedTextFieldCEP().getText());
@@ -973,6 +1048,9 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
         getjTextFieldRG().setText(a.getRg());
         getjTextFieldemail().setText(a.getEmail());
         getjFormattedTextFieldCelular().setText(a.getCelular());
+        jTextFieldValorMens.setText(a.getValorPlano()+"");
+        jFormattedTextFieldDiaVenc.setText(a.getVencimento_mens()+"");
+        jComboBoxPlano.setSelectedItem(a.getPlano());
         //Acrescentar campo de data de vencimento da mensalidade
         
         getjTextFieldBairro().setText(a.getEndereco().getBairro());
