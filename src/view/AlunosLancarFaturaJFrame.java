@@ -24,12 +24,15 @@ public class AlunosLancarFaturaJFrame extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrameLogin
      */
-    public AlunosLancarFaturaJFrame(Aluno aluno) {
-        p = new Pagamento();
+    public AlunosLancarFaturaJFrame(Pagamento p, Aluno aluno) {
+        this.p = p;
         c = new ControleFinanceiro();
         this.aluno = aluno;
         initComponents();
+        jComboBoxServico.setSelectedItem("Avaliação Física");
+        jComboBoxServico.setEditable(false);
         jTextFieldUsuario.setText(aluno.getNome());
+
     }
 
     /**
@@ -133,7 +136,8 @@ public class AlunosLancarFaturaJFrame extends javax.swing.JFrame {
         });
 
         jComboBoxServico.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jComboBoxServico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mensalidade", "Avaliação Física" }));
+        jComboBoxServico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Avaliação Física", "Mensalidade" }));
+        jComboBoxServico.setEnabled(false);
         jComboBoxServico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxServicoActionPerformed(evt);
@@ -369,18 +373,28 @@ public class AlunosLancarFaturaJFrame extends javax.swing.JFrame {
         Date dataPag = Util.getDate(jFormattedTextFieldDataPag.getText());
         Date dataVenc = Util.getDate(jFormattedTextFieldDataVenc.getText());
         
-        p.setAluno(aluno);
         p.setData(dataPag);
-        p.setDataVenc(dataVenc);
         p.setDescricao(jComboBoxServico.getSelectedItem()+"");
         p.setFormaPag(jComboBoxFormaPag.getSelectedItem()+"");
         p.setFuncionario(Projeto_GYM.fachada.getFuncionarioLogado());
         p.setValor(Float.parseFloat(jTextFieldValor.getText()));
         
         c.setData(dataPag);
-        c.setDescricao(aluno.getNome());
+        c.setDescricao(this.aluno.getNome());
         c.setValor(Float.parseFloat(jTextFieldValor.getText()));
         c.setConta(Projeto_GYM.fachada.getByNomeConta(jComboBoxServico.getSelectedItem()+""));
+                
+        return p;
+    }
+    
+        public Pagamento set(){
+        String dataVenc = Util.getDateString(p.getDataVenc());
+        
+        jTextFieldUsuario.setText(p.getAluno().getNome());
+        jFormattedTextFieldDataVenc.setText(dataVenc);
+        jComboBoxServico.setSelectedItem(p.getServico());
+        jComboBoxServico.setEditable(false);
+        jTextFieldValor.setText(p.getValor()+"");
                 
         return p;
     }
