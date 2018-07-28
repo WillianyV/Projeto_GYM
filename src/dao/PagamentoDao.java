@@ -35,7 +35,7 @@ public class PagamentoDao {
             
             statement.execute();
         } catch (Exception ex) {
-            Mensagem.exibirMensagem("Erro ao cadastrar Pagamento!");
+            
         }
         
     }

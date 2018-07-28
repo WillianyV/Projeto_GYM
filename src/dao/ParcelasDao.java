@@ -30,6 +30,7 @@ public class ParcelasDao {
             statement.setFloat(2, p.getValor());
             statement.setString(3, p.getStatus());
             statement.setInt(4, p.getAlunos().getId());
+            statement.setInt(5, p.getConta().getId());
             
             statement.execute();
         } catch (Exception ex) {
@@ -38,15 +39,17 @@ public class ParcelasDao {
     }
     public void editar(Parcelas p){
         try {
+//            data_de_vencimento=?,valor=?,status=?,aluno_id=? where id=?
             statement = SQLUtil.prepareStatement(SQLUtil.UPDATE_PARCELAS);
             statement.setDate(1, p.getData_de_Vencimento());
             statement.setFloat(2, p.getValor());
             statement.setString(3, p.getStatus());
             statement.setInt(4, p.getAlunos().getId());
+            statement.setInt(5, p.getId());
             
             statement.execute();
         } catch (Exception ex) {
-            Mensagem.exibirMensagem("Erro ao cadastrar parcela\n"+ex.getMessage());
+            Mensagem.exibirMensagem("Erro ao editar parcela\n"+ex.getMessage());
         }
     }
     
@@ -73,16 +76,32 @@ public class ParcelasDao {
         try {
             statement = SQLUtil.prepareStatement(SQLUtil.SELECT_ALL_PARCELAS);
             result = statement.executeQuery(); 
-            while (result.next()) {                
+            while (result.next())              
                 parcelas.add(get(result));
-            }
+            return parcelas;
+        } catch (Exception ex) {
+            Logger.getLogger(ParcelasDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    public ArrayList<Parcelas> getAllById(int id){
+        ArrayList<Parcelas> parcelas = new ArrayList<>();
+        ResultSet result;
+        
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.SELECT_ALL_PARCELAS_BY_ID);
+            statement.setInt(1, id);
+            result = statement.executeQuery();
             
+            while (result.next())
+                parcelas.add(get(result));
             return parcelas;
         } catch (Exception ex) {
             Logger.getLogger(ParcelasDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return null;
+        return parcelas;
     }
     
     public boolean verificarParcela(Parcelas p){
@@ -111,6 +130,7 @@ public class ParcelasDao {
             p.setValor(result.getInt(3));
             p.setStatus(result.getString(4));
             p.setAlunos(Fachada.getInstance().getByIdAluno(result.getInt(5)));
+            p.setConta(Fachada.getInstance().getByIdConta(result.getInt(6)));
             
             return p;
         } catch (SQLException ex) {

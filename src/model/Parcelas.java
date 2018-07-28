@@ -17,6 +17,7 @@ public class Parcelas {
     private float valor;
     private String status;
     private Aluno alunos;
+    private Conta conta;
 
     public int getId() {
         return id;
@@ -57,5 +58,12 @@ public class Parcelas {
     public void setStatus(String status) {
         this.status = status;
     }
-           
+
+    public Conta getConta() {
+        return conta;
+    }
+
+    public void setConta(Conta conta) {
+        this.conta = conta;
+    }           
 }

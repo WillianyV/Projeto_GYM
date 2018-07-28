@@ -19,6 +19,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import model.Aluno;
+import model.Conta;
 import model.Parcelas;
 
 /**
@@ -102,7 +103,9 @@ public class Util {
            p.setData_de_Vencimento(converterCalendarToDate(cal));
            p.setAlunos(a);
            p.setStatus("Em aberto");
-           p.setValor(a.getValorPlano()/numPrcelas);            
+           p.setValor(a.getValorPlano()/numPrcelas);      
+           Conta con = Fachada.getInstance().getByNomeConta("Mensalidade");
+           p.setConta(con);
            
            Fachada.getInstance().cadastrarParcelas(p);
            cal.add(Calendar.MONTH, 1);
@@ -112,10 +115,8 @@ public class Util {
     
     public static void atualizarMensalidades(){
         int dia = Calendar.getInstance().get(GregorianCalendar.DAY_OF_MONTH);
-        System.out.println(dia+"");
         ArrayList<Aluno> alunos = Fachada.getInstance().getAllAluno();
         for(Aluno a : alunos){
-            System.out.println(a.getVencimento_mens());
             if((a.getVencimento_mens()==dia) && (a.getStatus().equals("Ativo"))){
                 criarMensalidade(a);
             }
@@ -125,11 +126,9 @@ public class Util {
      public static void bloquearCampos(JPanel p){
          
          for (int i=0; i < p.getComponentCount(); i++) { //For para todos os componentes do Panel 
-             System.out.println(p.getComponentCount());
                  Component c = p.getComponent(i);   
                  if (c instanceof JTextField) {  //Verificação da instanacia do componente 
                       JTextField field = (JTextField) c;   
-                      System.out.println("app.Util.bloquearCampos()");
                       field.setEditable(false);  
                   }else if(c instanceof JFormattedTextField) {   
                       JFormattedTextField field = (JFormattedTextField) c;   

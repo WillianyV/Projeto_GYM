@@ -9,13 +9,20 @@ import app.Projeto_GYM;
 import app.Util;
 import fachada.Fachada;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Calendar;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import model.Aluno;
+import model.ControleFinanceiro;
 import model.Endereco;
+import model.Exercicio;
+import model.ModeloTabela;
+import model.Pagamento;
+import model.Parcelas;
 
 /**
  *
@@ -744,8 +751,8 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
             .addGroup(jPanelPagamentosLayout.createSequentialGroup()
                 .addContainerGap(67, Short.MAX_VALUE)
                 .addGroup(jPanelPagamentosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelPagamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonSalvar1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelPagamentos, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 552, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(76, Short.MAX_VALUE))
         );
@@ -756,9 +763,9 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
                 .addComponent(jLabelPagamentos)
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(41, 41, 41)
                 .addComponent(jButtonSalvar1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Pagamentos", jPanelPagamentos);
@@ -891,7 +898,7 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
         if(a.getId()==0)
             a=Projeto_GYM.fachada.cadastrarAluno(getAluno());
         else
-            Projeto_GYM.fachada.editarAluno(getAluno());
+            a=Projeto_GYM.fachada.editarAluno(getAluno());
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jPanelAvalicaoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAvalicaoMouseEntered
@@ -911,7 +918,30 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanelFichaMouseEntered
 
     private void jButtonSalvar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvar1ActionPerformed
-        new AlunosLancarFaturaJFrame(a).show();
+        Pagamento p = new Pagamento();
+        AlunosLancarFaturaJFrame tela;
+        if(jTable1.getSelectedRow()==-1){
+            tela = new AlunosLancarFaturaJFrame(p, a);
+            tela.show();
+        }else if(!(jTable1.getValueAt(jTable1.getSelectedRow(), 4)+"").equals("Pago")){
+            Parcelas parc = Fachada.getInstance().getByIdParcelas(Integer.parseInt(jTable1.getValueAt(
+                    jTable1.getSelectedRow(), 0)+""));
+            p.setAluno(this.a);
+            p.setDataVenc(parc.getData_de_Vencimento());          
+            p.setFuncionario(Fachada.getFuncionarioLogado());
+            p.setServico(parc.getConta().getDescricao());
+            p.setValor(parc.getValor());
+            parc.setStatus("Pago");
+            Fachada.getInstance().editarParcelas(parc);
+            tela = new AlunosLancarFaturaJFrame(p, a);
+            tela.set();
+            tela.show();
+            preencherTabela(Fachada.getInstance().getAllByIdParcelas(p.getAluno().getId()));
+        }else{
+            Mensagem.exibirMensagem("Parcela já paga!");
+        }
+        
+//        new AlunosLancarFaturaJFrame(a).show();
     }//GEN-LAST:event_jButtonSalvar1ActionPerformed
 
     private void jPanelAvalicaoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAvalicaoMousePressed
@@ -1041,6 +1071,7 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
 //        int num = Integer.parseInt(getjTextFieldNumero().getText());
         this.a=a;
         jFormattedTextFieldCPF1.setText(a.getCpf());
+        jTextFieldId.setText(a.getId()+"");
         getjFormattedTextFieldDN().setText(Util.getDateString(a.getData_nascimento()));
         getjTextFieldNome().setText(a.getNome());
         getjComboBoxSexo1().setSelectedItem(a.getSexo());
@@ -1059,6 +1090,30 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
         getjTextFieldLogradouro().setText( a.getEndereco().getLogradouro());
         jTextFieldNumero.setText(a.getEndereco().getNum()+"");
         getjComboBoxUF().setSelectedItem(a.getEndereco().getUf());
+        preencherTabela(Fachada.getInstance().getAllByIdParcelas(a.getId()));
+        
+    }
+    
+    private void preencherTabela(ArrayList<Parcelas> parcelas){
+        String[] colunas = new String[]{"ID","Data Venc.","Valor","Tipo","Status"};
+        ArrayList<Object[]> dados = new ArrayList<>();
+        
+        for(Parcelas p : parcelas)
+            dados.add(new Object[]{p.getId(),p.getData_de_Vencimento(),p.getValor(),p.getConta().getDescricao(),p.getStatus()});
+                
+        ModeloTabela modeloTabela =  new ModeloTabela(dados, colunas);   
+        jTable1.setModel(modeloTabela);      
+        jTable1.getColumnModel().getColumn(0).setPreferredWidth(30);
+        jTable1.getColumnModel().getColumn(0).setResizable(false);
+        jTable1.getColumnModel().getColumn(1).setPreferredWidth(102);
+        jTable1.getColumnModel().getColumn(1).setResizable(false);
+        jTable1.getColumnModel().getColumn(2).setPreferredWidth(163);
+        jTable1.getColumnModel().getColumn(2).setResizable(false);
+        jTable1.getColumnModel().getColumn(3).setPreferredWidth(163);
+        jTable1.getColumnModel().getColumn(3).setResizable(false);
+        jTable1.getColumnModel().getColumn(3).setPreferredWidth(176);
+        jTable1.getColumnModel().getColumn(3).setResizable(false);
+        jTable1.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
     }
     
     public JComboBox<String> getjComboBoxSexo1() {

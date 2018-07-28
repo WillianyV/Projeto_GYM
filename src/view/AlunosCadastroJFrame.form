@@ -1125,8 +1125,8 @@
                       <Group type="102" attributes="0">
                           <EmptySpace pref="67" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabelPagamentos" min="-2" pref="194" max="-2" attributes="0"/>
                               <Component id="jButtonSalvar1" min="-2" pref="96" max="-2" attributes="0"/>
+                              <Component id="jLabelPagamentos" min="-2" pref="194" max="-2" attributes="0"/>
                               <Component id="jScrollPane1" alignment="0" min="-2" pref="552" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="76" max="32767" attributes="0"/>
@@ -1140,9 +1140,9 @@
                           <Component id="jLabelPagamentos" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" pref="226" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           <Component id="jButtonSalvar1" min="-2" pref="32" max="-2" attributes="0"/>
-                          <EmptySpace pref="67" max="32767" attributes="0"/>
+                          <EmptySpace pref="66" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

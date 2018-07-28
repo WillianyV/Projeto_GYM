@@ -52,7 +52,7 @@ public class AlunoDao {
         }
         return null;
     }
-    public void editar(Aluno aluno){
+    public Aluno editar(Aluno aluno){
         try {
             statement=SQLUtil.prepareStatement(SQLUtil.UPDATE_ALUNO);
 
@@ -70,14 +70,16 @@ public class AlunoDao {
             statement.setString(9, aluno.getCelular());
             statement.setString(10, aluno.getStatus());
             statement.setInt(11, aluno.getId());
-            statement.setString(11, aluno.getPlano());
-            statement.setFloat(12, aluno.getValorPlano());
+            statement.setString(12, aluno.getPlano());
+            statement.setFloat(13, aluno.getValorPlano());
+            
             
             statement.execute();
-            
+            return aluno;
         } catch (Exception ex) {
             Mensagem.exibirMensagem("Erro ao editar aluno!\n"+ex.getMessage());
         }
+        return null;
     }
     public void excluir(Aluno aluno){}
     

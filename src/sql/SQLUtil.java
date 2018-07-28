@@ -54,8 +54,8 @@ public class SQLUtil {
     public static String INSERIR_CONTROLE_FINANCEIRO = "insert into controle_financeiro (data,descricao,valor,historico_id) values (?,?,?,?)";
     public static String INSERIR_ACADEMIA = "insert into cadastro_academia (nome,nome_fantasia,nome_proprietario,cnpj,cpf,"
             + "logo,email,telefone,celular,endereco_id) values (?,?,?,?,?,?,?,?,?,?)";
-    public static String INSERIR_PARCELAS = "insert into parcelas (data_de_vencimento,valor,status,aluno_id) values "
-            + "(?,?,?,?)";
+    public static String INSERIR_PARCELAS = "insert into parcelas (data_de_vencimento,valor,status,aluno_id,conta_id) values "
+            + "(?,?,?,?,?)";
     
     public static String SELECT_INSTRUTOR_BY_ID_FUNCIONARIO = "select * from instrutor where funcionario_id=?";
     public static String SELECT_CONTA_BY_NOME = "select * from historico where nome=?";
@@ -77,6 +77,7 @@ public class SQLUtil {
     public static String SELECT_ALL_CONTROLE_FINANCEIRO = "select * from controle_financeiro";
     public static String SELECT_BY_ID_PARCELAS = "select * from parcelas where id=?";
     public static String SELECT_ALL_PARCELAS = "select * from parcelas";
+    public static String SELECT_ALL_PARCELAS_BY_ID = "select * from parcelas where aluno_id=?";
     
     public static String UPDATE_ALUNO = "update aluno set nome=?,cpf=?,data_nascimento=?,sexo=?,"
             + "vencimento_mens=?,endereco_id=?,rg=?,email=?,celular=?,status=?,tipo_plano=?,valor_plano=? where id=?";
@@ -91,7 +92,7 @@ public class SQLUtil {
             + "endereco_id=? where id=?";
     public static String UPDATE_ENDERECO = "update endereco set bairro=?,uf=?,cidade=?,cep=?,logradouro=?,num=?"
             + " where id=?";
-    public static String UPDATE_PARCELAS = "update parcelas set data_de_vencimento=?,valor=?,status=?,aluno_id=?";
+    public static String UPDATE_PARCELAS = "update parcelas set data_de_vencimento=?,valor=?,status=?,aluno_id=? where id=?";
     
     public static String VERIFICAR_PARCELA = "select id from parcelas where aluno_id=? and data_de_vencimento=?";
             

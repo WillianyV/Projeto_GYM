@@ -6,9 +6,7 @@ package model;
  */
 public class Conta {
     private int id;
-    private String descricao, tipo;
-    
-    
+    private String descricao, tipo;    
 
     public int getId() {
         return id;

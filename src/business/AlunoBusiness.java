@@ -33,8 +33,8 @@ public class AlunoBusiness {
         return a;
     }
 
-    public void editar(Aluno aluno) {
-        dao.editar(aluno);
+    public Aluno editar(Aluno aluno) {
+        return dao.editar(aluno);
     }
 
     public void excluir(Aluno aluno) {

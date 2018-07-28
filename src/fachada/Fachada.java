@@ -105,8 +105,8 @@ public class Fachada {
         return alunoBusiness.cadastrar(a);
     }
     
-    public void editarAluno(Aluno a){
-        alunoBusiness.editar(a);
+    public Aluno editarAluno(Aluno a){
+        return alunoBusiness.editar(a);
     }
     
     public void excluirAluno(Aluno a){
@@ -456,4 +456,7 @@ public class Fachada {
         return parcelasBusiness.getAll();
     }
     
+    public ArrayList<Parcelas> getAllByIdParcelas(int id){
+        return parcelasBusiness.getAllById(id);
+    }
 }

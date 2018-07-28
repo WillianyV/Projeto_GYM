@@ -37,4 +37,8 @@ public class ParcelasBusiness {
         return dao.getAll();
     }
     
+    public ArrayList<Parcelas> getAllById(int id){
+        return dao.getAllById(id);
+    }
+    
 }
