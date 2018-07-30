@@ -30,7 +30,7 @@ public class Composicao_corporalBusiness {
     }
     
     public void excluir(Composicao_corporal c){
-        dao.cadastrar(c);
+        dao.excluir(c);
     }
     
     public Composicao_corporal getById(int id){

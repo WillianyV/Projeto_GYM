@@ -5,7 +5,10 @@
  */
 package dao;
 
+import fachada.Fachada;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,5 +53,37 @@ public class PagamentoDao {
         }
     }
     public Pagamento getById(int id){return null;}
-    public ArrayList<Pagamento> getAll(){return null;}
+    
+    public ArrayList<Pagamento> getAll(){
+        ResultSet result;
+        ArrayList<Pagamento> pagamentos = new ArrayList<>();
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.SELECT_ALL_PAGAMENTOS);
+            result = statement.executeQuery();
+            while(result.next())
+                pagamentos.add(get(result));
+            return  pagamentos;
+        } catch (Exception ex) {
+            Logger.getLogger(PagamentoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+    private Pagamento get(ResultSet result){
+        Pagamento p = new Pagamento();
+        
+        try {
+            p.setId(result.getInt(1));
+            p.setValor(result.getFloat(2));
+            p.setDescricao(result.getString(3));
+            p.setData(result.getDate(4));
+            p.setDataVenc(result.getDate(5));
+            p.setFormaPag(result.getString(6 ));
+            p.setAluno(Fachada.getInstance().getByIdAluno(result.getInt(7)));
+            p.setFuncionario(Fachada.getInstance().getByIdFuncionario(result.getInt(8)));
+        } catch (SQLException ex) {
+            Logger.getLogger(PagamentoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return p;
+    }
 }

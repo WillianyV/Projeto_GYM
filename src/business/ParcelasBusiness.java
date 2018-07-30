@@ -37,6 +37,10 @@ public class ParcelasBusiness {
         return dao.getAll();
     }
     
+    public void excluir(Parcelas p){
+        dao.excluir(p);
+    }
+    
     public ArrayList<Parcelas> getAllById(int id){
         return dao.getAllById(id);
     }

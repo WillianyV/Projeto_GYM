@@ -122,6 +122,16 @@ public class ParcelasDao {
         return false;
     }
     
+    public void excluir(Parcelas p){
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.DELETE_PARCELAS);
+            statement.setInt(1, p.getId());
+            statement.execute();
+        } catch (Exception ex) {
+            Logger.getLogger(ParcelasDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     private Parcelas get(ResultSet result){
         Parcelas p = new Parcelas();
         try {

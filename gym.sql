@@ -15,11 +15,13 @@ CREATE TABLE aluno(
 	status Varchar(50),
 	data_nascimento date,
 	sexo Varchar(10),
-	vencimento_mens date,
+	vencimento_mens int,
 	endereco_id int references endereco(id),
 	rg VARCHAR(30),
 	email VARCHAR(100),
-	celular VARCHAR(15)
+	celular VARCHAR(15),
+	tipo_plano VARCHAR(15),
+	valor_plano float
 );
 
 
@@ -188,17 +190,27 @@ CREATE TABLE avaliacao(
 CREATE TABLE pagamento(
 	id serial PRIMARY KEY, 
 	valor float, 
-	descricao Varchar(255),  
+	descricao Varchar(255),
+	data date,
+	dataVenc date,
+	formaPag VARCHAR(50),
 	aluno_id int references aluno(id),  
 	funcionario_id int references funcionario(id)
 );
-
-
 
 CREATE TABLE historico(
 	id serial PRIMARY KEY,
 	nome Varchar(255),
 	tipo Varchar(255)	
+);
+
+CREATE TABLE parcelas(
+	id serial PRIMARY KEY,
+	data_de_vencimento date,
+	valor float,
+	status VARCHAR(255),
+	aluno_id int references aluno(id),
+	conta_id int references historico(id)
 );
 
 CREATE TABLE controle_financeiro(
@@ -250,10 +262,18 @@ INSERT INTO exercicio (tipo, nome) VALUES
 	('Tríceps','No banco'),('Tríceps','Puley'),('Tríceps','Testal');
 	
 INSERT INTO historico (nome, tipo) VALUES 
-	('Salário','Débito'),('Conta de água','Débito'),('Conta de energia','Débito'),
-	('Materiais de escritório','Débito'),('Materiais de limpeza','Débito'),('Materiais de manutenção','Débito'),
-	('Compra de máquinas','Débito'),('Manutenção de máquinas','Débito'),('Atualização do caixa','Débito'),
-	('Recebimento','Crédito');
+	('Salário','Débito'),('Conta de água','Débito'),('Conta de luz','Débito'),
+	('Conta de telefone','Débito'),('Contabilidade','Débito'),('Dispesas café e almoço','Débito'),
+	('Imprestimos','Débito'),('Impostos','Débito'),('Doações','Débito'),
+	('Compra de materiais de escritório','Débito'),('Compra de materiais de limpeza','Débito'),('Compra de materiais de manutenção','Débito'),
+	('Aquisição de máquinas','Débito'),('Prestação de serviços de manutenção','Débito'),('Acerto de caixa','Débito'),
+	('Outras receitas','Crédito'),('Mensalidade','Crédito'),('Avaliação Física','Crédito');
+	
+insert into endereco (bairro,uf,cidade,cep,logradouro,num) values ('Santa Rosa','PE','Floresta','56400-000','Rua Tito Rosa','123');
+
 	
 insert into funcionario (nome,cpf,salario,telefone,login,senha,rg,data_nascimento,sexo,status,email,data_admissao,
-		data_demissao,funcao,cadAlunoAcessar,cadAlunoCadastrar,cadAlunoEditar,cadAlunoExcluir,cadAlunoRecebPag,cadFuncAcessar,cadFuncCadastrar,cadFuncEditar,cadFuncExcluir,cadFuncRecebPag,avFisicaAcessar,fichaTreinoAcessar,relatorioAcessar,relatorioCadastrar,relatorioEditar,relatorioExcluir,relatorioRecebPag,lancarPagAcessar,lancarPagCadastrar,lancarPagEditar,lancarPagExcluir,lancarPagRecebPag,controleCaixaAcessar,controleCaixaCadastrar,controleCaixaEditar,controleCaixaExcluir,controleCaixaRecebPag,endereco_id) values ('ADMIN','00000000','0','9','admin','admin','8','1997-12-02','Unissex','ativo','email','2018-07-08',null,'Root',TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,NULL);
+		data_demissao,funcao,cadAlunoAcessar,cadAlunoCadastrar,cadAlunoEditar,cadAlunoExcluir,cadAlunoRecebPag,cadFuncAcessar,cadFuncCadastrar,cadFuncEditar,cadFuncExcluir,cadFuncRecebPag,avFisicaAcessar,fichaTreinoAcessar,relatorioAcessar,relatorioCadastrar,relatorioEditar,relatorioExcluir,relatorioRecebPag,lancarPagAcessar,lancarPagCadastrar,lancarPagEditar,lancarPagExcluir,lancarPagRecebPag,controleCaixaAcessar,controleCaixaCadastrar,controleCaixaEditar,controleCaixaExcluir,controleCaixaRecebPag,endereco_id) values 
+		('ADMIN','00000000','0','9','admin','admin','8','1997-12-02','Unissex','ativo','email','2018-07-08',null,'Root',TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,TRUE,1);
+		
+insert into instrutor (cref,funcionario_id) values ('12345','1');

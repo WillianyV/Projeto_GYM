@@ -70,6 +70,7 @@ public class AvaliacaoDao{
             Logger.getLogger(AvaliacaoDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     public Avaliacao getById(int id){
         ResultSet result;
         
@@ -106,7 +107,7 @@ public class AvaliacaoDao{
     private Avaliacao get(ResultSet result){
         Avaliacao a = new Avaliacao();
         try {
-            a.setId(1);
+            a.setId(result.getInt(1));
             a.setObjetivo(result.getString(2));
             a.setProxima_avaliacao(result.getDate(3));
             a.setData(result.getDate(4));

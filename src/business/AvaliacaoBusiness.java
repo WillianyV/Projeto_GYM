@@ -9,7 +9,9 @@ import app.Projeto_GYM;
 import dao.AvaliacaoDao;
 import fachada.Fachada;
 import java.util.ArrayList;
+import model.Aluno;
 import model.Avaliacao;
+import view.Mensagem;
 
 
 
@@ -40,6 +42,7 @@ public class AvaliacaoBusiness {
         Fachada.getInstance().excluirMetas_ideais(a.getMetas_ideais());
         Fachada.getInstance().excluirPerimetria(a.getPerimetria());
     }
+    
     
     public Avaliacao getById(int id){
         return dao.getById(id);

@@ -11,6 +11,9 @@ import fachada.Fachada;
 import java.util.ArrayList;
 import java.util.List;
 import model.Aluno;
+import model.Avaliacao;
+import model.Pagamento;
+import model.Parcelas;
 
 /**
  *
@@ -35,11 +38,6 @@ public class AlunoBusiness {
 
     public Aluno editar(Aluno aluno) {
         return dao.editar(aluno);
-    }
-
-    public void excluir(Aluno aluno) {
-        dao.excluir(aluno);
-        Fachada.getInstance().excluirEndereco(aluno.getEndereco());
     }
 
     public Aluno getById(int id) {

@@ -28,13 +28,9 @@ public class AlunosAvaliacaoHomeJFrame extends javax.swing.JFrame {
     public AlunosAvaliacaoHomeJFrame(Aluno a, String objetivo) {
         this.a=a;
         this.objetivo=objetivo;
-        ArrayList<Avaliacao> avaliacoes = new ArrayList<>();
-        initComponents();
-        for (Avaliacao av : Fachada.getInstance().getAllAvaliacao()) {
-            if(av.getAluno().getId()==a.getId())
-                avaliacoes.add(av);
-        }
-        carregarTabela(avaliacoes);
+        
+        initComponents();        
+        carregarTabela(dados());
     }
 
     /**
@@ -239,6 +235,8 @@ public class AlunosAvaliacaoHomeJFrame extends javax.swing.JFrame {
         Avaliacao a =  Fachada.getInstance().getByIdAvaliacao(Integer.parseInt(
                 jTableAvFísica.getValueAt(jTableAvFísica.getSelectedRow(), 0)+""));
         Fachada.getInstance().excluirAvaliacao(a);
+        carregarTabela(dados());
+
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
@@ -294,11 +292,10 @@ public class AlunosAvaliacaoHomeJFrame extends javax.swing.JFrame {
     private void carregarTabela(ArrayList<Avaliacao> avaliacao){
         String [] colunas = {"Avaliação Nº","Data","Nome Aluno","Instrutor"};
         ArrayList<Object[]> dados = new ArrayList<>();
-        int i=1;
-        for(Avaliacao a : avaliacao)
-            dados.add(new Object[]{a.getId(),a.getData(),a.getAluno().getNome(),
-                        a.getInstrutor().getFuncionario().getNome()});
-        
+        for(Avaliacao av : avaliacao){
+            dados.add(new Object[]{av.getId(),av.getData(),av.getAluno().getNome(),
+                        av.getInstrutor().getFuncionario().getNome()});
+        }    
         ModeloTabela modelo = new ModeloTabela(dados, colunas);
         jTableAvFísica.setModel(modelo);
         
@@ -311,5 +308,16 @@ public class AlunosAvaliacaoHomeJFrame extends javax.swing.JFrame {
         jTableAvFísica.getColumnModel().getColumn(3).setPreferredWidth(170);
         jTableAvFísica.getColumnModel().getColumn(3).setResizable(false);
         
-        jTableAvFísica.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);    }
+        jTableAvFísica.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);    
+    }
+    
+    private ArrayList<Avaliacao> dados(){
+        ArrayList<Avaliacao> avaliacoes = new ArrayList<>();
+
+        for (Avaliacao av : Fachada.getInstance().getAllAvaliacao()) {
+            if(av.getAluno().getId()==a.getId())
+                avaliacoes.add(av);
+        }
+        return avaliacoes;
+    }
 }
