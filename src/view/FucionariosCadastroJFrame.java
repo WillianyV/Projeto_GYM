@@ -1484,14 +1484,16 @@ public class FucionariosCadastroJFrame extends javax.swing.JFrame {
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         if(f.getId()==0){  
-          f = getFuncionario();
-          Projeto_GYM.fachada.cadastrarEndereco(f.getEndereco());
-          Projeto_GYM.fachada.cadastrarFuncionario(f);
-          if(jCheckBoxPROFAV.isSelected())              
-            Projeto_GYM.fachada.cadastrarInstrutor(i);
+            f = getFuncionario();
+            Projeto_GYM.fachada.cadastrarEndereco(f.getEndereco());
+            Projeto_GYM.fachada.cadastrarFuncionario(f);
+            if(jCheckBoxPROFAV.isSelected())              
+                Projeto_GYM.fachada.cadastrarInstrutor(i);
+            Mensagem.exibirMensagem("Funcionário cadastrado com sucesso!");
         }else{
             Fachada.getInstance().editarEndereco(f.getEndereco());
             Fachada.getInstance().editarFuncionario(getFuncionario());
+            Mensagem.exibirMensagem("Funcionário editado com sucesso!");
         }
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 

@@ -35,9 +35,44 @@ public class ExercicioDao {
         }
         
     }
-    public void editar(Exercicio e){}
-    public void excluir(Exercicio e){}
-    public Exercicio getById(int id){return null;}
+    public void editar(Exercicio e){
+        try {
+            statment = SQLUtil.prepareStatement(SQLUtil.UPDATE_EXERCICIO);
+            
+            statment.setString(1, e.getTipo());
+            statment.setString(2, e.getNome());
+            statment.setInt(3, e.getId());
+            
+            statment.execute();
+        } catch (Exception ex) {
+            Mensagem.exibirMensagem("Erro ao editar Exercício!"+ex.getMessage());
+        }
+    }
+    public void excluir(Exercicio e){
+        try {
+            statment = SQLUtil.prepareStatement(SQLUtil.DELETE_EXERCICIO);
+            statment.setInt(1, e.getId());
+            statment.execute();
+        } catch (Exception ex) {
+            Logger.getLogger(AvaliacaoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public Exercicio getById(int id){
+        ResultSet result;
+        
+        try {
+            statment = SQLUtil.prepareStatement(SQLUtil.SELECT_BY_EXERCICIO_ID);
+            statment.setInt(1, id);
+            result = statment.executeQuery();
+            result.next();
+            
+            return get(result);
+        } catch (Exception ex) {
+            Logger.getLogger(ExercicioDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     public ArrayList<Exercicio> getAllTipo(String tipo){return null;}
     public ArrayList<Exercicio> getAll(){
         ResultSet result;

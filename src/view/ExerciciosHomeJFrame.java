@@ -5,8 +5,10 @@
  */
 package view;
 
+import app.Util;
 import fachada.Fachada;
 import java.util.ArrayList;
+import javax.swing.JPanel;
 import javax.swing.JTable;
 import model.Exercicio;
 import model.Funcionario;
@@ -92,6 +94,11 @@ public class ExerciciosHomeJFrame extends javax.swing.JFrame {
                 "Id", "Exercício", "Tipo do exercício"
             }
         ));
+        jTableExercicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableExercicioMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableExercicio);
 
         jButtonExcluir.setBackground(new java.awt.Color(45, 118, 232));
@@ -230,7 +237,10 @@ public class ExerciciosHomeJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        // TODO add your handling code here:
+        ExerciciosCadastroJFrame tela = new ExerciciosCadastroJFrame();
+        tela.setExercicio(Fachada.getInstance().getByIdExercicio(Integer.parseInt(
+            jTableExercicio.getValueAt(jTableExercicio.getSelectedRow(), 0)+"")));
+        tela.show();
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jTextFieldProcurarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProcurarActionPerformed
@@ -263,6 +273,15 @@ public class ExerciciosHomeJFrame extends javax.swing.JFrame {
         
         carregarTabela(exercicios);
     }//GEN-LAST:event_jLabelIconPesquisarMouseClicked
+
+    private void jTableExercicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableExercicioMouseClicked
+        if(evt.getClickCount()==2){
+            ExerciciosCadastroJFrame tela = new ExerciciosCadastroJFrame();
+            tela.setExercicio(Fachada.getInstance().getByIdExercicio(Integer.parseInt(
+                jTableExercicio.getValueAt(jTableExercicio.getSelectedRow(), 0)+"")));
+            tela.show();
+        }
+    }//GEN-LAST:event_jTableExercicioMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

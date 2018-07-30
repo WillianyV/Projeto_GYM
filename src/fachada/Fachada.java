@@ -210,6 +210,10 @@ public class Fachada {
         return contaBusiness.getAllNomeContas();
     }
     
+     public ArrayList<Conta> getAllContas(){      
+        return contaBusiness.getAllContas();
+    }
+    
     public void cadastrarControleFinanceiro(ControleFinanceiro c){
         controleFinaceiroBusiness.cadastrar(c);
     }

@@ -7,6 +7,7 @@ package view;
 
 import app.Projeto_GYM;
 import app.Util;
+import javax.swing.JPanel;
 import model.Aluno;
 import model.Anamnese;
 import model.Avaliacao;
@@ -21,6 +22,7 @@ import model.Perimetria;
  * @author Insinuante
  */
 public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
+
     private Aluno aluno;
     private Instrutor instrutor;
     private Avaliacao avaliacao;
@@ -30,22 +32,21 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
     private Composicao_corporal c;
     private Metas_ideais m;
     String objetivo;
-    
+
     /**
      * Creates new form AlunosJFrame
      */
     public AlunosAvaliacaoJFrame(Aluno aluno, Instrutor instrutor, String objetivo) {
         this.objetivo = objetivo;
-        this.aluno=aluno;
-        this.instrutor=instrutor;
+        this.aluno = aluno;
+        this.instrutor = instrutor;
         avaliacao = new Avaliacao();
         avaliacao.setAnamnese(new Anamnese());
         avaliacao.setComposicao_corporal(new Composicao_corporal());
         avaliacao.setDobras_Cutaneas(new Dobras_Cutaneas());
         avaliacao.setMetas_ideais(new Metas_ideais());
         avaliacao.setPerimetria(new Perimetria());
-        
-        
+
         a = new Anamnese();
         p = new Perimetria();
         d = new Dobras_Cutaneas();
@@ -1846,13 +1847,26 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         avaliacao = get();
-        Projeto_GYM.fachada.cadastrarAnamnese(a);
-        Projeto_GYM.fachada.cadastrarComposicao_corporal(c);
-        Projeto_GYM.fachada.cadastrarDobras_Cutaneas(d);
-        Projeto_GYM.fachada.cadastrarPerimetria(p);
-        Projeto_GYM.fachada.cadastrarMetas_ideais(m);
-        Mensagem.exibirMensagem(avaliacao.getObjetivo());
-        Projeto_GYM.fachada.cadastrarAvaliacao(avaliacao);
+        if(avaliacao.getId()==0){
+            Projeto_GYM.fachada.cadastrarAnamnese(a);
+            Projeto_GYM.fachada.cadastrarComposicao_corporal(c);
+            Projeto_GYM.fachada.cadastrarDobras_Cutaneas(d);
+            Projeto_GYM.fachada.cadastrarPerimetria(p);
+            Projeto_GYM.fachada.cadastrarMetas_ideais(m);
+            Projeto_GYM.fachada.cadastrarAvaliacao(avaliacao);
+            Mensagem.exibirMensagem("Avaliação cadastrada com sucesso!");
+            this.dispose();
+        }else{
+            Projeto_GYM.fachada.editarAnamnese(a);
+            Projeto_GYM.fachada.editarComposicao_corporal(c);
+            Projeto_GYM.fachada.editarDobras_Cutaneas(d);
+            Projeto_GYM.fachada.editarPerimetria(p);
+            Projeto_GYM.fachada.editarMetas_ideais(m);
+            Projeto_GYM.fachada.editarAvaliacao(avaliacao);
+            Mensagem.exibirMensagem("Avaliação editada com sucesso!");
+            this.dispose();
+        }
+            
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
@@ -1960,7 +1974,7 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jFormattedTextFieldPorGorduraActionPerformed
 
     private void jFormattedTextFieldIMCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldIMCActionPerformed
-        
+
     }//GEN-LAST:event_jFormattedTextFieldIMCActionPerformed
 
     private void jFormattedTextFieldPesoMagraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldPesoMagraActionPerformed
@@ -1972,11 +1986,11 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jFormattedTextFieldPesoGordaActionPerformed
 
     private void jFormattedTextFieldRCQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldRCQActionPerformed
-        
+
     }//GEN-LAST:event_jFormattedTextFieldRCQActionPerformed
 
     private void jRadioButtonSimTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSimTabActionPerformed
-       
+
     }//GEN-LAST:event_jRadioButtonSimTabActionPerformed
 
     private void jRadioButtonNaoTabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNaoTabActionPerformed
@@ -2060,8 +2074,8 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButtonAvancadoActionPerformed
 
     private void jFormattedTextFieldIMC3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldIMC3ActionPerformed
-        jFormattedTextFieldIMC.setText(Util.imc(Float.parseFloat(jFormattedTextFieldPeso3.getText()), 
-                Float.parseFloat(jFormattedTextFieldAltura.getText()))+"");
+        jFormattedTextFieldIMC.setText(Util.imc(Float.parseFloat(jFormattedTextFieldPeso3.getText()),
+                Float.parseFloat(jFormattedTextFieldAltura.getText())) + "");
     }//GEN-LAST:event_jFormattedTextFieldIMC3ActionPerformed
 
     private void jFormattedTextFieldPorGordura3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldPorGordura3ActionPerformed
@@ -2074,17 +2088,17 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
 
     private void jFormattedTextFieldRCQMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextFieldRCQMouseClicked
         jFormattedTextFieldRCQ.setText(Util.rcq(Float.parseFloat(jFormattedTextFieldCintura.getText()),
-                Float.parseFloat(jFormattedTextFieldQuadril.getText()))+"");
+                Float.parseFloat(jFormattedTextFieldQuadril.getText())) + "");
     }//GEN-LAST:event_jFormattedTextFieldRCQMouseClicked
 
     private void jFormattedTextFieldIMCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextFieldIMCMouseClicked
-        jFormattedTextFieldIMC.setText(Util.imc(Float.parseFloat(jFormattedTextFieldPeso.getText()), 
-                Float.parseFloat(jFormattedTextFieldAltura.getText()))+"");
+        jFormattedTextFieldIMC.setText(Util.imc(Float.parseFloat(jFormattedTextFieldPeso.getText()),
+                Float.parseFloat(jFormattedTextFieldAltura.getText())) + "");
     }//GEN-LAST:event_jFormattedTextFieldIMCMouseClicked
 
     private void jFormattedTextFieldIMC3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFormattedTextFieldIMC3MouseClicked
-        jFormattedTextFieldIMC3.setText(Util.imc(Float.parseFloat(jFormattedTextFieldPeso.getText()), 
-                Float.parseFloat(jFormattedTextFieldAltura.getText()))+"");
+        jFormattedTextFieldIMC3.setText(Util.imc(Float.parseFloat(jFormattedTextFieldPeso.getText()),
+                Float.parseFloat(jFormattedTextFieldAltura.getText())) + "");
     }//GEN-LAST:event_jFormattedTextFieldIMC3MouseClicked
 
 
@@ -2274,19 +2288,20 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel tabgismojLabe;
     // End of variables declaration//GEN-END:variables
 
-    private Avaliacao get(){
+    private Avaliacao get() {
         a.setAtivFisica(jRadioButtonSimAtvFis.isSelected());
-        a.setCardiopatias(jRadioButtonNaoCard.isSelected());
+        a.setCardiopatias(jRadioButtonSimCard.isSelected());
         a.setDiabetes(jRadioButtonSimDiab.isSelected());
         a.setHipertensao(jRadioButtonSimHipert.isSelected());
         a.setMedicamentos(jRadioButtonSimMed.isSelected());
-        if(jRadioButtonAvancado.isSelected())
+        if (jRadioButtonAvancado.isSelected()) {
             a.setNivel("Avançado");
-        else if(jRadioButtonIniciante.isSelected())
+        } else if (jRadioButtonIniciante.isSelected()) {
             a.setNivel("Iniciante");
-        else if(jRadioButtonIntermediario.isSelected())
+        } else if (jRadioButtonIntermediario.isSelected()) {
             a.setNivel("Intermediário");
-        
+        }
+
         a.setOutros(jRadioButtonSimOutros.isSelected());
         a.setProbPulmonares(jRadioButtonSimProbPulm.isSelected());
         a.setRestricaoArticular(jRadioButtonSimRestArt.isSelected());
@@ -2300,7 +2315,7 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         a.setProbPulmonaresObs(jTextAreaProbPulmonares.getText());
         a.setRestricaoArticularObs(jTextAreaRestricaoArticular.getText());
         a.setTabagismoObs(jTextAreaTab.getText());
-        
+
         p.setAbdomem(Float.parseFloat(jFormattedTextFieldAbdomem.getText()));
         p.setAltura(Float.parseFloat(jFormattedTextFieldAltura.getText()));
         p.setAnte_braco_direita(Float.parseFloat(jFormattedTextFieldAntBracoD.getText()));
@@ -2316,7 +2331,7 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         p.setPeso(Float.parseFloat(jFormattedTextFieldPeso.getText()));
         p.setQuadril(Float.parseFloat(jFormattedTextFieldQuadril.getText()));
         p.setTorax(Float.parseFloat(jFormattedTextFieldTorax.getText()));
-        
+
         d.setAbdominal(Float.parseFloat(jFormattedTextFieldAbdominal.getText()));
         d.setAxilar_media(Float.parseFloat(jFormattedTextFieldAxilarMedia.getText()));
         d.setBicipita(Float.parseFloat(jFormattedTextFieldBicipital.getText()));
@@ -2325,18 +2340,18 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         d.setSubscapular(Float.parseFloat(jFormattedTextFieldSubscapular.getText()));
         d.setSupra_iliaca(Float.parseFloat(jFormattedTextFieldSupraIliaca.getText()));
         d.setTricipital(Float.parseFloat(jFormattedTextFieldTricipital.getText()));
-        
+
         c.setImc(Float.parseFloat(jFormattedTextFieldIMC.getText()));
         c.setPeso_gorda(Float.parseFloat(jFormattedTextFieldPesoGorda.getText()));
         c.setPeso_magra(Float.parseFloat(jFormattedTextFieldPesoMagra.getText()));
         c.setPorcentual_gordura(Float.parseFloat(jFormattedTextFieldPorGordura.getText()));
         c.setPressao_arterial(Float.parseFloat(jFormattedTextFieldPARepouso.getText()));
         c.setRcq(Float.parseFloat(jFormattedTextFieldRCQ.getText()));
-        
+
         m.setImc(Float.parseFloat(jFormattedTextFieldIMC3.getText()));
         m.setPeso(Float.parseFloat(jFormattedTextFieldPeso3.getText()));
         m.setPorcentual_gordura(Float.parseFloat(jFormattedTextFieldPorGordura3.getText()));
-        
+
         avaliacao.setAluno(aluno);
         avaliacao.setInstrutor(instrutor);
         avaliacao.setAnamnese(a);
@@ -2347,11 +2362,142 @@ public class AlunosAvaliacaoJFrame extends javax.swing.JFrame {
         avaliacao.setPerimetria(p);
         avaliacao.setProxima_avaliacao(Util.getDate(dateProxAvjFormattedTextField.getText()));
         avaliacao.setObjetivo(objetivo);
-        if(avaliacao!=null){
-            Mensagem.exibirMensagem(objetivo);
-        }
-        
+
         return avaliacao;
+    }
+
+    public void setAvaliacao(Avaliacao avaliacao) {
+        this.avaliacao = avaliacao;
+        a = avaliacao.getAnamnese();
+        c = avaliacao.getComposicao_corporal();
+        d = avaliacao.getDobras_Cutaneas();
+        m = avaliacao.getMetas_ideais();
+        p = avaliacao.getPerimetria();
+                
+        
+        if (a.isAtivFisica()) {
+            jRadioButtonSimAtvFis.setSelected(true);
+        } else {
+            jRadioButtonNaoAtvFis.setSelected(true);
+        }
+        if (a.isCardiopatias()) {
+            jRadioButtonSimCard.setSelected(true);
+        } else {
+            jRadioButtonNaoCard.setSelected(true);
+        }
+        if (a.isDiabetes()) {
+            jRadioButtonSimDiab.setSelected(true);
+        } else {
+            jRadioButtonNaoDiab.setSelected(true);
+        }
+        if (a.isHipertensao()) {
+            jRadioButtonSimHipert.setSelected(true);
+        } else {
+            jRadioButtonNaoHipert.setSelected(true);
+        }
+        if (a.isMedicamentos()) {
+            jRadioButtonSimMed.setSelected(true);
+        } else {
+            jRadioButtonNaoMed.setSelected(true);
+        }
+        if (a.getNivel().equals("Avançado")) {
+            jRadioButtonAvancado.setSelected(true);
+        } else if (a.getNivel().equals("Iniciante")) {
+            jRadioButtonIniciante.setSelected(true);
+        } else {
+            jRadioButtonIntermediario.setSelected(true);
+        }
+
+        if (a.isOutros()) {
+            jRadioButtonSimOutros.setSelected(true);
+        } else {
+            jRadioButtonNaoOutros.setSelected(true);
+        }
+        if (a.isProbPulmonares()) {
+            jRadioButtonSimProbPulm.setSelected(true);
+        } else {
+            jRadioButtonNaoProbPulm.setSelected(true);
+        }
+        if (a.isRestricaoArticular()) {
+            jRadioButtonSimRestArt.setSelected(true);
+        } else {
+            jRadioButtonNaoRestArt.setSelected(true);
+        }
+        if (a.isTabagismo()) {
+            jRadioButtonSimTab.setSelected(true);
+        } else {
+            jRadioButtonNaoTab.setSelected(true);
+        }
+
+        jTextAreaAtvFis.setText(a.getAtivFisicaObs());
+        jTextAreaCardiopatias.setText(a.getCardiopatiasObs());
+        jTextAreaDiabetes.setText(a.getDiabetesObs());
+        jTextAreaHipertensao.setText(a.getHipertensaoObs());
+        jTextAreaMed.setText(a.getMedicamentosObs());
+        jTextAreaOutros.setText(a.getOutrosObs());
+        jTextAreaProbPulmonares.setText(a.getProbPulmonaresObs());
+        jTextAreaRestricaoArticular.setText(a.getRestricaoArticularObs());
+        jTextAreaTab.setText(a.getTabagismoObs());
+
+        jFormattedTextFieldAbdomem.setText(p.getAbdomem() + "");
+        jFormattedTextFieldAltura.setText(p.getAltura() + "");
+        jFormattedTextFieldAntBracoD.setText(p.getAnte_braco_direita() + "");
+        jFormattedTextFieldAntBracoE.setText(p.getAnte_braco_esquerdo() + "");
+        jFormattedTextFieldBracoD.setText(p.getBraco_direito() + "");
+        jFormattedTextFieldBracoE.setText(p.getBraco_esquerdo() + "");
+        jFormattedTextFieldCintura.setText(p.getCintura() + "");
+        jFormattedTextFieldCoxaD.setText(p.getCoxa_direita() + "");
+        jFormattedTextFieldCoxaE.setText(p.getCoxa_esquerda() + "");
+        jFormattedTextFieldOmbro.setText(p.getOmbro() + "");
+        jFormattedTextFieldPanturrilhaD.setText(p.getPanturrilha_direita() + "");
+        jFormattedTextFieldPanturrilhaE.setText(p.getPanturrilha_esquerda() + "");
+        jFormattedTextFieldPeso.setText(p.getPeso() + "");
+        jFormattedTextFieldQuadril.setText(p.getQuadril() + "");
+        jFormattedTextFieldTorax.setText(p.getTorax() + "");
+
+        jFormattedTextFieldAbdominal.setText(d.getAbdominal() + "");
+        jFormattedTextFieldAxilarMedia.setText(d.getAxilar_media() + "");
+        jFormattedTextFieldBicipital.setText(d.getBicipita() + "");
+        jFormattedTextFieldCoxa.setText(d.getCoxa() + "");
+        jFormattedTextFieldPeitoral.setText(d.getPeitoral() + "");
+        jFormattedTextFieldSubscapular.setText(d.getSubscapular() + "");
+        jFormattedTextFieldSupraIliaca.setText(d.getSupra_iliaca() + "");
+        jFormattedTextFieldTricipital.setText(d.getTricipital() + "");
+
+        jFormattedTextFieldIMC.setText(c.getImc() + "");
+        jFormattedTextFieldPesoGorda.setText(c.getPeso_gorda() + "");
+        jFormattedTextFieldPesoMagra.setText(c.getPeso_magra() + "");
+        jFormattedTextFieldPorGordura.setText(c.getPorcentual_gordura() + "");
+        jFormattedTextFieldPARepouso.setText(c.getPressao_arterial() + "");
+        jFormattedTextFieldRCQ.setText(c.getRcq() + "");
+
+        jFormattedTextFieldIMC3.setText(m.getImc() + "");
+        jFormattedTextFieldPeso3.setText(m.getPeso() + "");
+        jFormattedTextFieldPorGordura3.setText(m.getPorcentual_gordura() + "");
+
+        dateProxAvjFormattedTextField.setText(Util.getDateString(avaliacao.getProxima_avaliacao()));
+        datejFormattedTextField.setText(Util.getDateString(avaliacao.getData()));
+
+    }
+
+    public JPanel getjPaneAnamnese() {
+        return jPaneAnamnese;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public JPanel getjPanelCCorporal() {
+        return jPanelCCorporal;
+    }
+
+    public JPanel getjPanelDCutaneas() {
+        return jPanelDCutaneas;
+    }
+
+    public JPanel getjPanelPerimetria() {
+        return jPanelPerimetria;
     }
 
 }

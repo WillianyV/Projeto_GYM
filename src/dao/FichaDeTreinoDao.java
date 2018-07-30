@@ -33,7 +33,15 @@ public class FichaDeTreinoDao {
        
     
     }
-    public void editar(FichaDeTreino f){}
+    public void editar(FichaDeTreino f){
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.DELETE_FICHA_DE_TREINO);
+            statement.setInt(1, f.getId());
+            statement.execute();
+        } catch (Exception ex) {
+            Logger.getLogger(AvaliacaoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public void excluir(FichaDeTreino f){}
     public FichaDeTreino getById(int id){return null;}
 }

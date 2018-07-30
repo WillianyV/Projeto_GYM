@@ -25,8 +25,6 @@ public class AvaliacaoDao{
     private PreparedStatement statement;
             
     public void cadastrar(Avaliacao a){
-        System.out.println("dao.AvaliacaoDao.cadastrar()");
-        System.out.println(a.getObjetivo());
         try {
             //        (objetivo,proxima_avaliacao,data,anamnese_id,composicao_corporal_id,metas_ideais_id"
 //             + ",perimetria_id,dobras_cutaneas_id)
@@ -46,9 +44,46 @@ public class AvaliacaoDao{
             Mensagem.exibirMensagem("Erro ao cadastrar Avaliação!\n"+ex.getMessage());
         }
     }
-    public void editar(Avaliacao a){}
-    public void excluir(Avaliacao a){}
-    public Avaliacao getById(int id){return null;}
+    public void editar(Avaliacao a){
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.UPDATE_AVALIACAO);
+            statement.setDate(1, a.getProxima_avaliacao());
+            statement.setDate(2, a.getData());
+            statement.setInt(3, a.getId());
+            
+            statement.execute();
+            Fachada.getInstance().editarAnamnese(a.getAnamnese());
+            Fachada.getInstance().editarComposicao_corporal(a.getComposicao_corporal());
+            Fachada.getInstance().editarDobras_Cutaneas(a.getDobras_Cutaneas());
+            Fachada.getInstance().editarMetas_ideais(a.getMetas_ideais());
+            Fachada.getInstance().editarPerimetria(a.getPerimetria());
+        } catch (Exception ex) {
+            Logger.getLogger(AvaliacaoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void excluir(Avaliacao a){
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.DELETE_AVALIACAO);
+            statement.setInt(1, a.getId());
+            statement.execute();
+        } catch (Exception ex) {
+            Logger.getLogger(AvaliacaoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public Avaliacao getById(int id){
+        ResultSet result;
+        
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.SELECT_BY_ID_AVALIACAO);
+            statement.setInt(1, id);
+            result = statement.executeQuery();
+            result.next();
+            return get(result);
+        } catch (Exception ex) {
+            Logger.getLogger(AvaliacaoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
     public ArrayList<Avaliacao> getAll(){
         ResultSet result;
         ArrayList<Avaliacao> avaliacoes = new ArrayList<>();

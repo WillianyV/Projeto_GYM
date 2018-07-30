@@ -6,6 +6,7 @@
 package view;
 
 import app.Projeto_GYM;
+import app.Util;
 import fachada.Fachada;
 import java.util.ArrayList;
 import javax.swing.JTable;
@@ -100,6 +101,14 @@ public class AlunosAvaliacaoHomeJFrame extends javax.swing.JFrame {
                 "Avalição nº", "Data", "Nome Aluno", "Instrutor"
             }
         ));
+        jTableAvFísica.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableAvFísicaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jTableAvFísicaMouseEntered(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableAvFísica);
 
         jButtonCadastrar.setBackground(new java.awt.Color(45, 118, 232));
@@ -227,16 +236,45 @@ public class AlunosAvaliacaoHomeJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
-        // TODO add your handling code here:
+        Avaliacao a =  Fachada.getInstance().getByIdAvaliacao(Integer.parseInt(
+                jTableAvFísica.getValueAt(jTableAvFísica.getSelectedRow(), 0)+""));
+        Fachada.getInstance().excluirAvaliacao(a);
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        // TODO add your handling code here:
+        Instrutor i = Fachada.getInstance().getByIdAvaliacao(Integer.parseInt(jTableAvFísica.getValueAt(
+                    jTableAvFísica.getSelectedRow(), 0)+"")).getInstrutor();
+           
+            AlunosAvaliacaoJFrame tela = new AlunosAvaliacaoJFrame(a,i, objetivo);
+            tela.setAvaliacao( Fachada.getInstance().getByIdAvaliacao(Integer.parseInt(jTableAvFísica.getValueAt(
+                    jTableAvFísica.getSelectedRow(), 0)+"")));
+            tela.show();
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jTextFieldProsucarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProsucarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldProsucarActionPerformed
+
+    private void jTableAvFísicaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAvFísicaMouseEntered
+
+    }//GEN-LAST:event_jTableAvFísicaMouseEntered
+
+    private void jTableAvFísicaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAvFísicaMouseClicked
+        if(evt.getClickCount()==2){
+            Instrutor i = Fachada.getInstance().getByIdAvaliacao(Integer.parseInt(jTableAvFísica.getValueAt(
+                    jTableAvFísica.getSelectedRow(), 0)+"")).getInstrutor();
+           
+            AlunosAvaliacaoJFrame tela = new AlunosAvaliacaoJFrame(a,i, objetivo);
+            Util.bloquearCampos(tela.getjPaneAnamnese());
+            Util.bloquearCampos(tela.getjPanel1());
+            Util.bloquearCampos(tela.getjPanelCCorporal());
+            Util.bloquearCampos(tela.getjPanelDCutaneas());
+            Util.bloquearCampos(tela.getjPanelPerimetria());
+            tela.setAvaliacao( Fachada.getInstance().getByIdAvaliacao(Integer.parseInt(jTableAvFísica.getValueAt(
+                    jTableAvFísica.getSelectedRow(), 0)+"")));
+            tela.show();
+        }
+    }//GEN-LAST:event_jTableAvFísicaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -257,21 +295,20 @@ public class AlunosAvaliacaoHomeJFrame extends javax.swing.JFrame {
         String [] colunas = {"Avaliação Nº","Data","Nome Aluno","Instrutor"};
         ArrayList<Object[]> dados = new ArrayList<>();
         int i=1;
-        System.out.println(avaliacao.get(0).getInstrutor().getFuncionario().getNome());
         for(Avaliacao a : avaliacao)
-            dados.add(new Object[]{i++,a.getData(),a.getAluno().getNome(),
+            dados.add(new Object[]{a.getId(),a.getData(),a.getAluno().getNome(),
                         a.getInstrutor().getFuncionario().getNome()});
         
         ModeloTabela modelo = new ModeloTabela(dados, colunas);
         jTableAvFísica.setModel(modelo);
         
-        jTableAvFísica.getColumnModel().getColumn(0).setPreferredWidth(40);
+        jTableAvFísica.getColumnModel().getColumn(0).setPreferredWidth(75);
         jTableAvFísica.getColumnModel().getColumn(0).setResizable(false);
         jTableAvFísica.getColumnModel().getColumn(1).setPreferredWidth(100);
         jTableAvFísica.getColumnModel().getColumn(1).setResizable(false);
         jTableAvFísica.getColumnModel().getColumn(2).setPreferredWidth(213);
         jTableAvFísica.getColumnModel().getColumn(2).setResizable(false);
-        jTableAvFísica.getColumnModel().getColumn(3).setPreferredWidth(205);
+        jTableAvFísica.getColumnModel().getColumn(3).setPreferredWidth(170);
         jTableAvFísica.getColumnModel().getColumn(3).setResizable(false);
         
         jTableAvFísica.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);    }

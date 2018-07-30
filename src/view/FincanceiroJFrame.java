@@ -167,6 +167,11 @@ public class FincanceiroJFrame extends javax.swing.JFrame {
                 "Id", "Data", "Histórico", "Descrição", "Valor", "Forma "
             }
         ));
+        jTableCaixa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableCaixaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableCaixa);
 
         jLabelSaldo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -262,12 +267,11 @@ public class FincanceiroJFrame extends javax.swing.JFrame {
                             .addComponent(jLabelPeriodo)
                             .addComponent(jFormattedTextFieldPeriodo2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelHa)
-                            .addComponent(jFormattedTextFieldPeriodo3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18))
+                            .addComponent(jFormattedTextFieldPeriodo3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanelBackLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -305,7 +309,10 @@ public class FincanceiroJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        // TODO add your handling code here:
+        FinanceiroLancarFaturaJFrame tela = new FinanceiroLancarFaturaJFrame();
+            tela.set(Fachada.getInstance().getByIdControleFinanceiro(Integer.parseInt(
+                jTableCaixa.getValueAt(jTableCaixa.getSelectedRow(), 0)+"")));
+            tela.show();
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jFormattedTextFieldPeriodo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldPeriodo2ActionPerformed
@@ -328,6 +335,15 @@ public class FincanceiroJFrame extends javax.swing.JFrame {
         this.dispose();
         new HistoricoHomeJFrame().show();
     }//GEN-LAST:event_jPanel1MousePressed
+
+    private void jTableCaixaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCaixaMouseClicked
+        if(evt.getClickCount()==2){
+            FinanceiroLancarFaturaJFrame tela = new FinanceiroLancarFaturaJFrame();
+            tela.set(Fachada.getInstance().getByIdControleFinanceiro(Integer.parseInt(
+                jTableCaixa.getValueAt(jTableCaixa.getSelectedRow(), 0)+"")));
+            tela.show();
+        }
+    }//GEN-LAST:event_jTableCaixaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -361,15 +377,15 @@ public class FincanceiroJFrame extends javax.swing.JFrame {
         ModeloTabela modelo = new ModeloTabela(dados, colunas);
         jTableCaixa.setModel(modelo);
         
-        jTableCaixa.getColumnModel().getColumn(0).setPreferredWidth(40);
+        jTableCaixa.getColumnModel().getColumn(0).setPreferredWidth(80);
         jTableCaixa.getColumnModel().getColumn(0).setResizable(false);
-        jTableCaixa.getColumnModel().getColumn(1).setPreferredWidth(100);
+        jTableCaixa.getColumnModel().getColumn(1).setPreferredWidth(130);
         jTableCaixa.getColumnModel().getColumn(1).setResizable(false);
-        jTableCaixa.getColumnModel().getColumn(2).setPreferredWidth(170);
+        jTableCaixa.getColumnModel().getColumn(2).setPreferredWidth(290);
         jTableCaixa.getColumnModel().getColumn(2).setResizable(false);
-        jTableCaixa.getColumnModel().getColumn(3).setPreferredWidth(170);
+        jTableCaixa.getColumnModel().getColumn(3).setPreferredWidth(248);
         jTableCaixa.getColumnModel().getColumn(3).setResizable(false);
-        jTableCaixa.getColumnModel().getColumn(4).setPreferredWidth(95);
+        jTableCaixa.getColumnModel().getColumn(4).setPreferredWidth(135);
         jTableCaixa.getColumnModel().getColumn(4).setResizable(false);
         
         jTableCaixa.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);    

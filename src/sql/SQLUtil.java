@@ -58,6 +58,7 @@ public class SQLUtil {
             + "(?,?,?,?,?)";
     
     public static String SELECT_INSTRUTOR_BY_ID_FUNCIONARIO = "select * from instrutor where funcionario_id=?";
+    public static String SELECT_ALL_CONTA = "select * from historico";
     public static String SELECT_CONTA_BY_NOME = "select * from historico where nome=?";
     public static String SELECT_CONTA_BY_ID = "select * from historico where id=?";
     public static String SELECT_CONTA_ALL_NOMES = "select nome from historico";
@@ -78,6 +79,9 @@ public class SQLUtil {
     public static String SELECT_BY_ID_PARCELAS = "select * from parcelas where id=?";
     public static String SELECT_ALL_PARCELAS = "select * from parcelas";
     public static String SELECT_ALL_PARCELAS_BY_ID = "select * from parcelas where aluno_id=?";
+    public static String SELECT_BY_EXERCICIO_ID = "select * from exercicio where id=?";
+    public static String SELECT_BY_ID_CONTROLE_FINANCEIRO = "select * from controle_financeiro where id=?";
+    public static String SELECT_BY_ID_AVALIACAO = "select * from avaliacao where id=?";
     
     public static String UPDATE_ALUNO = "update aluno set nome=?,cpf=?,data_nascimento=?,sexo=?,"
             + "vencimento_mens=?,endereco_id=?,rg=?,email=?,celular=?,status=?,tipo_plano=?,valor_plano=? where id=?";
@@ -93,8 +97,44 @@ public class SQLUtil {
     public static String UPDATE_ENDERECO = "update endereco set bairro=?,uf=?,cidade=?,cep=?,logradouro=?,num=?"
             + " where id=?";
     public static String UPDATE_PARCELAS = "update parcelas set data_de_vencimento=?,valor=?,status=?,aluno_id=? where id=?";
+    public static String UPDATE_EXERCICIO = "update exercicio set tipo=?,nome=? where id=?";
+    public static String UPDATE_CONTROLE_FINANCEIRO = "update controle_financeiro set data=?,descricao=?,valor=?,contas_id=? where id=?";
+    public static String UPDATE_CONTA = "update historico set nome=?,tipo=? where id=?";
+    public static String UPDATE_AVALIACAO = "update avaliacao set proxima_avaliacao=?,data=? where id=?";
+    public static String UPDATE_ANAMNESE = "update anamnese set tabagismo=?,restricaoArticular=?,cardiopatias=?,medicamentos=?,"
+            + "hipertensao=?,outros=?,diabetes=?,probPulmonares=?,ativFisica=?,nivel=?,tabagismoObs=?,restricaoArticularObs=?,"
+            + "cardiopatiasObs=?,medicamentosObs=?,hipertensaoObs=?,outrosObs=?,diabetesObs=?,probPulmonaresObs=?,"
+            + "ativFisicaObs=? where id=?";
+    public static String UPDATE_COMPOSICAO_CORPORAL = "update composicao_corporal set peso_gorda=?,peso_magra=?,imc=?,"
+            + "rcq=?,porcentual_gordura=?,pressao_arterial=? where id=?";
+    public static String UPDATE_DOBRAS_CUTANEAS ="update dobras_cutaneas set peitoral=?,axilar_media=?,abdominal=?,"
+            + "coxa=?,bicipita=?,supra_iliaca=?,subscapular=?,tricipital=? where id=?";
+    public static String UPDATE_METAS_IDEAIS = "update metas_ideais set peso=?,imc=?,nivel=?,porcentual_gordura=? "
+            + "where id=?";
+    public static String UPDATE_PERIMETRIA = "update perimetria set altura=?,cintura=?,peso=?,coxa_esquerda=?,ombro=?,"
+            + "braco_esquerdo=?,coxa_direita=?,abdomem=?,torax=?,quadril=?,panturrilha_direita=?,braco_direito=?, "
+            + "ante_braco_direito=?,ante_braco_esquerdo=? where id=?";
     
     public static String VERIFICAR_PARCELA = "select id from parcelas where aluno_id=? and data_de_vencimento=?";
+    
+    public static String DELETE_ENDERECO ="delete endereco where id=?";
+    public static String DELETE_ALUNO = "delete aluno where id=?";
+    public static String DELETE_FUNCIONARIO = "delete funcionario where id=?";
+    public static String DELETE_COMPOSICAO_CORPORAL = "delete composicao_corporal where id=?";
+    public static String DELETE_METAS_IDEAIS = "delete metas_ideais where id=?";
+    public static String DELETE_DOBRAS_CUTANEAS ="delete dobras_cutaneas where id=?";
+    public static String DELETE_EXERCICIO = "delete exercicio where id=?";
+    public static String DELETE_INSTRUTOR = "delete instrutor where id=?";
+    public static String DELETE_FICHA_DE_TREINO = "delete ficha_de_treino where id=?";
+    public static String DELETE_FICHA_EXERCICIO = "delete ficha_exercicio where id=?";
+    public static String DELETE_ANAMNESE = "delete anamnese where id=?";
+    public static String DELETE_AVALIACAO = "delete avaliacao where id=?";
+    public static String DELETE_PAGAMENTO = "delete pagamento where id=?";
+    public static String DELETE_CONTAS = "delete historico (nome,tipo) values (?,?)";
+    public static String DELETE_CONTROLE_FINANCEIRO = "delete controle_financeiro where id=?";
+    public static String DELETE_ACADEMIA = "delete cadastro_academia where id=?";
+    public static String DELETE_PARCELAS = "delete parcelas where id=?";
+    public static String DELETE_PERIMETRIA = "delete perimetria where id=?";
             
     public static String URL_POSTGRES = "jdbc:postgresql://localhost:5432/gym";
     public static String USUARIO_POSTGRES = "postgres";

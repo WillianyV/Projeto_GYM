@@ -196,7 +196,12 @@ public class ExerciciosCadastroJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        Projeto_GYM.fachada.cadastrarExercicio(getExercicio());
+        Exercicio e = getExercicio();
+        if(e.getId()==0)
+            Projeto_GYM.fachada.cadastrarExercicio(e);
+        else
+            fachada.Fachada.getInstance().editarExercicio(e);
+        this.dispose();
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jTextFieldNomeExerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeExerActionPerformed
@@ -229,7 +234,16 @@ public class ExerciciosCadastroJFrame extends javax.swing.JFrame {
     public Exercicio getExercicio(){
         e.setNome(jTextFieldNomeExer.getText());
         e.setTipo(jComboBoxTipoExerc.getSelectedItem()+"");
+        if(!jTextFieldId.getText().isEmpty()){
+            e.setId(Integer.parseInt(jTextFieldId.getText()));
+        }
         return e;
+    }
+    
+    public void setExercicio(Exercicio e){
+        jTextFieldId.setText(e.getId()+"");
+        jTextFieldNomeExer.setText(e.getNome());
+        jComboBoxTipoExerc.setSelectedItem(e.getTipo());
     }
     
     public JTextField getjTextFieldId() {

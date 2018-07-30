@@ -322,6 +322,7 @@ public class AlunosLancarFaturaJFrame extends javax.swing.JFrame {
        p = get();
        Projeto_GYM.fachada.cadastrarPagamento(p);
        Projeto_GYM.fachada.cadastrarControleFinanceiro(c);
+       
        this.dispose();
     }//GEN-LAST:event_jButtonLancarActionPerformed
 

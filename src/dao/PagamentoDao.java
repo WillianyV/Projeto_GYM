@@ -40,7 +40,15 @@ public class PagamentoDao {
         
     }
     public void editar(Pagamento p){}
-    public void excluir(Pagamento p){}
+    public void excluir(Pagamento p){
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.DELETE_PAGAMENTO);
+            statement.setInt(1, p.getId());
+            statement.execute();
+        } catch (Exception ex) {
+            Logger.getLogger(AvaliacaoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public Pagamento getById(int id){return null;}
     public ArrayList<Pagamento> getAll(){return null;}
 }

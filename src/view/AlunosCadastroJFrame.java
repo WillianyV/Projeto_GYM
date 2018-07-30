@@ -895,10 +895,13 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        if(a.getId()==0)
+        if(a.getId()==0){
             a=Projeto_GYM.fachada.cadastrarAluno(getAluno());
-        else
+            Mensagem.exibirMensagem("Aluno cadastrado com sucesso!");
+        }else{
             a=Projeto_GYM.fachada.editarAluno(getAluno());
+            Mensagem.exibirMensagem("Aluno cadastrado com sucesso!");
+        }
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jPanelAvalicaoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAvalicaoMouseEntered

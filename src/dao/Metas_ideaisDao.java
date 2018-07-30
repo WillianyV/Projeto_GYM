@@ -35,8 +35,33 @@ public class Metas_ideaisDao {
         }
         
     }
-    public void editar(Metas_ideais m){}
-    public void excluir(Metas_ideais m){}
+    
+    public void editar(Metas_ideais m){
+        try {
+            //        (peso,imc,nivel,porcentual_gordura)
+            statement = SQLUtil.prepareStatement(SQLUtil.UPDATE_METAS_IDEAIS);
+            statement.setFloat(1, m.getPeso());
+            statement.setFloat(2, m.getImc());
+            statement.setString(3, m.getNivel());
+            statement.setFloat(4, m.getPorcentual_gordura());
+            statement.setInt(5, m.getId());
+            
+            statement.execute();
+        } catch (Exception ex) {
+            Mensagem.exibirMensagem("Erro ao editar metas ideais!\n"+ex.getMessage());
+        }
+    }
+    
+    public void excluir(Metas_ideais m){
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.DELETE_METAS_IDEAIS);
+            statement.setInt(1, m.getId());
+            statement.execute();
+        } catch (Exception ex) {
+            Logger.getLogger(AvaliacaoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public Metas_ideais getById(int id){
         ResultSet result;
         try {

@@ -133,7 +133,15 @@ public class FuncionarioDao {
 //            Mensagem.exibirMensagem("Erro ao editar Funcionario!"+ex.getMessage());
         }
     }
-    public void excluir(Funcionario f){}
+    public void excluir(Funcionario f){
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.DELETE_FUNCIONARIO);
+            statement.setInt(1, f.getId());
+            statement.execute();
+        } catch (Exception ex) {
+            Logger.getLogger(AvaliacaoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     public Funcionario getById(int id){
         ResultSet result;

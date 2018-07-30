@@ -197,7 +197,14 @@ public class HistoricoCadastroJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        Projeto_GYM.fachada.cadastrarConta(getConta());
+        if(jTextFieldId.getText().isEmpty()){
+            Projeto_GYM.fachada.cadastrarConta(getConta());
+            Mensagem.exibirMensagem("Histórico cadastrado com sucesso!");
+        }else{
+            Projeto_GYM.fachada.editarConta(getConta());
+            Mensagem.exibirMensagem("Histórico editado com sucesso!");
+        }
+        this.dispose();
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jComboBoxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoActionPerformed
@@ -230,8 +237,17 @@ public class HistoricoCadastroJFrame extends javax.swing.JFrame {
     public Conta getConta(){
         c.setDescricao(jTextFieldNome.getText());
         c.setTipo(jComboBoxTipo.getSelectedItem()+"");
+        if(!jTextFieldId.getText().isEmpty()){
+            c.setId(Integer.parseInt(jTextFieldId.getText()));
+        }
         
         return c;
+    }
+    
+    public void setConta(Conta c){
+        jTextFieldId.setText(c.getId()+"");
+        jComboBoxTipo.setSelectedItem(c.getTipo());
+        jTextFieldNome.setText(c.getDescricao());
     }
 
     public JComboBox<String> getjComboBoxTipo() {

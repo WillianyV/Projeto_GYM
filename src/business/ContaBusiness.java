@@ -26,7 +26,7 @@ public class ContaBusiness {
     }
     
     public void editar(Conta c){
-        dao.cadastrar(c);
+        dao.editar(c);
     }
     
     public void excluir(Conta c){
@@ -47,5 +47,9 @@ public class ContaBusiness {
     
     public ArrayList<String> getAllNomeContas(){      
         return dao.getAllNomeContas();
+    }
+    
+    public ArrayList<Conta> getAllContas(){      
+        return dao.getAllContas();
     }
 }

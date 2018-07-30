@@ -55,7 +55,14 @@ public class EnderecoDao {
            Mensagem.exibirMensagem("Erro ao editar endereço!\n"+ex.getMessage());
        }
    }
-   public void excluir(Endereco c){}
+   public void excluir(Endereco c){
+       try {
+           statement = SQLUtil.prepareStatement(SQLUtil.DELETE_ENDERECO);
+           statement.setInt(1, c.getId());
+       } catch (Exception ex) {
+           Logger.getLogger(EnderecoDao.class.getName()).log(Level.SEVERE, null, ex);
+       }
+   }
    public Endereco getById(int id){
         ResultSet result;
         try {

@@ -34,10 +34,32 @@ public class ContaDao {
         } catch (Exception ex) {
             Mensagem.exibirMensagem("Erro ao cadastrar conta!");
         }
-       
     }
-    public void editar(Conta c){}
-    public void excluir(Conta c){}
+    
+    public void editar(Conta c){
+        try {
+            statement=SQLUtil.prepareStatement(SQLUtil.UPDATE_CONTA);
+            
+            statement.setString(1, c.getDescricao());
+            statement.setString(2, c.getTipo());
+            statement.setInt(3, c.getId());
+            
+            statement.execute();
+        } catch (Exception ex) {
+            Mensagem.exibirMensagem("Erro ao editar conta!");
+        }
+    }
+    
+    public void excluir(Conta c){
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.DELETE_CONTAS);
+            statement.setInt(1, c.getId());
+            statement.execute();
+        } catch (Exception ex) {
+            Logger.getLogger(AvaliacaoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public Conta getById(int id){
         ResultSet result;
         
@@ -63,6 +85,23 @@ public class ContaDao {
             result=statement.executeQuery();
             while (result.next()) {                
                 contas.add(result.getString(1));
+            }
+            return contas;
+        } catch (Exception ex) {
+            Mensagem.exibirMensagem("Erro ao pegar nome das contas!\n"+ex.getMessage());
+        }
+        
+        return contas;
+    }
+    
+    public ArrayList<Conta> getAllContas(){
+        ResultSet result;
+        ArrayList<Conta> contas = new ArrayList<>();
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.SELECT_ALL_CONTA);
+            result=statement.executeQuery();
+            while (result.next()) {                
+                contas.add(get(result));
             }
             return contas;
         } catch (Exception ex) {

@@ -31,7 +31,9 @@ public class FuncionarioBusiness {
     }
 
     public void excluir(Funcionario f) {
+        Fachada.getInstance().excluirInstrutor(Fachada.getInstance().getByFuncionario_IdInstrutor(f.getId()));
         dao.excluir(f);
+        Fachada.getInstance().excluirEndereco(f.getEndereco());
     }
     
     public Funcionario getById(int id) {

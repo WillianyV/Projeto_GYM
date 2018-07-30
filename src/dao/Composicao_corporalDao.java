@@ -23,7 +23,7 @@ public class Composicao_corporalDao {
     
     public void cadastrar(Composicao_corporal c){
         try {
-            statement=SQLUtil.prepareStatement(SQLUtil.INSERIR_COMPOSICAO_CORPORAL);
+            statement=SQLUtil.prepareStatement(SQLUtil.UPDATE_COMPOSICAO_CORPORAL);
             
             statement.setFloat(1, c.getPeso_gorda());
             statement.setFloat(2, c.getPeso_magra());
@@ -37,8 +37,34 @@ public class Composicao_corporalDao {
             Mensagem.exibirMensagem("Erro ao cadastrar Composição Corporal\n"+ex.getMessage());
         }
     }
-    public void editar(Composicao_corporal c){}
-    public void excluir(Composicao_corporal c){}
+    
+    public void editar(Composicao_corporal c){
+         try {
+            statement=SQLUtil.prepareStatement(SQLUtil.UPDATE_COMPOSICAO_CORPORAL);
+            
+            statement.setFloat(1, c.getPeso_gorda());
+            statement.setFloat(2, c.getPeso_magra());
+            statement.setFloat(3, c.getImc());
+            statement.setFloat(4, c.getRcq());
+            statement.setFloat(5, c.getPorcentual_gordura());
+            statement.setFloat(6, c.getPressao_arterial());
+            statement.setInt(7, c.getId());
+            
+            statement.execute();
+        } catch (Exception ex) {
+            Mensagem.exibirMensagem("Erro ao editar Composição Corporal\n"+ex.getMessage());
+        }
+    }
+    
+    public void excluir(Composicao_corporal c){
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.DELETE_COMPOSICAO_CORPORAL);
+            statement.setInt(1, c.getId());
+            statement.execute();
+        } catch (Exception ex) {
+            Logger.getLogger(AvaliacaoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     public Composicao_corporal getById(int id){
         ResultSet result;

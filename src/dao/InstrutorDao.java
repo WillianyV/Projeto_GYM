@@ -36,7 +36,16 @@ public class InstrutorDao {
         }
     }
     public void editar(Instrutor i){}
-    public void excluir(Instrutor i){}
+    
+    public void excluir(Instrutor i){
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.DELETE_INSTRUTOR);
+            statement.setInt(1, i.getId());
+            statement.execute();
+        } catch (Exception ex) {
+            Logger.getLogger(AvaliacaoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     public Instrutor getById(int id){
         ResultSet result;

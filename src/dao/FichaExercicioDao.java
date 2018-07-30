@@ -36,7 +36,15 @@ public class FichaExercicioDao {
             Mensagem.exibirMensagem("Erro ao cadastrar em Ficha_Exercicio!\n"+ex.getMessage());
         }
     }
-    public void excluir(FichaExercicio f){}
+    public void excluir(FichaExercicio f){
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.DELETE_FICHA_EXERCICIO);
+            statement.setInt(1, f.getId());
+            statement.execute();
+        } catch (Exception ex) {
+            Logger.getLogger(AvaliacaoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public void editar(FichaExercicio f){}
     public FichaExercicio getById(int id){return null;}
 }

@@ -26,7 +26,7 @@ public class Composicao_corporalBusiness {
     }
     
     public void editar(Composicao_corporal c){
-        dao.cadastrar(c);
+        dao.editar(c);
     }
     
     public void excluir(Composicao_corporal c){

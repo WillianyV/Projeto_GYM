@@ -274,7 +274,7 @@ public class FinanceiroLancarFaturaJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabeSairMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabeSairMousePressed
-        
+        this.dispose();
     }//GEN-LAST:event_jLabeSairMousePressed
 
     private void jTextFieldDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDescricaoActionPerformed
@@ -283,7 +283,10 @@ public class FinanceiroLancarFaturaJFrame extends javax.swing.JFrame {
 
     private void jButtonLancarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLancarActionPerformed
         get();
-        Projeto_GYM.fachada.cadastrarControleFinanceiro(c);
+        if(c.getId()==0)
+            Projeto_GYM.fachada.cadastrarControleFinanceiro(c);
+        else
+            Projeto_GYM.fachada.editarControleFinanceiro(c);
     }//GEN-LAST:event_jButtonLancarActionPerformed
 
     private void jTextFieldIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdActionPerformed
@@ -329,7 +332,18 @@ public class FinanceiroLancarFaturaJFrame extends javax.swing.JFrame {
         c.setData(Util.getDate(jFormattedTextFieldData.getText()));
         c.setDescricao(jTextFieldDescricao.getText());
         c.setValor(Float.parseFloat(jTextFieldValor.getText()));
+        if(!jTextFieldId.getText().isEmpty()){
+            c.setId(Integer.parseInt(jTextFieldId.getText()));
+        }
         return c;
+    }
+    
+    public void set(ControleFinanceiro c){
+        jComboBoxHistorico.setSelectedItem(c.getConta().getTipo());
+        jFormattedTextFieldData.setText(Util.getDateString(c.getData()));
+        jTextFieldDescricao.setText(c.getDescricao());
+        jTextFieldValor.setText(c.getValor()+"");
+        jTextFieldId.setText(c.getId()+"");
     }
     
     private void preencherComboBox(){

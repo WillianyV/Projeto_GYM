@@ -81,7 +81,15 @@ public class AlunoDao {
         }
         return null;
     }
-    public void excluir(Aluno aluno){}
+    public void excluir(Aluno aluno){
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.DELETE_ALUNO);
+            statement.setInt(1, aluno.getId());
+            statement.execute();
+        } catch (Exception ex) {
+            Logger.getLogger(AlunoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     public Aluno getAlunoById(int id){
         ResultSet result;

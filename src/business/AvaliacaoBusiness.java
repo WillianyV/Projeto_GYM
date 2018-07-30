@@ -5,7 +5,9 @@
  */
 package business;
 
+import app.Projeto_GYM;
 import dao.AvaliacaoDao;
+import fachada.Fachada;
 import java.util.ArrayList;
 import model.Avaliacao;
 
@@ -32,6 +34,11 @@ public class AvaliacaoBusiness {
     
     public void excluir(Avaliacao a){
         dao.excluir(a);
+        Fachada.getInstance().excluirAnamnese(a.getAnamnese());
+        Fachada.getInstance().excluirComposicao_corporal(a.getComposicao_corporal());
+        Fachada.getInstance().excluirDobras_Cutaneas(a.getDobras_Cutaneas());
+        Fachada.getInstance().excluirMetas_ideais(a.getMetas_ideais());
+        Fachada.getInstance().excluirPerimetria(a.getPerimetria());
     }
     
     public Avaliacao getById(int id){

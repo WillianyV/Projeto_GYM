@@ -27,7 +27,7 @@ public class ControleFinanceiroDao {
         try {
             statement = SQLUtil.prepareStatement(SQLUtil.INSERIR_CONTROLE_FINANCEIRO);
             
-//        insert into controle_financeiro (data,descricao,valor,contas_id)
+//        update controle_financeiro set data=?,descricao=?,valor=?,contas_id=? where id=?
             statement.setDate(1, c.getData());
             statement.setString(2, c.getDescricao());
             statement.setFloat(3, c.getValor());
@@ -36,13 +36,52 @@ public class ControleFinanceiroDao {
             statement.execute();
         } catch (Exception ex) {
             Mensagem.exibirMensagem("Erro ao cadastrar Controle Financeiro!"+ex.getMessage());
+        }    
+    }
+    
+    public void editar(ControleFinanceiro c){
+         try {
+            statement = SQLUtil.prepareStatement(SQLUtil.UPDATE_CONTROLE_FINANCEIRO);
+            
+//        update controle_financeiro set data=?,descricao=?,valor=?,contas_id=? where id=?
+            statement.setDate(1, c.getData());
+            statement.setString(2, c.getDescricao());
+            statement.setFloat(3, c.getValor());
+            statement.setInt(4, c.getConta().getId());
+            statement.setInt(5, c.getId());
+            
+            statement.execute();
+        } catch (Exception ex) {
+            Mensagem.exibirMensagem("Erro ao editar Controle Financeiro!"+ex.getMessage());
+        }
+    }
+    public void excluir(ControleFinanceiro c){
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.DELETE_CONTROLE_FINANCEIRO);
+            statement.setInt(1, c.getId());
+            statement.execute();
+        } catch (Exception ex) {
+            Logger.getLogger(AvaliacaoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public ControleFinanceiro getById(int id){
+        ResultSet result;
+        
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.SELECT_BY_ID_CONTROLE_FINANCEIRO);
+            statement.setInt(1, id);
+            result = statement.executeQuery();
+            result.next();
+            
+            return get(result);                   
+        } catch (Exception ex) {
+            Logger.getLogger(ControleFinanceiroDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        
+        return null;
     }
-    public void editar(ControleFinanceiro c){}
-    public void excluir(ControleFinanceiro c){}
-    public ControleFinanceiro getById(int id){return null;}
+    
     public ArrayList<ControleFinanceiro> getAll(){
         ResultSet result;
         ArrayList<ControleFinanceiro> financeiros = new ArrayList<>();

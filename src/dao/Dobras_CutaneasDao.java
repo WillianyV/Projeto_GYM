@@ -40,9 +40,37 @@ public class Dobras_CutaneasDao {
         }
         
         
+   }
+   
+   public void editar(Dobras_Cutaneas c){
+       try {
+            statement=SQLUtil.prepareStatement(SQLUtil.UPDATE_DOBRAS_CUTANEAS);
+            
+            statement.setFloat(1, c.getPeitoral());
+            statement.setFloat(2, c.getAxilar_media());
+            statement.setFloat(3, c.getAbdominal());
+            statement.setFloat(4, c.getCoxa());
+            statement.setFloat(5, c.getBicipita());
+            statement.setFloat(6, c.getSupra_iliaca());
+            statement.setFloat(7, c.getSubscapular());
+            statement.setFloat(8, c.getTricipital());
+            statement.setInt(9, c.getId());
+            
+            statement.execute();
+        } catch (Exception ex) {
+            Mensagem.exibirMensagem("Erro ao cadastrar dobras cutânea!\n"+ex.getMessage());
+        }
    } 
-   public void editar(Dobras_Cutaneas c){} 
-   public void excluir(Dobras_Cutaneas c){} 
+   
+   public void excluir(Dobras_Cutaneas c){
+        try {
+            statement = SQLUtil.prepareStatement(SQLUtil.DELETE_DOBRAS_CUTANEAS);
+            statement.setInt(1, c.getId());
+            statement.execute();
+        } catch (Exception ex) {
+            Logger.getLogger(AvaliacaoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+   } 
    
    public Dobras_Cutaneas getById(int id){
         ResultSet result; 

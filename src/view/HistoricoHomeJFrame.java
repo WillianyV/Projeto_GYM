@@ -5,6 +5,13 @@
  */
 package view;
 
+import fachada.Fachada;
+import java.util.ArrayList;
+import javax.swing.JTable;
+import model.Conta;
+import model.Exercicio;
+import model.ModeloTabela;
+
 /**
  *
  * @author Insinuante
@@ -16,6 +23,7 @@ public class HistoricoHomeJFrame extends javax.swing.JFrame {
      */
     public HistoricoHomeJFrame() {
         initComponents();
+        preencherTabela(Fachada.getInstance().getAllContas());
     }
 
     /**
@@ -31,14 +39,14 @@ public class HistoricoHomeJFrame extends javax.swing.JFrame {
         jPanelBlue = new javax.swing.JPanel();
         jLabeAlunos = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableAlunos = new javax.swing.JTable();
+        jTableHistorico = new javax.swing.JTable();
         jButtonExcluir = new javax.swing.JButton();
         jButtonEditar = new javax.swing.JButton();
         jLabelProcurar = new javax.swing.JLabel();
         jTextFieldProsucar = new javax.swing.JTextField();
         jLabelIconPesquisar = new javax.swing.JLabel();
         jLabelProcurar1 = new javax.swing.JLabel();
-        jComboBoxSexo2 = new javax.swing.JComboBox<>();
+        jComboBoxTipo = new javax.swing.JComboBox<>();
         jButtonCadastrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -71,8 +79,8 @@ public class HistoricoHomeJFrame extends javax.swing.JFrame {
                 .addGap(28, 28, 28))
         );
 
-        jTableAlunos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jTableAlunos.setModel(new javax.swing.table.DefaultTableModel(
+        jTableHistorico.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jTableHistorico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -83,7 +91,12 @@ public class HistoricoHomeJFrame extends javax.swing.JFrame {
                 "Id", "Histórico", "Tipo"
             }
         ));
-        jScrollPane1.setViewportView(jTableAlunos);
+        jTableHistorico.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableHistoricoMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTableHistorico);
 
         jButtonExcluir.setBackground(new java.awt.Color(45, 118, 232));
         jButtonExcluir.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -120,17 +133,22 @@ public class HistoricoHomeJFrame extends javax.swing.JFrame {
 
         jLabelIconPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8_Search_20px_2.png"))); // NOI18N
         jLabelIconPesquisar.setToolTipText("Pesquisar");
+        jLabelIconPesquisar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelIconPesquisarMouseClicked(evt);
+            }
+        });
 
         jLabelProcurar1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabelProcurar1.setForeground(new java.awt.Color(45, 118, 232));
         jLabelProcurar1.setText("Tipo");
 
-        jComboBoxSexo2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jComboBoxSexo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Débito", "Crédito" }));
-        jComboBoxSexo2.setToolTipText("Selecione");
-        jComboBoxSexo2.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxTipo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Débito", "Crédito" }));
+        jComboBoxTipo.setToolTipText("Selecione");
+        jComboBoxTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxSexo2ActionPerformed(evt);
+                jComboBoxTipoActionPerformed(evt);
             }
         });
 
@@ -162,7 +180,7 @@ public class HistoricoHomeJFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelBackLayout.createSequentialGroup()
                         .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelProcurar1)
-                            .addComponent(jComboBoxSexo2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelBackLayout.createSequentialGroup()
@@ -179,7 +197,7 @@ public class HistoricoHomeJFrame extends javax.swing.JFrame {
                 .addComponent(jPanelBlue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(54, 54, 54)
                 .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBoxSexo2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxTipo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBackLayout.createSequentialGroup()
                         .addGroup(jPanelBackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelProcurar)
@@ -218,28 +236,58 @@ public class HistoricoHomeJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        // TODO add your handling code here:
+        HistoricoCadastroJFrame tela = new HistoricoCadastroJFrame();
+        Conta c = Fachada.getInstance().getByIdConta(Integer.parseInt(jTableHistorico.getValueAt(
+                jTableHistorico.getSelectedRow(), 0)+""));
+        tela.setConta(c);
+        tela.show();
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jTextFieldProsucarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldProsucarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldProsucarActionPerformed
 
-    private void jComboBoxSexo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSexo2ActionPerformed
+    private void jComboBoxTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxSexo2ActionPerformed
+    }//GEN-LAST:event_jComboBoxTipoActionPerformed
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         this.dispose();
         new HistoricoCadastroJFrame().show();
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
+    private void jTableHistoricoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableHistoricoMouseClicked
+        if(evt.getClickCount()==2){
+            HistoricoCadastroJFrame tela = new HistoricoCadastroJFrame();
+            tela.setConta(Fachada.getInstance().getByIdConta(Integer.parseInt(jTableHistorico.getValueAt(
+                    jTableHistorico.getSelectedRow(), 0)+"")));
+            tela.show();
+        }
+    }//GEN-LAST:event_jTableHistoricoMouseClicked
+
+    private void jLabelIconPesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelIconPesquisarMouseClicked
+        ArrayList<Conta> contas = new ArrayList<>();
+        String busca = jTextFieldProsucar.getText();
+        if((jComboBoxTipo.getSelectedItem()+"").equals("Todos")){
+            for(Conta c : Fachada.getInstance().getAllContas()){
+                if(c.getDescricao().trim().contains(busca))
+                    contas.add(c);
+            }
+        }else{
+            for(Conta c : Fachada.getInstance().getAllContas()){
+                if(c.getDescricao().trim().contains(busca) && c.getTipo().equals(jComboBoxTipo.getSelectedItem()+""))
+                    contas.add(c);
+            }            
+        }
+        preencherTabela(contas);
+    }//GEN-LAST:event_jLabelIconPesquisarMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCadastrar;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonExcluir;
-    private javax.swing.JComboBox<String> jComboBoxSexo2;
+    private javax.swing.JComboBox<String> jComboBoxTipo;
     private javax.swing.JLabel jLabeAlunos;
     private javax.swing.JLabel jLabelIconPesquisar;
     private javax.swing.JLabel jLabelProcurar;
@@ -247,7 +295,27 @@ public class HistoricoHomeJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelBack;
     private javax.swing.JPanel jPanelBlue;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableAlunos;
+    private javax.swing.JTable jTableHistorico;
     private javax.swing.JTextField jTextFieldProsucar;
     // End of variables declaration//GEN-END:variables
+
+    public void preencherTabela(ArrayList<Conta> contas){
+        String[] colunas = new String[]{"ID","Descrição","TIPO"};
+        ArrayList<Object[]> dados = new ArrayList<>();
+        
+        for(Conta a : contas){
+            dados.add(new Object[]{a.getId(),a.getDescricao(),a.getTipo()});
+        }
+        
+        ModeloTabela modeloTabela =  new ModeloTabela(dados, colunas);   
+        jTableHistorico.setModel(modeloTabela);      
+        jTableHistorico.getColumnModel().getColumn(0).setPreferredWidth(40);
+        jTableHistorico.getColumnModel().getColumn(0).setResizable(false);
+        jTableHistorico.getColumnModel().getColumn(1).setPreferredWidth(300);
+        jTableHistorico.getColumnModel().getColumn(1).setResizable(false);
+        jTableHistorico.getColumnModel().getColumn(2).setPreferredWidth(141);
+        jTableHistorico.getColumnModel().getColumn(2).setResizable(false);
+        jTableHistorico.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+    }
+
 }

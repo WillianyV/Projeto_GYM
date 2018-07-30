@@ -39,6 +39,7 @@ public class AlunoBusiness {
 
     public void excluir(Aluno aluno) {
         dao.excluir(aluno);
+        Fachada.getInstance().excluirEndereco(aluno.getEndereco());
     }
 
     public Aluno getById(int id) {
