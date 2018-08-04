@@ -902,6 +902,7 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
             a=Projeto_GYM.fachada.editarAluno(getAluno());
             Mensagem.exibirMensagem("Aluno cadastrado com sucesso!");
         }
+        preencherTabela(Fachada.getInstance().getAllByIdParcelas(a.getId()));
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jPanelAvalicaoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAvalicaoMouseEntered

@@ -132,6 +132,11 @@ public class ExerciciosHomeJFrame extends javax.swing.JFrame {
                 jTextFieldProcurarActionPerformed(evt);
             }
         });
+        jTextFieldProcurar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldProcurarKeyReleased(evt);
+            }
+        });
 
         jLabelIconPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8_Search_20px_2.png"))); // NOI18N
         jLabelIconPesquisar.setToolTipText("Pesquisar");
@@ -282,6 +287,24 @@ public class ExerciciosHomeJFrame extends javax.swing.JFrame {
             tela.show();
         }
     }//GEN-LAST:event_jTableExercicioMouseClicked
+
+    private void jTextFieldProcurarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldProcurarKeyReleased
+       String busca = jTextFieldProcurar.getText();
+        ArrayList<Exercicio> exercicios = new ArrayList<>();
+        if("Todos".equals(jComboBoxExercicio.getSelectedItem()+"")){
+           for(Exercicio e : Fachada.getInstance().getExercicioAll()){
+               if(e.getNome().contains(busca))
+                   exercicios.add(e);
+           } 
+        }else{
+            for(Exercicio e : Fachada.getInstance().getExercicioAll()){
+               if(e.getNome().contains(busca) && e.getTipo().equals(jComboBoxExercicio.getSelectedItem()+""))
+                   exercicios.add(e);
+           }
+        }
+        
+        carregarTabela(exercicios);
+    }//GEN-LAST:event_jTextFieldProcurarKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
