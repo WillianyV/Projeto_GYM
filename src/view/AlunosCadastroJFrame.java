@@ -394,7 +394,7 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
                                         .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabelNumero)
                                             .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                                        .addGap(30, 30, 30)
                                         .addGroup(jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabelUF)
                                             .addComponent(jComboBoxUF, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -461,7 +461,7 @@ public class AlunosCadastroJFrame extends javax.swing.JFrame {
                                         .addComponent(jLabelId3)
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(jComboBoxPlano, 0, 1, Short.MAX_VALUE))))
-                        .addGap(62, 62, 62))))
+                        .addContainerGap(62, Short.MAX_VALUE))))
         );
         jPanelCadastroLayout.setVerticalGroup(
             jPanelCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

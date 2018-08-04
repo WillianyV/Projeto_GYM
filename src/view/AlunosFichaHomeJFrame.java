@@ -197,7 +197,7 @@ public class AlunosFichaHomeJFrame extends javax.swing.JFrame {
 
     private void jButtonCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarActionPerformed
         this.dispose();
-        new AlunosFichaExercicioJFrame().show();
+        //new AlunosFichaExercicioJFrame().show();
     }//GEN-LAST:event_jButtonCadastrarActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed

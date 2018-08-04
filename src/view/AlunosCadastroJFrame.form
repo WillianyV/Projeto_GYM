@@ -180,7 +180,7 @@
                                                       <Component id="jLabelNumero" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jTextFieldNumero" min="-2" pref="64" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <EmptySpace pref="30" max="32767" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="jLabelUF" min="-2" max="-2" attributes="0"/>
                                                       <Component id="jComboBoxUF" min="-2" pref="58" max="-2" attributes="0"/>
@@ -275,7 +275,7 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                                  <EmptySpace pref="62" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>

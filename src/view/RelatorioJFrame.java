@@ -431,8 +431,7 @@ public class RelatorioJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanelAlunosDebMouseExited
 
     private void jPanelAlunosDebMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAlunosDebMousePressed
-        //new RelatorioAlunoDebitoJFrame().show();
-        //FAZER PDF
+        new RelatorioAlunoDebitoJFrame().show();
     }//GEN-LAST:event_jPanelAlunosDebMousePressed
 
     private void jPanelFuncionariosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelFuncionariosMouseEntered
@@ -445,7 +444,7 @@ public class RelatorioJFrame extends javax.swing.JFrame {
 
     private void jPanelFuncionariosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelFuncionariosMousePressed
         //new RelatorioFuncionarioListaJFrame().show();
-        //FAZER PDF
+        new RelatoriListaFunJFrame().show();
     }//GEN-LAST:event_jPanelFuncionariosMousePressed
 
     private void jPanelFinanceiroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelFinanceiroMouseEntered
@@ -457,7 +456,7 @@ public class RelatorioJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanelFinanceiroMouseExited
 
     private void jPanelFinanceiroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelFinanceiroMousePressed
-        new RelatorioFincanceiroJFrame().show();
+        new RelatorioFluxoCaixaJFrame().show();
     }//GEN-LAST:event_jPanelFinanceiroMousePressed
 
     private void jPanelAlunosListagemMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAlunosListagemMouseEntered
@@ -469,7 +468,7 @@ public class RelatorioJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanelAlunosListagemMouseExited
 
     private void jPanelAlunosListagemMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAlunosListagemMousePressed
-        //FAZER PDF
+        new RelatorioListaAluJFrame().show();
     }//GEN-LAST:event_jPanelAlunosListagemMousePressed
 
     private void jPanelAlunosCreditoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAlunosCreditoMouseEntered
@@ -481,7 +480,7 @@ public class RelatorioJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanelAlunosCreditoMouseExited
 
     private void jPanelAlunosCreditoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAlunosCreditoMousePressed
-        //FAZER PDF:
+        new RelatorioAlunoCreditoJFrame().show();
     }//GEN-LAST:event_jPanelAlunosCreditoMousePressed
 
     private void jPanelAlunosPlanoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAlunosPlanoMouseEntered
@@ -493,10 +492,8 @@ public class RelatorioJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanelAlunosPlanoMouseExited
 
     private void jPanelAlunosPlanoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelAlunosPlanoMousePressed
-        //FAZER PDF
+        new RelatorioAlunoPlanoVencerJFrame().show();
     }//GEN-LAST:event_jPanelAlunosPlanoMousePressed
-
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabeFuncionario;

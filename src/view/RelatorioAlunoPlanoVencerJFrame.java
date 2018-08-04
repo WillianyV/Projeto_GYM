@@ -9,12 +9,12 @@ package view;
  *
  * @author Insinuante
  */
-public class RelatorioAlunoDebitoJFrame extends javax.swing.JFrame {
+public class RelatorioAlunoPlanoVencerJFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrameLogin
      */
-    public RelatorioAlunoDebitoJFrame() {
+    public RelatorioAlunoPlanoVencerJFrame() {
         initComponents();
     }
 
@@ -29,23 +29,23 @@ public class RelatorioAlunoDebitoJFrame extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanelBlue = new javax.swing.JPanel();
-        cabjLabel = new javax.swing.JLabel();
+        cabjLabe = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         alunoCredjTable = new javax.swing.JTable();
         gerarPDFjButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Alunos em débito");
+        setTitle("Alunos com plano a vencer");
         setExtendedState(6);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanelBlue.setBackground(new java.awt.Color(45, 118, 232));
 
-        cabjLabel.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 36)); // NOI18N
-        cabjLabel.setForeground(new java.awt.Color(255, 255, 255));
-        cabjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/list_white.png"))); // NOI18N
-        cabjLabel.setText(" Alunos em Débito");
+        cabjLabe.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 36)); // NOI18N
+        cabjLabe.setForeground(new java.awt.Color(255, 255, 255));
+        cabjLabe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/list_white.png"))); // NOI18N
+        cabjLabe.setText(" Alunos com plano a vencer");
 
         javax.swing.GroupLayout jPanelBlueLayout = new javax.swing.GroupLayout(jPanelBlue);
         jPanelBlue.setLayout(jPanelBlueLayout);
@@ -53,26 +53,26 @@ public class RelatorioAlunoDebitoJFrame extends javax.swing.JFrame {
             jPanelBlueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBlueLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
-                .addComponent(cabjLabel)
-                .addContainerGap(836, Short.MAX_VALUE))
+                .addComponent(cabjLabe)
+                .addContainerGap(675, Short.MAX_VALUE))
         );
         jPanelBlueLayout.setVerticalGroup(
             jPanelBlueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBlueLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addComponent(cabjLabel)
+                .addComponent(cabjLabe)
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
         alunoCredjTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Id", "Nome", "Valor", "Celular"
+                "Id", "Nome"
             }
         ));
         jScrollPane1.setViewportView(alunoCredjTable);
@@ -133,7 +133,7 @@ public class RelatorioAlunoDebitoJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable alunoCredjTable;
-    private javax.swing.JLabel cabjLabel;
+    private javax.swing.JLabel cabjLabe;
     private javax.swing.JButton gerarPDFjButton;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanelBlue;

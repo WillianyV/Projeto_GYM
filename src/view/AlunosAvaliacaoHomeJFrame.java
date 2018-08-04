@@ -224,7 +224,6 @@ public class AlunosAvaliacaoHomeJFrame extends javax.swing.JFrame {
         this.dispose();
         Instrutor i = Projeto_GYM.fachada.getByFuncionario_IdInstrutor(
                     Projeto_GYM.fachada.getFuncionarioLogado().getId());
-        Mensagem.exibirMensagem(i.getId()+"");
         if(i.getId()!=0)
             new AlunosAvaliacaoJFrame(a,i, objetivo).show();
         else
